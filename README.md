@@ -1,6 +1,6 @@
 # ArxivDownloader
 
-ArxivDownloader is a powerful and flexible Python tool designed to search, retrieve, and download research papers from [arXiv](https://arxiv.org/). Whether you're a researcher, student, or enthusiast, ArxivDownloader simplifies the process of accessing the latest scientific papers in various fields.
+ArxivSearcher is a powerful and flexible Python tool designed to search, retrieve, and download research papers from [arXiv](https://arxiv.org/). Whether you're a researcher, student, or enthusiast, ArxivSearcher simplifies the process of accessing the latest scientific papers in various fields.
 
 ## Table of Contents
 
@@ -70,7 +70,7 @@ ArxivDownloader is a powerful and flexible Python tool designed to search, retri
 
 ## Usage
 
-ArxivDownloader can be used both as a command-line tool and as a Python library within scripts or Jupyter notebooks.
+ArxivSearcher can be used both as a command-line tool and as a Python library within scripts or Jupyter notebooks.
 
 ### Command-Line Interface (CLI)
 
@@ -78,7 +78,7 @@ Run the script directly from your terminal to perform searches and download pape
 
 ### Jupyter Notebook / Python API
 
-Import the `run_arxiv_search` function into your Python script or Jupyter notebook to integrate ArxivDownloader's functionality seamlessly.
+Import the `run_arxiv_search` function into your Python script or Jupyter notebook to integrate ArxivSearcher's functionality seamlessly.
 
 ## Functionality
 
@@ -185,7 +185,7 @@ print(results_df[['title', 'authors', 'published']])
 
 ## Configuration
 
-ArxivDownloader offers various parameters to customize your searches and downloads. Below is a comprehensive list of arguments and their descriptions.
+ArxivSearcher offers various parameters to customize your searches and downloads. Below is a comprehensive list of arguments and their descriptions.
 
 ### Command-Line Arguments
 
@@ -305,7 +305,7 @@ Found 10 papers for query: 'quantum computing'
 
 ### Rate Limiting
 
-ArxivDownloader implements a rate limiting mechanism to respect arXiv's API usage policies. By default, it ensures at least 3 seconds between API requests. You can adjust this by modifying the `RATE_LIMIT_DELAY` in the `ArxivConfig` class if necessary.
+ArxivSearcher implements a rate limiting mechanism to respect arXiv's API usage policies. By default, it ensures at least 3 seconds between API requests. You can adjust this by modifying the `RATE_LIMIT_DELAY` in the `ArxivConfig` class if necessary.
 
 ### Caching
 
@@ -313,7 +313,7 @@ Search results are cached to improve performance and reduce redundant API calls.
 
 ## Dependencies
 
-ArxivDownloader relies on the following Python packages:
+ArxivSearcher relies on the following Python packages:
 
 - [requests](https://pypi.org/project/requests/): For making HTTP requests.
 - [pandas](https://pandas.pydata.org/): For handling and manipulating search results.
@@ -330,7 +330,7 @@ pip install requests pandas feedparser tenacity tqdm
 
 ## Contributing
 
-Contributions are welcome! Whether it's reporting a bug, suggesting an enhancement, or submitting a pull request, your input helps improve ArxivDownloader.
+Contributions are welcome! Whether it's reporting a bug, suggesting an enhancement, or submitting a pull request, your input helps improve ArxivSearcher.
 
 1. **Fork the Repository**
 2. **Create a Feature Branch**
