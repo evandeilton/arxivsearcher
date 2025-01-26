@@ -45,7 +45,7 @@ ArxivSearcher is a powerful and flexible Python tool designed to as an Agent to 
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/your-username/arxivsearcher.git
+   git clone https://github.com/evandeilton/arxivsearcher.git
    cd arxivsearcher
    ```
 
