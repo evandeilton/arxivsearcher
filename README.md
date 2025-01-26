@@ -261,7 +261,7 @@ python arxivsearcher.py \
 
 ### Jupyter Notebook Example
 
-**Search for "quantum computing" papers, download the first 3, and save results to JSON:**
+**Search for "chat gpt" papers, download the first 3, and save results to JSON:**
 
 ```python
 # Import the run_arxiv_search function
@@ -269,13 +269,13 @@ from arxivsearcher import run_arxiv_search
 import json
 
 # Define search parameters
-query = "quantum computing"
+query = "chat gpt"
 max_results = 10
 download = True
 download_count = 3
 concurrency = 2
 save_json = True
-json_file = "quantum_computing_papers.json"
+json_file = "chat_gpt.json"
 
 # Run the search and download process
 results_df = run_arxiv_search(
@@ -327,33 +327,6 @@ ArxivSearcher relies on the following Python packages:
 ```bash
 pip install requests pandas feedparser tenacity tqdm
 ```
-
-## Contributing
-
-Contributions are welcome! Whether it's reporting a bug, suggesting an enhancement, or submitting a pull request, your input helps improve ArxivSearcher.
-
-1. **Fork the Repository**
-2. **Create a Feature Branch**
-
-   ```bash
-   git checkout -b feature/YourFeature
-   ```
-
-3. **Commit Your Changes**
-
-   ```bash
-   git commit -m "Add your feature"
-   ```
-
-4. **Push to the Branch**
-
-   ```bash
-   git push origin feature/YourFeature
-   ```
-
-5. **Open a Pull Request**
-
-Please ensure that your code follows the existing style and includes appropriate documentation.
 
 ## License
 
