@@ -293,14 +293,6 @@ print(f"Found {len(results_df)} papers for query: '{query}'")
 print(results_df[['title', 'authors', 'published']])
 ```
 
-**Output:**
-
-```
-Found 10 papers for query: 'quantum computing'
-```
-
-*(Followed by a table of titles, authors, and publication dates.)*
-
 ## Configuration
 
 ### Rate Limiting
