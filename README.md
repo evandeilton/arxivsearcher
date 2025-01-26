@@ -1,6 +1,6 @@
 # ArxivDownloader
 
-ArxivSearcher is a powerful and flexible Python tool designed to search, retrieve, and download research papers from [arXiv](https://arxiv.org/). Whether you're a researcher, student, or enthusiast, ArxivSearcher simplifies the process of accessing the latest scientific papers in various fields.
+ArxivSearcher is a powerful and flexible Python tool designed to as an Agent to search, retrieve, and download research papers from [arXiv](https://arxiv.org/). Whether you're a researcher, student, or enthusiast, ArxivSearcher simplifies the process of accessing the latest scientific papers in various fields.
 
 ## Table of Contents
 
@@ -45,8 +45,8 @@ ArxivSearcher is a powerful and flexible Python tool designed to search, retriev
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/your-username/arxiv-downloader.git
-   cd arxiv-downloader
+   git clone https://github.com/your-username/arxivsearcher.git
+   cd arxivsearcher
    ```
 
 2. **Create a Virtual Environment (Optional but Recommended)**
