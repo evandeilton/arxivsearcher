@@ -105,7 +105,7 @@ Export your search results to CSV or JSON formats for further analysis or record
 Use the command-line interface to search for "deep learning" papers, download the top 5, and save the results to a CSV file.
 
 ```bash
-python arxiv_downloader.py \
+python arxivsearcher.py \
     --query "deep learning" \
     --max_results 5 \
     --sort_by "submittedDate" \
@@ -142,7 +142,7 @@ Use the Python API within a Jupyter notebook to search for "quantum computing" p
 
 ```python
 # Import the run_arxiv_search function
-from arxiv_downloader import run_arxiv_search
+from arxivsearcher import run_arxiv_search
 import json
 
 # Define search parameters
@@ -235,7 +235,7 @@ ArxivSearcher offers various parameters to customize your searches and downloads
 **Search for "deep learning" papers, download the top 5 PDFs, and save results to CSV:**
 
 ```bash
-python arxiv_downloader.py \
+python arxivsearcher.py \
     --query "deep learning" \
     --max_results 5 \
     --sort_by "submittedDate" \
@@ -265,7 +265,7 @@ python arxiv_downloader.py \
 
 ```python
 # Import the run_arxiv_search function
-from arxiv_downloader import run_arxiv_search
+from arxivsearcher import run_arxiv_search
 import json
 
 # Define search parameters
