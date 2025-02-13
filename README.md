@@ -1,6 +1,6 @@
-# ArxivDownloader
+# Integrated Literature Review System
 
-ArxivSearcher is a powerful and flexible Python tool designed to as an Agent to search, retrieve, and download research papers from [arXiv](https://arxiv.org/). Whether you're a researcher, student, or enthusiast, ArxivSearcher simplifies the process of accessing the latest scientific papers in various fields.
+This project provides an integrated system for searching academic papers on arXiv, generating literature reviews using AI, and interacting with the system through a user-friendly interface. It combines the functionality of `arxivsearcher.py`, `integrated_reviewer.py`, and `reviewer_ui.py` to streamline the research process.
 
 ## Table of Contents
 
@@ -8,15 +8,10 @@ ArxivSearcher is a powerful and flexible Python tool designed to as an Agent to 
 - [Installation](#installation)
 - [Usage](#usage)
   - [Command-Line Interface (CLI)](#command-line-interface-cli)
+    - [arxivsearcher.py](#arxivsearcherpy)
+    - [integrated_reviewer.py](#integrated_reviewerpy)
+  - [Streamlit UI (reviewer_ui.py)](#streamlit-ui-reviewer_uipy)
   - [Jupyter Notebook / Python API](#jupyter-notebook--python-api)
-- [Functionality](#functionality)
-  - [Search Articles](#search-articles)
-  - [Download Papers](#download-papers)
-  - [Retrieve Paper Details](#retrieve-paper-details)
-  - [Save Results](#save-results)
-- [Examples](#examples)
-  - [CLI Example](#cli-example)
-  - [Jupyter Notebook Example](#jupyter-notebook-example)
 - [Configuration](#configuration)
 - [Dependencies](#dependencies)
 - [Contributing](#contributing)
@@ -24,306 +19,150 @@ ArxivSearcher is a powerful and flexible Python tool designed to as an Agent to 
 
 ## Features
 
-- **Flexible Search**: Perform advanced searches with keywords, date ranges, sorting options, and pagination.
-- **Caching**: Efficiently cache search results to minimize redundant API calls.
-- **PDF Downloads**: Download single or multiple PDF papers, with options for concurrency and skipping existing files.
-- **Detailed Information**: Retrieve comprehensive details about specific papers using their arXiv IDs.
-- **Command-Line Interface**: Run searches and downloads directly from the terminal with customizable arguments.
-- **Notebook-Friendly**: Seamlessly integrate into Jupyter notebooks or Python scripts for interactive usage.
-- **Result Export**: Save search results to CSV or JSON formats for easy analysis and record-keeping.
-- **Robust Error Handling**: Implements rate limiting and retry logic to handle API limitations and network issues gracefully.
+-   **ArXiv Search:** Search for papers on arXiv using keywords, date ranges, and sorting options.
+-   **AI-Powered Review Generation:** Generate literature reviews using various AI providers (Anthropic, OpenAI, Gemini, Deepseek).
+-   **Streamlit User Interface:** Interact with the system through a web-based UI.
+-   **PDF Downloads:** Download PDFs of selected papers.
+-   **Result Export:** Save search results and generated reviews.
+-   **Caching:** Cache search results to improve performance.
+-   **Rate Limiting:** Respect arXiv's API usage policies.
 
 ## Installation
 
 ### Prerequisites
 
-- Python 3.7 or higher
-- [pip](https://pip.pypa.io/en/stable/)
+-   Python 3.7 or higher
+-   [pip](https://pip.pypa.io/en/stable/)
 
 ### Steps
 
-1. **Clone the Repository**
+1.  **Clone the Repository**
 
-   ```bash
-   git clone https://github.com/evandeilton/arxivsearcher.git
-   cd arxivsearcher
-   ```
+    ```bash
+    git clone https://github.com/evandeilton/arxivsearcher.git
+    cd arxivsearcher
+    ```
 
-2. **Create a Virtual Environment (Optional but Recommended)**
+2.  **Create a Virtual Environment (Optional but Recommended)**
 
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate  # On Windows: venv\Scripts\activate
+    ```
 
-3. **Install Dependencies**
+3.  **Install Dependencies**
 
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-   *If you don't have a `requirements.txt`, here are the necessary packages:*
-
-   ```bash
-   pip install requests pandas feedparser tenacity tqdm
-   ```
+    ```bash
+    pip install -r requirements.txt
+    ```
+    **Additional Dependencies:**
+    ```bash
+    pip install anthropic google-genai
+    ```
 
 ## Usage
 
-ArxivSearcher can be used both as a command-line tool and as a Python library within scripts or Jupyter notebooks.
-
 ### Command-Line Interface (CLI)
 
-Run the script directly from your terminal to perform searches and download papers.
+#### arxivsearcher.py
+
+Run `arxivsearcher.py` directly from your terminal to perform searches and download papers.
+
+**Example:**
+
+```bash
+python arxivsearcher.py --query "deep learning" --max_results 5 --download --download_count 2 --save_csv
+```
+
+Use `python arxivsearcher.py --help` to see all available options.
+
+#### integrated_reviewer.py
+
+Run `integrated_reviewer.py` to search arXiv and generate a literature review.
+
+**Example:**
+
+```bash
+python integrated_reviewer.py --query "large language models" --theme "recent advances" --max_results 10 --provider anthropic --output_lang pt-BR --download_pdfs
+```
+Use `python integrated_reviewer.py --help` to see all available options. You will need to set API keys as environment variables for the providers you want to use (e.g., `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, `GEMINI_API_KEY`, `DEEPSEEK_API_KEY`).
+
+### Streamlit UI (reviewer_ui.py)
+
+Run `reviewer_ui.py` to start the Streamlit application:
+
+```bash
+streamlit run reviewer_ui.py
+```
+
+This will open a web interface in your browser where you can interact with the system. You will need to set API keys as environment variables for the providers you want to use (e.g., `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, `GEMINI_API_KEY`, `DEEPSEEK_API_KEY`).
 
 ### Jupyter Notebook / Python API
 
-Import the `run_arxiv_search` function into your Python script or Jupyter notebook to integrate ArxivSearcher's functionality seamlessly.
+You can also import and use the functions from `arxivsearcher.py` and `integrated_reviewer.py` directly in your Python scripts or Jupyter notebooks.
 
-## Functionality
-
-### Search Articles
-
-Search for articles on arXiv using keywords, with options to filter by date range, sort results, and paginate.
-
-### Download Papers
-
-Download PDFs of the papers found in your search. You can choose to download sequentially or concurrently, and skip existing files to save bandwidth.
-
-### Retrieve Paper Details
-
-Get detailed information about a specific paper using its arXiv ID, including title, authors, abstract, categories, and more.
-
-### Save Results
-
-Export your search results to CSV or JSON formats for further analysis or record-keeping.
-
-## Examples
-
-### CLI Example
-
-Use the command-line interface to search for "deep learning" papers, download the top 5, and save the results to a CSV file.
-
-```bash
-python arxivsearcher.py \
-    --query "deep learning" \
-    --max_results 5 \
-    --sort_by "submittedDate" \
-    --sort_order "descending" \
-    --download \
-    --download_count 5 \
-    --concurrency 2 \
-    --skip_existing \
-    --output_dir "downloaded_papers" \
-    --save_csv \
-    --csv_file "deep_learning_papers.csv" \
-    --start_date "2023-01-01" \
-    --end_date "2023-12-31"
-```
-
-**Explanation of Arguments:**
-
-- `--query`: The search terms (e.g., "deep learning").
-- `--max_results`: Maximum number of search results to fetch.
-- `--sort_by`: Field to sort by (`relevance`, `lastUpdatedDate`, `submittedDate`).
-- `--sort_order`: Sort direction (`ascending`, `descending`).
-- `--download`: Flag to download PDFs of the top results.
-- `--download_count`: Number of PDFs to download.
-- `--concurrency`: Number of concurrent downloads (e.g., 2 for parallel downloads).
-- `--skip_existing`: Skip downloading files that already exist.
-- `--output_dir`: Directory to save downloaded PDFs.
-- `--save_csv`: Flag to save search results to a CSV file.
-- `--csv_file`: Filename for the CSV output.
-- `--start_date` & `--end_date`: Optional date range filter for submission dates.
-
-### Jupyter Notebook Example
-
-Use the Python API within a Jupyter notebook to search for "quantum computing" papers, download the first 3, and save the results to a JSON file.
+**Example (arxivsearcher.py):**
 
 ```python
-# Import the run_arxiv_search function
 from arxivsearcher import run_arxiv_search
-import json
 
-# Define search parameters
-query = "quantum computing"
-max_results = 10
-download = True
-download_count = 3
-concurrency = 2
-save_json = True
-json_file = "quantum_computing_papers.json"
-
-# Run the search and download process
-results_df = run_arxiv_search(
-    query=query,
-    max_results=max_results,
-    download=download,
-    download_count=download_count,
-    concurrency=concurrency,
-    save_json=save_json,
-    json_file=json_file
-)
-
-# Display the results
-print(f"Found {len(results_df)} papers for query: '{query}'")
-print(results_df[['title', 'authors', 'published']])
+results_df = run_arxiv_search(query="quantum computing", max_results=5)
+print(results_df)
 ```
 
-**Function Parameters:**
-
-- `query` (str): Search query for arXiv articles.
-- `max_results` (int): Maximum number of search results to fetch.
-- `download` (bool): Whether to download PDFs of the top results.
-- `download_count` (int): Number of PDFs to download if `download` is `True`.
-- `concurrency` (int): Number of threads for parallel downloads (1 = sequential).
-- `save_csv` (bool): Whether to save search results to a CSV file.
-- `save_json` (bool): Whether to save search results to a JSON file.
-- `csv_file` (str): CSV file path to save results if `save_csv` is `True`.
-- `json_file` (str): JSON file path to save results if `save_json` is `True`.
-- `start_date` & `end_date` (str, optional): Date range in `YYYY-MM-DD` format for submission dates.
-
-## Configuration
-
-ArxivSearcher offers various parameters to customize your searches and downloads. Below is a comprehensive list of arguments and their descriptions.
-
-### Command-Line Arguments
-
-| Argument          | Type    | Default             | Description                                                                 |
-|-------------------|---------|---------------------|-----------------------------------------------------------------------------|
-| `--query`         | String  | "Large Language Models" | Search query string for arXiv articles.                                     |
-| `--max_results`   | Integer | 10                  | Maximum number of search results to fetch.                                  |
-| `--sort_by`       | String  | "relevance"         | Sort field for results (`relevance`, `lastUpdatedDate`, `submittedDate`).  |
-| `--sort_order`    | String  | "descending"        | Sort order for results (`ascending`, `descending`).                        |
-| `--start`         | Integer | 0                   | Starting index for pagination.                                             |
-| `--download`      | Flag    | False               | Whether to download the PDFs of the top results.                            |
-| `--download_count`| Integer | 2                   | Number of PDFs to download if `--download` is set.                          |
-| `--concurrency`   | Integer | 1                   | Number of concurrent downloads (1 = sequential).                           |
-| `--output_dir`    | String  | "papers"            | Directory to save downloaded PDFs.                                         |
-| `--skip_existing` | Flag    | False               | If set, skip downloading files that already exist locally.                |
-| `--save_csv`      | Flag    | False               | If set, save search results to a CSV file.                                 |
-| `--save_json`     | Flag    | False               | If set, save search results to a JSON file.                                |
-| `--csv_file`      | String  | "arxiv_results.csv" | CSV file path to save results if `--save_csv` is set.                      |
-| `--json_file`     | String  | "arxiv_results.json"| JSON file path to save results if `--save_json` is set.                     |
-| `--start_date`    | String  | None                | Optional start date in `YYYY-MM-DD` format for submission dates.           |
-| `--end_date`      | String  | None                | Optional end date in `YYYY-MM-DD` format for submission dates.             |
-
-### Python Function Parameters (`run_arxiv_search`)
-
-| Parameter        | Type                                     | Default             | Description                                                                 |
-|------------------|------------------------------------------|---------------------|-----------------------------------------------------------------------------|
-| `query`          | `str`                                    | **Required**        | Search query string for arXiv articles.                                     |
-| `max_results`    | `int`                                    | `10`                | Maximum number of search results to fetch.                                  |
-| `sort_by`        | `str`                                    | `"relevance"`       | Sort field for results (`relevance`, `lastUpdatedDate`, `submittedDate`).  |
-| `sort_order`     | `str`                                    | `"descending"`      | Sort order for results (`ascending`, `descending`).                        |
-| `start`          | `int`                                    | `0`                 | Starting index for pagination.                                             |
-| `date_range`     | `Optional[Tuple[datetime, datetime]]`    | `None`              | Tuple of (`start_date`, `end_date`) for filtering by submission date.      |
-| `download`       | `bool`                                   | `False`             | Whether to download the PDFs of the top results.                            |
-| `download_count` | `int`                                    | `2`                 | Number of PDFs to download if `download` is `True`.                         |
-| `concurrency`    | `int`                                    | `1`                 | Number of concurrent downloads (1 = sequential).                           |
-| `skip_existing`  | `bool`                                   | `True`              | If `True`, skip downloading files that already exist locally.              |
-| `output_dir`     | `str`                                    | `"papers"`          | Directory to save downloaded PDFs.                                         |
-| `save_csv`       | `bool`                                   | `False`             | If `True`, save search results to a CSV file.                              |
-| `save_json`      | `bool`                                   | `False`             | If `True`, save search results to a JSON file.                             |
-| `csv_file`       | `str`                                    | `"arxiv_results.csv"` | CSV file path to save results if `save_csv` is `True`.                      |
-| `json_file`      | `str`                                    | `"arxiv_results.json"`| JSON file path to save results if `save_json` is `True`.                     |
-
-## Examples
-
-### CLI Example
-
-**Search for "deep learning" papers, download the top 5 PDFs, and save results to CSV:**
-
-```bash
-python arxivsearcher.py \
-    --query "deep learning" \
-    --max_results 5 \
-    --sort_by "submittedDate" \
-    --sort_order "descending" \
-    --download \
-    --download_count 5 \
-    --concurrency 2 \
-    --skip_existing \
-    --output_dir "downloaded_papers" \
-    --save_csv \
-    --csv_file "deep_learning_papers.csv" \
-    --start_date "2023-01-01" \
-    --end_date "2023-12-31"
-```
-
-**Explanation:**
-
-- Searches for "deep learning" papers submitted between January 1, 2023, and December 31, 2023.
-- Fetches the top 5 results sorted by submission date in descending order.
-- Downloads the first 5 PDFs concurrently using 2 threads.
-- Skips downloading PDFs that already exist in the `downloaded_papers` directory.
-- Saves the search results to `deep_learning_papers.csv`.
-
-### Jupyter Notebook Example
-
-**Search for "chat gpt" papers, download the first 3, and save results to JSON:**
+**Example (integrated_reviewer.py):**
 
 ```python
-# Import the run_arxiv_search function
-from arxivsearcher import run_arxiv_search
-import json
+from integrated_reviewer import IntegratedReviewSystem
+from datetime import datetime
 
-# Define search parameters
-query = "chat gpt"
-max_results = 10
-download = True
-download_count = 3
-concurrency = 2
-save_json = True
-json_file = "chat_gpt.json"
-
-# Run the search and download process
-results_df = run_arxiv_search(
-    query=query,
-    max_results=max_results,
-    download=download,
-    download_count=download_count,
-    concurrency=concurrency,
-    save_json=save_json,
-    json_file=json_file
+system = IntegratedReviewSystem()
+results_df, review_text, saved_files = system.search_and_review(
+    query="large language models",
+    theme="ethical implications",
+    max_results=10,
+    provider="anthropic",
+    output_lang="en-US",
+    date_range=(datetime(2023, 1, 1), datetime(2024, 1, 1))
 )
 
-# Display the results
-print(f"Found {len(results_df)} papers for query: '{query}'")
-print(results_df[['title', 'authors', 'published']])
+print(review_text)
 ```
 
 ## Configuration
 
-### Rate Limiting
-
-ArxivSearcher implements a rate limiting mechanism to respect arXiv's API usage policies. By default, it ensures at least 3 seconds between API requests. You can adjust this by modifying the `RATE_LIMIT_DELAY` in the `ArxivConfig` class if necessary.
-
-### Caching
-
-Search results are cached to improve performance and reduce redundant API calls. The cache time-to-live (TTL) is set to 1 hour by default (`CACHE_TTL = 3600` seconds). This can be adjusted in the `ArxivConfig` class.
+-   **Rate Limiting:** The `ArxivDownloader` class in `arxivsearcher.py` implements rate limiting to avoid overwhelming the arXiv API.
+-   **Caching:** Search results are cached to improve performance.
+-   **API Keys:** You need to set environment variables for the AI providers you want to use in `integrated_reviewer.py` and `reviewer_ui.py`.  For example:
+    -   `ANTHROPIC_API_KEY`
+    -   `OPENAI_API_KEY`
+    -   `GEMINI_API_KEY`
+    -   `DEEPSEEK_API_KEY`
 
 ## Dependencies
 
-ArxivSearcher relies on the following Python packages:
+-   requests
+-   pandas
+-   feedparser
+-   tenacity
+-   tqdm
+-   streamlit
+-   matplotlib
+-   networkx
+-   wordcloud
+-   anthropic
+-   google-genai
 
-- [requests](https://pypi.org/project/requests/): For making HTTP requests.
-- [pandas](https://pandas.pydata.org/): For handling and manipulating search results.
-- [feedparser](https://pypi.org/project/feedparser/): For parsing arXiv's Atom feeds.
-- [tenacity](https://pypi.org/project/tenacity/): For implementing retry logic.
-- [tqdm](https://pypi.org/project/tqdm/): For displaying progress bars.
-- [concurrent.futures](https://docs.python.org/3/library/concurrent.futures.html): For handling concurrency (part of Python's standard library).
+## Contributing
 
-*Install all dependencies using:*
+Contributions are welcome! If you find any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
 
-```bash
-pip install requests pandas feedparser tenacity tqdm
-```
+1.  Fork the repository.
+2.  Create a new branch: `git checkout -b feature/your-feature-name`
+3.  Make your changes and commit them: `git commit -m "Add your commit message"`
+4.  Push to the branch: `git push origin feature/your-feature-name`
+5.  Create a pull request.
 
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-
----
-
-*Happy Researching!*
