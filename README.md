@@ -1,64 +1,123 @@
 # Integrated Literature Review System
 
-This project provides an integrated system for searching academic papers on arXiv, generating literature reviews using AI, and interacting with the system through a user-friendly interface. It combines the functionality of `arxivsearcher.py`, `integrated_reviewer.py`, and `reviewer_ui.py` to streamline the research process.
+This project provides an integrated system for searching academic papers on arXiv, generating literature reviews using AI, and interacting with the system through a user-friendly interface. It streamlines the research process by combining the functionality of `arxivsearcher.py`, `integrated_reviewer.py`, `reviewer_ui.py`, and `styles.py`.
 
 ## Table of Contents
 
 - [Features](#features)
+- [Project Structure and Architecture](#project-structure-and-architecture)
+- [Configuration and API Providers](#configuration-and-api-providers)
+- [Execution Flow](#execution-flow)
 - [Installation](#installation)
 - [Usage](#usage)
   - [Command-Line Interface (CLI)](#command-line-interface-cli)
-    - [arxivsearcher.py](#arxivsearcherpy)
-    - [integrated_reviewer.py](#integrated_reviewerpy)
   - [Streamlit UI (reviewer_ui.py)](#streamlit-ui-reviewer_uipy)
-  - [Jupyter Notebook / Python API](#jupyter-notebook--python-api)
-- [Configuration](#configuration)
+  - [Jupyter Notebook / Python API](#jupyter-notebook-python-api)
 - [Dependencies](#dependencies)
 - [Contributing](#contributing)
 - [License](#license)
+- [`styles.py`](#stylespy)
+- [`reviews` Directory](#reviews-directory)
 
 ## Features
 
--   **ArXiv Search:** Search for papers on arXiv using keywords, date ranges, and sorting options.
--   **AI-Powered Review Generation:** Generate literature reviews using various AI providers (Anthropic, OpenAI, Gemini, Deepseek).
--   **Streamlit User Interface:** Interact with the system through a web-based UI.
--   **PDF Downloads:** Download PDFs of selected papers.
--   **Result Export:** Save search results and generated reviews.
--   **Caching:** Cache search results to improve performance.
--   **Rate Limiting:** Respect arXiv's API usage policies.
+- **ArXiv Search:** Search for papers on arXiv using keywords, date ranges, and sorting options.
+- **AI-Powered Review Generation:** Generate comprehensive literature reviews using various AI providers (Anthropic, OpenAI, Gemini, Deepseek).
+- **Streamlit User Interface:** Interactive web interface for easy access to system features.
+- **PDF Downloads:** Option to download PDFs of selected papers.
+- **Result Export:** Save search results and generated reviews.
+- **Caching and Rate Limiting:** Improve performance and adhere to API usage policies.
+
+## Project Structure and Architecture
+
+- **arxivsearcher.py:** Handles the search and download of articles from arXiv with rate limiting, caching, and API request handling.
+- **integrated_reviewer.py:** Coordinates the literature review process by integrating search results, analyzing articles, and synthesizing review content via multiple AI providers. Includes progress callbacks and logging for feedback.
+- **reviewer_ui.py:** Implements a Streamlit-based interface for a user-friendly experience.
+- **styles.py:** Provides custom CSS and UI functions to style the Streamlit interface.
+
+## Configuration and API Providers
+
+Before using the system, set up the following environment variables with your API keys:
+
+- `ANTHROPIC_API_KEY`: Obtain from [Anthropic's documentation](https://docs.anthropic.com/).
+- `OPENAI_API_KEY`: Obtain from [OpenAI's documentation](https://platform.openai.com/docs/overview).
+- `GEMINI_API_KEY`: Obtain from [Google AI Studio documentation](https://ai.google.dev/tutorials/setup).
+- `DEEPSEEK_API_KEY`: Obtain from [Deepseek's documentation](https://platform.deepseek.com/docs).
+
+Default models for each provider are configurable:
+- **Anthropic:** `claude-3-5-haiku-20241022`
+- **OpenAI:** `gpt-4o`
+- **Gemini:** `gemini-2.0-flash`
+- **Deepseek:** `deepseek-chat`
+
+## Execution Flow
+
+The system operates in four main phases:
+
+1. **Search Phase:**  
+   `arxivsearcher.py` performs a query on arXiv, downloading articles while applying retries, caching, and rate limiting.
+
+2. **Review Phase:**  
+   `integrated_reviewer.py` processes the search results, using progress callbacks to provide ongoing feedback and logging events for debugging.
+
+3. **Synthesis Phase:**  
+   The system synthesizes a full literature review using AI providers, ensuring academic rigor and a critical perspective.
+
+4. **Output Phase:**  
+   The generated review and references are saved in the output directory (typically within the `reviews` folder).
+
+A simplified diagram of the workflow:
+
+```
+[User Query]
+     │
+     ▼
+[Search Phase (arxivsearcher.py)]
+     │
+     ▼
+[Review Phase (integrated_reviewer.py)]
+     │
+     ▼
+[Synthesis Phase (AI Providers)]
+     │
+     ▼
+[Output (reviews)]
+```
 
 ## Installation
 
 ### Prerequisites
 
--   Python 3.7 or higher
--   [pip](https://pip.pypa.io/en/stable/)
+- Python 3.7 or higher
+- [pip](https://pip.pypa.io/en/stable/)
 
 ### Steps
 
-1.  **Clone the Repository**
+1. **Clone the Repository**
 
-    ```bash
-    git clone https://github.com/evandeilton/arxivsearcher.git
-    cd arxivsearcher
-    ```
+   ```bash
+   git clone https://github.com/evandeilton/arxivsearcher.git  # Verify this URL is correct.
+   cd arxivsearcher
+   ```
 
-2.  **Create a Virtual Environment (Optional but Recommended)**
+2. **Create a Virtual Environment (Optional but Recommended)**
 
-    ```bash
-    python3 -m venv venv
-    source venv/bin/activate  # On Windows: venv\Scripts\activate
-    ```
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
 
-3.  **Install Dependencies**
+3. **Install Dependencies**
 
-    ```bash
-    pip install -r requirements.txt
-    ```
-    **Additional Dependencies:**
-    ```bash
-    pip install anthropic google-genai
-    ```
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+   **Additional Dependencies:**
+
+   ```bash
+   pip install anthropic google-genai
+   ```
 
 ## Usage
 
@@ -66,94 +125,84 @@ This project provides an integrated system for searching academic papers on arXi
 
 #### arxivsearcher.py
 
-Run `arxivsearcher.py` directly from your terminal to perform searches and download papers.
-
-**Example:**
+Run directly from your terminal:
 
 ```bash
 python arxivsearcher.py --query "deep learning" --max_results 5 --download --download_count 2 --save_csv
 ```
 
-Use `python arxivsearcher.py --help` to see all available options.
+For detailed options, use:
+
+```bash
+python arxivsearcher.py --help
+```
 
 #### integrated_reviewer.py
 
-Run `integrated_reviewer.py` to search arXiv and generate a literature review.
-
-**Example:**
+Execute to search arXiv and generate a literature review:
 
 ```bash
 python integrated_reviewer.py --query "large language models" --theme "recent advances" --max_results 10 --provider anthropic --output_lang pt-BR --download_pdfs
 ```
-Use `python integrated_reviewer.py --help` to see all available options. You will need to set API keys as environment variables for the providers you want to use (e.g., `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, `GEMINI_API_KEY`, `DEEPSEEK_API_KEY`).
 
 ### Streamlit UI (reviewer_ui.py)
 
-Run `reviewer_ui.py` to start the Streamlit application:
+Start the web interface:
 
 ```bash
 streamlit run reviewer_ui.py
 ```
 
-This will open a web interface in your browser where you can interact with the system. You will need to set API keys as environment variables for the providers you want to use (e.g., `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, `GEMINI_API_KEY`, `DEEPSEEK_API_KEY`).
-
 ### Jupyter Notebook / Python API
 
-You can also import and use the functions from `arxivsearcher.py` and `integrated_reviewer.py` directly in your Python scripts or Jupyter notebooks.
-
-**Example (arxivsearcher.py):**
+Example usage in a Jupyter Notebook:
 
 ```python
 from arxivsearcher import run_arxiv_search
-
 results_df = run_arxiv_search(query="quantum computing", max_results=5)
 print(results_df)
-```
 
-**Example (integrated_reviewer.py):**
-
-```python
 from integrated_reviewer import IntegratedReviewSystem
-from datetime import datetime
-
 system = IntegratedReviewSystem()
 results_df, review_text, saved_files = system.search_and_review(
     query="large language models",
     theme="ethical implications",
     max_results=10,
     provider="anthropic",
-    output_lang="en-US",
-    date_range=(datetime(2023, 1, 1), datetime(2024, 1, 1))
+    output_lang="en-US"
 )
-
 print(review_text)
 ```
 
-## Configuration
-
--   **Rate Limiting:** The `ArxivDownloader` class in `arxivsearcher.py` implements rate limiting to avoid overwhelming the arXiv API.
--   **Caching:** Search results are cached to improve performance.
--   **API Keys:** You need to set environment variables for the AI providers you want to use in `integrated_reviewer.py` and `reviewer_ui.py`.  For example:
-    -   `ANTHROPIC_API_KEY`
-    -   `OPENAI_API_KEY`
-    -   `GEMINI_API_KEY`
-    -   `DEEPSEEK_API_KEY`
-
 ## Dependencies
 
--   requests
--   pandas
--   feedparser
--   tenacity
--   tqdm
--   streamlit
--   matplotlib
--   networkx
--   wordcloud
--   anthropic
--   google-genai
--   plotly
+- requests
+- pandas
+- feedparser
+- tenacity
+- tqdm
+- streamlit
+- matplotlib
+- networkx
+- wordcloud
+- anthropic
+- google-genai
+- plotly
+
+## Contributing
+
+Contributions are welcome! Please follow standard GitHub workflows to submit issues or pull requests.
 
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
+## `styles.py`
+
+The `styles.py` file contains functions and custom CSS to enhance the appearance and behavior of the Streamlit user interface.
+
+## `reviews` Directory
+
+The `reviews` directory stores the output of the literature review process, including:
+- `references.bib`: A BibTeX file with bibliographic data.
+- `review_*.Rmd`: R Markdown files with the generated literature reviews, each including a timestamp indicating when the review was generated.

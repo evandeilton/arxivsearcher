@@ -1,130 +1,265 @@
 title,authors,published,updated,summary,pdf_url,arxiv_id,categories,doi,journal_ref,comment
-Probabilistic Inferences in Bayesian Networks,Jianguo Ding,2010-11-03T16:50:22Z,2010-11-05T14:14:33Z,"Bayesian network is a complete model for the variables and their
-relationships, it can be used to answer probabilistic queries about them. A
-Bayesian network can thus be considered a mechanism for automatically applying
-Bayes' theorem to complex problems. In the application of Bayesian networks,
-most of the work is related to probabilistic inferences. Any variable updating
-in any node of Bayesian networks might result in the evidence propagation
-across the Bayesian networks. This paper sums up various inference techniques
-in Bayesian networks and provide guidance for the algorithm calculation in
-probabilistic inference in Bayesian networks.",http://arxiv.org/pdf/1011.0935v2,1011.0935v2,"['cs.AI', 'cs.NI']",,,"14 pages, 9 figures, book chapter"
-Semiparametric Bayesian Networks,"David Atienza, Concha Bielza, Pedro Larrañaga",2021-09-07T11:47:32Z,2021-09-07T11:47:32Z,"We introduce semiparametric Bayesian networks that combine parametric and
-nonparametric conditional probability distributions. Their aim is to
-incorporate the advantages of both components: the bounded complexity of
-parametric models and the flexibility of nonparametric ones. We demonstrate
-that semiparametric Bayesian networks generalize two well-known types of
-Bayesian networks: Gaussian Bayesian networks and kernel density estimation
-Bayesian networks. For this purpose, we consider two different conditional
-probability distributions required in a semiparametric Bayesian network. In
-addition, we present modifications of two well-known algorithms (greedy
-hill-climbing and PC) to learn the structure of a semiparametric Bayesian
-network from data. To realize this, we employ a score function based on
-cross-validation. In addition, using a validation dataset, we apply an
-early-stopping criterion to avoid overfitting. To evaluate the applicability of
-the proposed algorithm, we conduct an exhaustive experiment on synthetic data
-sampled by mixing linear and nonlinear functions, multivariate normal data
-sampled from Gaussian Bayesian networks, real data from the UCI repository, and
-bearings degradation data. As a result of this experiment, we conclude that the
-proposed algorithm accurately learns the combination of parametric and
-nonparametric components, while achieving a performance comparable with those
-provided by state-of-the-art methods.",http://arxiv.org/pdf/2109.03008v1,2109.03008v1,"['cs.LG', 'stat.ML', '68T05 68T10', 'I.5.1; I.2.6']",,,"44 pages, 13 figures, 4 tables, submitted to Information Sciences"
-Are Bayesian networks typically faithful?,"Philip Boeken, Patrick Forré, Joris M. Mooij",2024-10-21T13:38:04Z,2025-01-20T09:40:00Z,"Faithfulness is a ubiquitous assumption in causal inference, often motivated
-by the fact that the faithful parameters of linear Gaussian and discrete
-Bayesian networks are typical, and the folklore belief that this should also
-hold for other classes of Bayesian networks. We address this open question by
-showing that among all Bayesian networks over a given DAG, the faithful
-Bayesian networks are indeed `typical': they constitute a dense, open set with
-respect to the total variation metric. However, this does not imply that
-faithfulness is typical in restricted classes of Bayesian networks, as are
-often considered in statistical applications. To this end we consider the class
-of Bayesian networks parametrised by conditional exponential families, for
-which we show that under mild regularity conditions, the faithful parameters
-constitute a dense, open set and the unfaithful parameters have Lebesgue
-measure zero, extending the existing results for linear Gaussian and discrete
-Bayesian networks. Finally, we show that the aforementioned results also hold
-for Bayesian networks with latent variables.",http://arxiv.org/pdf/2410.16004v2,2410.16004v2,"['math.ST', 'math.PR', 'stat.ML', 'stat.TH']",,,
-Markov Equivalence of Max-Linear Bayesian Networks,"Carlos Améndola, Ben Hollering, Seth Sullivant, Ngoc Tran",2021-06-15T17:27:21Z,2021-06-15T17:27:21Z,"Max-linear Bayesian networks have emerged as highly applicable models for
-causal inference via extreme value data. However, conditional independence (CI)
-for max-linear Bayesian networks behaves differently than for classical
-Gaussian Bayesian networks. We establish the parallel between the two theories
-via tropicalization, and establish the surprising result that the Markov
-equivalence classes for max-linear Bayesian networks coincide with the ones
-obtained by regular CI. Our paper opens up many problems at the intersection of
-extreme value statistics, causal inference and tropical geometry.",http://arxiv.org/pdf/2106.08305v1,2106.08305v1,"['math.ST', 'math.AG', 'math.CO', 'stat.TH', '62H22, 14T90, 62G32, 62R01']",,,"19 pages, 5 figures, accepted for the 37th conference on Uncertainty
-  in Artificial Intelligence (UAI 2021)"
-"Improving Cancer Imaging Diagnosis with Bayesian Networks and Deep
-  Learning: A Bayesian Deep Learning Approach","Pei Xi, Lin",2024-03-28T01:27:10Z,2024-03-28T01:27:10Z,"With recent advancements in the development of artificial intelligence
-applications using theories and algorithms in machine learning, many accurate
-models can be created to train and predict on given datasets. With the
-realization of the importance of imaging interpretation in cancer diagnosis,
-this article aims to investigate the theory behind Deep Learning and Bayesian
-Network prediction models. Based on the advantages and drawbacks of each model,
-different approaches will be used to construct a Bayesian Deep Learning Model,
-combining the strengths while minimizing the weaknesses. Finally, the
-applications and accuracy of the resulting Bayesian Deep Learning approach in
-the health industry in classifying images will be analyzed.",http://arxiv.org/pdf/2403.19083v1,2403.19083v1,"['cs.LG', 'cs.AI', 'eess.IV']",,,
-Bayesian Networks for Brain-Computer Interfaces: A Survey,Pingsheng Li,2022-05-24T00:35:53Z,2022-05-24T00:35:53Z,"Brain-Computer Interface (BCI) is a rapidly developing technology that allows
-direct communications between the human brain and external devices, such as
-robotic arms and computers. Bayesian Networks is a powerful tool in machine
-learning for tackling with problems that requires understanding and modelling
-the uncertainty and complexity within complex system built by sub-modular
-components. Therefore, deploying Bayesian Networks in the application of
-Brain-Computer Interfaces becomes an increasingly popular approach in BCI
-research. This survey covers related existing works in relatively high-level
-perspectives, classifies the models and algorithms involved, and also
-summarizes the application of Bayesian Networks or its variants in the context
-of Brain-Computer Interfaces.",http://arxiv.org/pdf/2206.07487v1,2206.07487v1,['eess.SP'],,,
-"Constrained Bayesian Networks: Theory, Optimization, and Applications","Paul Beaumont, Michael Huth",2017-05-15T16:48:12Z,2017-05-15T16:48:12Z,"We develop the theory and practice of an approach to modelling and
-probabilistic inference in causal networks that is suitable when
-application-specific or analysis-specific constraints should inform such
-inference or when little or no data for the learning of causal network
-structure or probability values at nodes are available. Constrained Bayesian
-Networks generalize a Bayesian Network such that probabilities can be symbolic,
-arithmetic expressions and where the meaning of the network is constrained by
-finitely many formulas from the theory of the reals. A formal semantics for
-constrained Bayesian Networks over first-order logic of the reals is given,
-which enables non-linear and non-convex optimisation algorithms that rely on
-decision procedures for this logic, and supports the composition of several
-constrained Bayesian Networks. A non-trivial case study in arms control, where
-few or no data are available to assess the effectiveness of an arms inspection
-process, evaluates our approach. An open-access prototype implementation of
-these foundations and their algorithms uses the SMT solver Z3 as decision
-procedure, leverages an open-source package for Bayesian inference to symbolic
-computation, and is evaluated experimentally.",http://arxiv.org/pdf/1705.05326v1,1705.05326v1,['cs.AI'],,,"43 pages, 18 figures"
-On tensor rank of conditional probability tables in Bayesian networks,"Jiří Vomlel, Petr Tichavský",2014-09-22T19:32:15Z,2014-09-22T19:32:15Z,"A difficult task in modeling with Bayesian networks is the elicitation of
-numerical parameters of Bayesian networks. A large number of parameters is
-needed to specify a conditional probability table (CPT) that has a larger
-parent set. In this paper we show that, most CPTs from real applications of
-Bayesian networks can actually be very well approximated by tables that require
-substantially less parameters. This observation has practical consequence not
-only for model elicitation but also for efficient probabilistic reasoning with
-these networks.",http://arxiv.org/pdf/1409.6287v1,1409.6287v1,"['cs.AI', '68T37', 'I.2.3']",,,
-"Bayesian Low-Rank LeArning (Bella): A Practical Approach to Bayesian
-  Neural Networks","Bao Gia Doan, Afshar Shamsi, Xiao-Yu Guo, Arash Mohammadi, Hamid Alinejad-Rokny, Dino Sejdinovic, Damien Teney, Damith C. Ranasinghe, Ehsan Abbasnejad",2024-07-30T15:07:13Z,2025-01-16T14:45:36Z,"Computational complexity of Bayesian learning is impeding its adoption in
-practical, large-scale tasks. Despite demonstrations of significant merits such
-as improved robustness and resilience to unseen or out-of-distribution inputs
-over their non- Bayesian counterparts, their practical use has faded to near
-insignificance. In this study, we introduce an innovative framework to mitigate
-the computational burden of Bayesian neural networks (BNNs). Our approach
-follows the principle of Bayesian techniques based on deep ensembles, but
-significantly reduces their cost via multiple low-rank perturbations of
-parameters arising from a pre-trained neural network. Both vanilla version of
-ensembles as well as more sophisticated schemes such as Bayesian learning with
-Stein Variational Gradient Descent (SVGD), previously deemed impractical for
-large models, can be seamlessly implemented within the proposed framework,
-called Bayesian Low-Rank LeArning (Bella). In a nutshell, i) Bella achieves a
-dramatic reduction in the number of trainable parameters required to
-approximate a Bayesian posterior; and ii) it not only maintains, but in some
-instances, surpasses the performance of conventional Bayesian learning methods
-and non-Bayesian baselines. Our results with large-scale tasks such as
-ImageNet, CAMELYON17, DomainNet, VQA with CLIP, LLaVA demonstrate the
-effectiveness and versatility of Bella in building highly scalable and
-practical Bayesian deep models for real-world applications.",http://arxiv.org/pdf/2407.20891v4,2407.20891v4,"['cs.LG', 'cs.AI', 'cs.CV']",,,This paper is accepted in AAAI'2025
-Bayesian Network Models for Incomplete and Dynamic Data,Marco Scutari,2019-06-15T09:59:04Z,2019-10-24T12:17:33Z,"Bayesian networks are a versatile and powerful tool to model complex
-phenomena and the interplay of their components in a probabilistically
-principled way. Moving beyond the comparatively simple case of completely
-observed, static data, which has received the most attention in the literature,
-in this paper we will review how Bayesian networks can model dynamic data and
-data with incomplete observations. Such data are the norm at the forefront of
-research and in practical applications, and Bayesian networks are uniquely
-positioned to model them due to their explainability and interpretability.",http://arxiv.org/pdf/1906.06513v2,1906.06513v2,"['stat.ME', 'math.ST', 'stat.ML', 'stat.TH']",,"Statistica Neerlandica (2020), 74(3), 397-419","24 pages, 4 figures"
+Loyalty Programs in the Sharing Economy: Optimality and Competition,"Zhixuan Fang, Longbo Huang, Adam Wierman",2018-05-09T15:16:50Z,2018-05-09T15:16:50Z,"Loyalty programs are important tools for sharing platforms seeking to grow
+supply. Online sharing platforms use loyalty programs to heavily subsidize
+resource providers, encouraging participation and boosting supply. As the
+sharing economy has evolved and competition has increased, the design of
+loyalty programs has begun to play a crucial role in the pursuit of maximal
+revenue. In this paper, we first characterize the optimal loyalty program for a
+platform with homogeneous users. We then show that optimal revenue in a
+heterogeneous market can be achieved by a class of multi-threshold loyalty
+program (MTLP) which admits a simple implementation-friendly structure. We also
+study the performance of loyalty programs in a setting with two competing
+sharing platforms, showing that the degree of heterogeneity is a crucial factor
+for both loyalty programs and pricing strategies. Our results show that
+sophisticated loyalty programs that reward suppliers via stepwise linear
+functions outperform simple sign-up bonuses, which give them a one time reward
+for participating.",http://arxiv.org/pdf/1805.03581v1,1805.03581v1,['cs.GT'],,,
+Privacy-preserving Loyalty Programs,"Alberto Blanco-Justicia, Josep Domingo-Ferrer",2014-11-14T16:32:44Z,2014-12-01T16:25:19Z,"Loyalty programs are promoted by vendors to incentivize loyalty in buyers.
+Although such programs have become widespread, they have been criticized by
+business experts and consumer associations: loyalty results in profiling and
+hence in loss of privacy of consumers. We propose a protocol for
+privacy-preserving loyalty programs that allows vendors and consumers to enjoy
+the benefits of loyalty (returning customers and discounts, respectively),
+while allowing consumers to stay anonymous and empowering them to decide how
+much of their profile they reveal to the vendor. The vendor must offer
+additional reward if he wants to learn more details on the consumer's profile.
+Our protocol is based on partially blind signatures and generalization
+techniques, and provides anonymity to consumers and their purchases, while
+still allowing negotiated consumer profiling.",http://arxiv.org/pdf/1411.3961v2,1411.3961v2,['cs.CR'],,,"Presented at the 9th DPM International Workshop on Data Privacy
+  Management (DPM 2014, held on Sep. 10, 2014). To appear in workshop
+  proceedings, LNCS, Springer"
+Fast Privacy-Preserving Punch Cards,Saba Eskandarian,2020-06-10T21:49:15Z,2021-02-19T17:40:52Z,"Loyalty programs in the form of punch cards that can be redeemed for benefits
+have long been a ubiquitous element of the consumer landscape. However, their
+increasingly popular digital equivalents, while providing more convenience and
+better bookkeeping, pose a considerable privacy risk. This paper introduces a
+privacy-preserving punch card protocol that allows firms to digitize their
+loyalty programs without forcing customers to submit to corporate surveillance.
+We also present a number of extensions that allow our scheme to provide other
+privacy-preserving customer loyalty features.
+  Compared to the best prior work, we achieve a $14\times$ reduction in the
+computation and a $11\times$ reduction in the communication required to perform
+a ""hole punch,"" a $55\times$ reduction in the communication required to redeem
+a punch card, and a $128\times$ reduction in the computation time required to
+redeem a card. Much of our performance improvement can be attributed to
+removing the reliance on pairings or range proofs present in prior work, which
+has only addressed this problem in the context of more general loyalty systems.
+By tailoring our scheme to punch cards and related loyalty systems, we
+demonstrate that we can reduce communication and computation costs by orders of
+magnitude.",http://arxiv.org/pdf/2006.06079v3,2006.06079v3,['cs.CR'],,,
+"The shape of the relative frailty variance induced by discrete random
+  effect distributions in univariate and multivariate survival models","Maximilian Bardo, Steffen Unkel",2023-03-08T22:11:45Z,2023-03-08T22:11:45Z,"In statistical models for the analysis of time-to-event data, individual
+heterogeneity is usually accounted for by means of one or more random effects,
+also known as frailties. In the vast majority of the literature, the random
+effect is assumed to follow a continuous probability distribution. However, in
+some areas of application, a discrete frailty distribution may be more
+appropriate. We investigate and compare various existing families of discrete
+univariate and shared frailty models by taking as our focus the variance of the
+relative frailty distribution in survivors. The relative frailty variance (RFV)
+among survivors provides a readily interpretable measure of how the
+heterogeneity of a population, as represented by a frailty model, evolves over
+time. We explore the shape of the RFV for the purpose of model selection and
+review available discrete random effect distributions in this context. We find
+non-monotone trajectories of the RFV for discrete univariate and shared frailty
+models, which is a rare property. Furthermore, we proof that for discrete
+time-invariant univariate and shared frailty models with (without) an atom at
+zero, the limit of the RFV approaches infinity (zero), if the support of the
+discrete distribution can be arranged in ascending order. Through the
+one-to-one relationship of the RFV with the cross-ratio function in shared
+frailty models, which we generalize to the higher-variate case, our results
+also apply to patterns of association within a cluster. Extensions and
+contrasts to discrete time-varying frailty models and contrasts to correlated
+discrete frailty models are discussed.",http://arxiv.org/pdf/2303.04915v1,2303.04915v1,"['stat.ME', '62N99, 62H20', 'G.3']",,,"25 pages, 2 figures, 1 table"
+How Many Customers Does a Retail Store Have?,"Ondřej Sokol, Vladimír Holý",2019-04-23T08:36:02Z,2020-04-05T19:00:17Z,"The knowledge of the number of customers is the pillar of retail business
+analytics. In our setting, we assume that a portion of customers is monitored
+and easily counted due to the loyalty program while the rest is not monitored.
+The behavior of customers in both groups may significantly differ making the
+estimation of the number of unmonitored customers a non-trivial task. We
+identify shopping patterns of several customer segments which allows us to
+estimate the distribution of customers without the loyalty card using the
+maximum likelihood method. In a simulation study, we find that the proposed
+approach is quite precise even when the data sample is very small and its
+assumptions are violated to a certain degree. In an empirical study of a
+drugstore chain, we validate and illustrate the proposed approach in practice.
+The actual number of customers estimated by the proposed method is much higher
+than the number suggested by the naive estimate assuming the constant customer
+distribution. The proposed method can also be utilized to determine penetration
+of the loyalty program in the individual customer segments.",http://arxiv.org/pdf/1904.10199v2,1904.10199v2,['stat.AP'],,,
+"Frozen propagation of Reynolds force vector from high-fidelity data into
+  Reynolds-averaged simulations of secondary flows","Ali Amarloo, Pourya Forooghi, Mahdi Abkar",2022-09-08T16:45:31Z,2022-10-08T09:52:12Z,"Successful propagation of information from high-fidelity sources (i.e.,
+direct numerical simulations and large-eddy simulations) into Reynolds-averaged
+Navier-Stokes (RANS) equations plays an important role in the emerging field of
+data-driven RANS modeling. Small errors carried in high-fidelity data can
+propagate amplified errors into the mean flow field, and higher Reynolds
+numbers worsen the error propagation. In this study, we compare a series of
+propagation methods for two cases of Prandtl's secondary flows of the second
+kind: square-duct flow at a low Reynolds number and roughness-induced secondary
+flow at a very high Reynolds number. We show that frozen treatments result in
+less error propagation than the implicit treatment of Reynolds stress tensor
+(RST), and for cases with very high Reynolds numbers, explicit and implicit
+treatments are not recommended. Inspired by the obtained results, we introduce
+the frozen treatment to the propagation of Reynolds force vector (RFV), which
+leads to less error propagation. Specifically, for both cases at low and high
+Reynolds numbers, propagation of RFV results in one order of magnitude lower
+error compared to RST propagation. In the frozen treatment method, three
+different eddy-viscosity models are used to evaluate the effect of turbulent
+diffusion on error propagation. We show that, regardless of the baseline model,
+the frozen treatment of RFV results in less error propagation. We combined one
+extra correction term for turbulent kinetic energy with the frozen treatment of
+RFV, which makes our propagation technique capable of reproducing both velocity
+and turbulent kinetic energy fields similar to high-fidelity data.",http://arxiv.org/pdf/2209.03911v2,2209.03911v2,['physics.flu-dyn'],10.1063/5.0123231,,
+"Price Discrimination in the Presence of Customer Loyalty and Differing
+  Firm Costs","Theja Tulabandhula, Aris Ouksel, Son Nguyen",2021-02-16T23:34:29Z,2022-01-22T21:10:57Z,"We study how loyalty behavior of customers and differing costs to produce
+undifferentiated products by firms can influence market outcomes. In prior
+works that study such markets, firm costs have generally been assumed
+negligible or equal, and loyalty is modeled as an additive bias in customer
+valuations. We extend these previous treatments by explicitly considering cost
+asymmetry and richer customer loyalty behavior in a game-theoretic model. Thus,
+in the setting where firms incur different non-negligible product costs, and
+customers have firm-specific loyalty levels, we comprehensively characterize
+the effects of loyalty and product cost difference on market outcomes such as
+prices, market shares, and profits. Our analysis and numerical simulations
+provide new insights into how firms can price, how they can survive competition
+even with higher product costs, and how they can control these costs and/or
+increase customer loyalty to change their market position.",http://arxiv.org/pdf/2102.09620v2,2102.09620v2,"['econ.TH', 'math.OC']",,,"82 pages, 12 figures"
+"Attitudinal Loyalty Manifestation in Banking CSR: Cross-Buying Behavior
+  and Customer Advocacy","Muhamad Bhayuta Yudhi Putera, Melia Famiola",2024-04-17T04:41:19Z,2024-04-17T04:41:19Z,"This study in the banking industry examines the influence of attitudinal
+loyalty on customer advocacy and cross buying behavior, alongside the
+moderating roles of Quality of Life and Corporate Social Responsibility support
+in the CSR fit and loyalty relationship. Employing Structural Equation
+Modeling, it reveals that higher attitudinal loyalty significantly boosts
+customer advocacy and propensity for cross buying. The findings highlight the
+importance of nurturing customer loyalty through valuable and relevant
+offerings, as CSR fit alone does not define the loyalty of the banking
+customer. Banks are advised to target customers with a high Quality of Life and
+engage with those who support CSR initiatives aligning with the banks
+objectives, to enhance loyalty and deepen customer relationships.",http://arxiv.org/pdf/2404.11063v1,2404.11063v1,"['econ.GN', 'q-fin.EC']",10.56472/25835238/IRJEMS-V3I3P131,,"13 pages, 2 figures, 1 table, 1 appendix, published with
+  International Research Journal of Economics and Management Studies (IRJEMS)"
+Loyalty in Online Communities,"William L. Hamilton, Justine Zhang, Cristian Danescu-Niculescu-Mizil, Dan Jurafsky, Jure Leskovec",2017-03-09T18:37:50Z,2017-05-24T14:45:13Z,"Loyalty is an essential component of multi-community engagement. When users
+have the choice to engage with a variety of different communities, they often
+become loyal to just one, focusing on that community at the expense of others.
+However, it is unclear how loyalty is manifested in user behavior, or whether
+loyalty is encouraged by certain community characteristics.
+  In this paper we operationalize loyalty as a user-community relation: users
+loyal to a community consistently prefer it over all others; loyal communities
+retain their loyal users over time. By exploring this relation using a large
+dataset of discussion communities from Reddit, we reveal that loyalty is
+manifested in remarkably consistent behaviors across a wide spectrum of
+communities. Loyal users employ language that signals collective identity and
+engage with more esoteric, less popular content, indicating they may play a
+curational role in surfacing new material. Loyal communities have denser
+user-user interaction networks and lower rates of triadic closure, suggesting
+that community-level loyalty is associated with more cohesive interactions and
+less fragmentation into subgroups. We exploit these general patterns to predict
+future rates of loyalty. Our results show that a user's propensity to become
+loyal is apparent from their first interactions with a community, suggesting
+that some users are intrinsically loyal from the very beginning.",http://arxiv.org/pdf/1703.03386v3,1703.03386v3,"['cs.SI', 'cs.CL']",,,"Extended version of a paper appearing in the Proceedings of ICWSM
+  2017 (with the same title); please cite the official ICWSM version"
+Phenomenological consequences of radiative flavor violation in the MSSM,"Andreas Crivellin, Lars Hofer, Ulrich Nierste, Dominik Scherer",2011-05-13T19:57:16Z,2011-12-06T23:36:19Z,"In this article we investigate the consequences of radiative flavor violation
+(RFV) in the Minimal Supersymmetric Standard Model (MSSM). In this framework
+the small off-diagonal elements of the Cabibbo-Kobayashi-Maskawa (CKM) matrix
+and the small quark masses of the first two generations are generated from the
+trilinear supersymmetry-breaking terms. The impact of RFV on flavor-physics
+observables is studied in detail. We focus on the limiting cases in which the
+CKM matrix is either generated in the down-sector, i.e. by the soft
+SUSY-breaking mass insertions delta^dLR_i3 (i=1,2), or in the up-quark sector,
+i.e. by the mass insertions delta^uLR_i3. In the first case we find an
+enhancement of b->s gamma, which constrains the allowed range of sparticle
+masses (Fig. 3). In addition, neutral Higgs penguins significantly contribute
+to B_s,d->mu^+mu^- and, if also delta^dLR_32 is different from zero, these
+Higgs effects are capable of explaining the observed CP phase in the B_s
+system. If, on the other hand, the CKM generation takes place in the up-sector,
+|epsilon_K| receives additional positive contributions enforcing large squark
+and gluino masses (see Fig. 8). In this case also the rare decay K->pi nu nu
+receives sizable contributions. In conclusion we find that for SUSY masses
+around 1 TeV RFV is an interesting alternative to Minimal Flavor Violation
+(MFV).",http://arxiv.org/pdf/1105.2818v3,1105.2818v3,"['hep-ph', 'hep-ex']",10.1103/PhysRevD.84.035030,,"12 pages, 10 figures, version accepted for publication in PRD, eq.
+  (14) and eq. (15) corrected"
+"The Green Advantage: Analyzing the Effects of Eco-Friendly Marketing on
+  Consumer Loyalty","Erfan Mohammadi, MohammadMahdi Barzegar, Mahdi Nohekhan",2023-12-27T19:30:58Z,2023-12-27T19:30:58Z,"The idea that marketing, in addition to profitability and sales, should also
+consider the consumer's health is not and has not been a far-fetched concept.
+It can be stated that there is no longer a way back to producing
+environmentally harmful products, and gradually, governmental pressures,
+competition, and changing customer attitudes are obliging companies to adopt
+and implement a green marketing approach. Over time, concepts such as green
+marketing have penetrated marketing literature, making environmental
+considerations one of the most important activities of companies. For this
+purpose, this research examines the effects of green marketing strategy on
+brand loyalty (case study: food exporting companies). The population of this
+study consists of 345 employees and managers of companies like Kalleh, Solico,
+Pemina, Sorben, Mac, Pol, and Casel, out of which 182 were randomly selected as
+a sample using Cochran's formula. This research is practical; the required data
+were collected through a survey and questionnaire. The research results
+indicate that (1) green marketing strategy significantly affects brand loyalty.
+(2) Green products have a significant positive effect on brand loyalty. (3)
+Green promotion has a significant positive effect on brand loyalty. (4) Green
+distribution has a significant positive effect on brand loyalty. (5) Green
+pricing has a significant positive effect on brand loyalty.",http://arxiv.org/pdf/2312.16698v1,2312.16698v1,"['econ.GN', 'q-fin.EC']",,,
+"Jump off the Bandwagon? Characterizing Bandwagon Fans' Future Loyalty in
+  Online NBA Fan Communities","Yichen Wang, Qin Lv",2024-01-21T23:48:14Z,2024-01-21T23:48:14Z,"Online user dynamics has been actively studied in recent years and bandwagon
+behavior is one of the most representative topics which can provide valuable
+insights for user identity change. Many previous studies have characterized
+bandwagon users and leveraged such characteristics to tackle practical problems
+such as community loyalty prediction. However, very few of them have
+investigated bandwagon dynamics from a long-term perspective. In this work, we
+focus on characterizing and predicting long-term bandwagon user behaviors in
+the context of online fan loyalty. Using a dataset collected from NBA-related
+discussion forums on Reddit, we trace the long-term loyalty status of bandwagon
+fans to capture their latent behavioral characteristics and then propose a
+computational model to predict their next sport season loyalty status with
+their home teams. Our analyses reveal that bandwagoning for most fans is a
+temporary switch and most of them will be back in the long term. In addition,
+online fans with different loyalty levels to their home teams have demonstrated
+different behaviors in various aspects, such as activity level, language usage
+and reply network properties. We then propose a model based on such behavioral
+characteristics to predict their next-season loyalty status. Its promising
+performance demonstrates the effectiveness of our behavior characterization.",http://arxiv.org/pdf/2401.11629v1,2401.11629v1,"['cs.CY', 'cs.SI']",,,Accepted to IEEE SocialCom 2023
+E-loyalty networks in online auctions,"Wolfgang Jank, Inbal Yahav",2010-10-08T09:32:37Z,2010-10-08T09:32:37Z,"Creating a loyal customer base is one of the most important, and at the same
+time, most difficult tasks a company faces. Creating loyalty online (e-loyalty)
+is especially difficult since customers can ``switch'' to a competitor with the
+click of a mouse. In this paper we investigate e-loyalty in online auctions.
+Using a unique data set of over 30,000 auctions from one of the main
+consumer-to-consumer online auction houses, we propose a novel measure of
+e-loyalty via the associated network of transactions between bidders and
+sellers. Using a bipartite network of bidder and seller nodes, two nodes are
+linked when a bidder purchases from a seller and the number of repeat-purchases
+determines the strength of that link. We employ ideas from functional principal
+component analysis to derive, from this network, the loyalty distribution which
+measures the perceived loyalty of every individual seller, and associated
+loyalty scores which summarize this distribution in a parsimonious way. We then
+investigate the effect of loyalty on the outcome of an auction. In doing so, we
+are confronted with several statistical challenges in that standard statistical
+models lead to a misrepresentation of the data and a violation of the model
+assumptions. The reason is that loyalty networks result in an extreme
+clustering of the data, with few high-volume sellers accounting for most of the
+individual transactions. We investigate several remedies to the clustering
+problem and conclude that loyalty networks consist of very distinct segments
+that can best be understood individually.",http://arxiv.org/pdf/1010.1636v1,1010.1636v1,['stat.AP'],10.1214/09-AOAS310,"Annals of Applied Statistics 2010, Vol. 4, No. 1, 151-178","Published in at http://dx.doi.org/10.1214/09-AOAS310 the Annals of
+  Applied Statistics (http://www.imstat.org/aoas/) by the Institute of
+  Mathematical Statistics (http://www.imstat.org)"
+"Beyond Preserved Accuracy: Evaluating Loyalty and Robustness of BERT
+  Compression","Canwen Xu, Wangchunshu Zhou, Tao Ge, Ke Xu, Julian McAuley, Furu Wei",2021-09-07T17:55:47Z,2021-10-04T10:52:39Z,"Recent studies on compression of pretrained language models (e.g., BERT)
+usually use preserved accuracy as the metric for evaluation. In this paper, we
+propose two new metrics, label loyalty and probability loyalty that measure how
+closely a compressed model (i.e., student) mimics the original model (i.e.,
+teacher). We also explore the effect of compression with regard to robustness
+under adversarial attacks. We benchmark quantization, pruning, knowledge
+distillation and progressive module replacing with loyalty and robustness. By
+combining multiple compression techniques, we provide a practical strategy to
+achieve better accuracy, loyalty and robustness.",http://arxiv.org/pdf/2109.03228v2,2109.03228v2,"['cs.CL', 'cs.AI', 'cs.LG']",,,Accepted to EMNLP 2021 (main conference)
+Evolution of Voronoi based Fuzzy Recurrent Controllers,"Carlos Kavka, Patricia Roggero, Marc Schoenauer",2005-11-28T07:14:18Z,2005-11-28T07:14:18Z,"A fuzzy controller is usually designed by formulating the knowledge of a
+human expert into a set of linguistic variables and fuzzy rules. Among the most
+successful methods to automate the fuzzy controllers development process are
+evolutionary algorithms. In this work, we propose the Recurrent Fuzzy Voronoi
+(RFV) model, a representation for recurrent fuzzy systems. It is an extension
+of the FV model proposed by Kavka and Schoenauer that extends the application
+domain to include temporal problems. The FV model is a representation for fuzzy
+controllers based on Voronoi diagrams that can represent fuzzy systems with
+synergistic rules, fulfilling the $\epsilon$-completeness property and
+providing a simple way to introduce a priory knowledge. In the proposed
+representation, the temporal relations are embedded by including internal units
+that provide feedback by connecting outputs to inputs. These internal units act
+as memory elements. In the RFV model, the semantic of the internal units can be
+specified together with the a priori rules. The geometric interpretation of the
+rules allows the use of geometric variational operators during the evolution.
+The representation and the algorithms are validated in two problems in the area
+of system identification and evolutionary robotics.",http://arxiv.org/pdf/cs/0511091v1,cs/0511091v1,['cs.AI'],,Dans GECCO 2005,
