@@ -153,16 +153,6 @@ print(review_text)
 -   anthropic
 -   google-genai
 
-## Contributing
-
-Contributions are welcome! If you find any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
-
-1.  Fork the repository.
-2.  Create a new branch: `git checkout -b feature/your-feature-name`
-3.  Make your changes and commit them: `git commit -m "Add your commit message"`
-4.  Push to the branch: `git push origin feature/your-feature-name`
-5.  Create a pull request.
-
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
