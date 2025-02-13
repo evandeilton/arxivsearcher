@@ -152,6 +152,7 @@ print(review_text)
 -   wordcloud
 -   anthropic
 -   google-genai
+-   plotly
 
 ## License
 
