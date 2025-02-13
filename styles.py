@@ -1,145 +1,185 @@
+# styles.py
 import streamlit as st
 
 def apply_custom_styles():
-    """Aplica estilos customizados à interface."""
-    st.set_page_config(
-        page_title="Sistema de Revisão de Literatura",
-        page_icon="📚",
-        layout="wide",
-        initial_sidebar_state="expanded"
-    )
-
+    """
+    Aplica estilos customizados para melhorar a UI/UX e acessibilidade.
+    """
     st.markdown("""
-    <style>
-    /* Remove quebras de página transparentes */
-    .block-container {
-        padding-top: 0rem;
-        padding-bottom: 0rem;
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
+        <style>
+        /* Estilo Base */
+        :root {
+            --primary-color: #0066cc;
+            --secondary-color: #2196F3;
+            --background-color: #ffffff;
+            --text-color: #333333;
+            --error-color: #dc3545;
+            --success-color: #28a745;
+            --warning-color: #ffc107;
+        }
 
-    /* Remove margens extras */
-    .main > div {
-        padding-top: 0rem;
-    }
+        /* Melhorias de Contraste e Visibilidade */
+        .stButton button {
+            color: var(--background-color);
+            background-color: var(--primary-color);
+            font-weight: 600;
+            min-height: 44px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
 
-    /* Ajusta o header */
-    header {
-        background-color: transparent !important;
-    }
+        .stButton button:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
 
-    /* Melhoria nos botões - apenas ícones */
-    .stButton>button {
-        background: transparent;
-        border: none;
-        padding: 0.5rem;
-        color: #0096c7;
-        width: auto;
-        min-width: 40px;
-        height: 40px;
-        transition: all 0.2s;
-    }
-    .stButton>button:hover {
-        background: rgba(0, 150, 199, 0.1);
-        transform: translateY(0);
-        box-shadow: none;
-        border-radius: 50%;
+        /* Foco e Acessibilidade */
+        *:focus {
+            outline: 3px solid var(--secondary-color);
+            outline-offset: 2px;
+        }
+
+        /* Tamanhos Mínimos para Elementos Interativos */
+        .stSelectbox, .stTextInput, .stNumberInput {
+            min-height: 44px;
+        }
+
+        /* Responsividade */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 1em 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Breadcrumbs */
+        .breadcrumb {
+            padding: 8px 16px;
+            margin-bottom: 20px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+        }
+
+        .breadcrumb-item {
+            display: inline;
+            color: var(--text-color);
+        }
+
+        /* Toast Notifications */
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 16px;
+            border-radius: 8px;
+            background-color: var(--background-color);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 1000;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Loading Indicators */
+        .loading-spinner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Seleção de Artigos */
+        .selected-row {
+            background-color: rgba(33, 150, 243, 0.1);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 12px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: var(--background-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background-color: #e9ecef;
+            border-radius: 2px;
+            margin: 10px 0;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+        </style>
+    """, unsafe_allow_html=True)
+
+def create_toast(message, type="info"):
+    """
+    Cria uma notificação toast.
+    
+    Args:
+        message (str): Mensagem a ser exibida
+        type (str): Tipo da notificação (info, success, error, warning)
+    """
+    colors = {
+        "info": "#2196F3",
+        "success": "#28a745",
+        "error": "#dc3545",
+        "warning": "#ffc107"
     }
     
-    /* Ajustes da sidebar */
-    .sidebar .sidebar-content {
-        padding: 1.5rem;
-        background: white;
-    }
+    st.markdown(f"""
+        <div class="toast" style="border-left: 4px solid {colors[type]}">
+            {message}
+        </div>
+    """, unsafe_allow_html=True)
 
-    /* Tabs */
-    .stTabs [data-baseweb="tab-list"] {
-        gap: 0;
-        background-color: transparent;
-    }
-    .stTabs [data-baseweb="tab"] {
-        height: 50px;
-        padding: 0 16px;
-        color: #666;
-        border-radius: 0;
-        border-bottom: 2px solid transparent;
-    }
-    .stTabs [data-baseweb="tab"][aria-selected="true"] {
-        color: #0096c7;
-        border-bottom: 2px solid #0096c7;
-        background: transparent;
-    }
-
-    /* Remove bordas extras */
-    .stMarkdown div {
-        padding: 0;
-        margin: 0;
-    }
-
-    /* Título principal */
-    h1 {
-        padding: 1rem 0;
-        margin: 0;
-        color: #2c3e50;
-        font-size: 2rem;
-        font-weight: 600;
-    }
-
-    /* Subtítulo */
-    .subtitle {
-        color: #666;
-        font-size: 1rem;
-        margin-top: -0.5rem;
-        margin-bottom: 2rem;
-    }
-
-    /* Input de pesquisa */
-    .stTextInput input {
-        border: 1px solid #e0e0e0;
-        border-radius: 8px;
-        padding: 0.5rem 1rem;
-    }
-    .stTextInput input:focus {
-        border-color: #0096c7;
-        box-shadow: 0 0 0 2px rgba(0,150,199,0.1);
-    }
-
-    /* Slider */
-    .stSlider {
-        padding: 1rem 0;
-    }
-    .stSlider .stSlider > div > div {
-        height: 3px;
-    }
-    .stSlider .stSlider > div > div > div {
-        background-color: #0096c7;
-    }
-
-    /* Esconde elementos desnecessários */
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
+def create_breadcrumbs(items):
+    """
+    Cria uma navegação breadcrumb.
     
-    /* Tooltips para botões */
-    [data-tooltip]:before {
-        content: attr(data-tooltip);
-        position: absolute;
-        bottom: 100%;
-        left: 50%;
-        transform: translateX(-50%);
-        padding: 4px 8px;
-        background: #333;
-        color: white;
-        font-size: 12px;
-        border-radius: 4px;
-        white-space: nowrap;
-        visibility: hidden;
-        opacity: 0;
-        transition: opacity 0.2s;
-    }
-    [data-tooltip]:hover:before {
-        visibility: visible;
-        opacity: 1;
-    }
-    </style>
+    Args:
+        items (list): Lista de itens do breadcrumb
+    """
+    breadcrumb_html = '<div class="breadcrumb">'
+    for i, item in enumerate(items):
+        if i > 0:
+            breadcrumb_html += ' / '
+        breadcrumb_html += f'<span class="breadcrumb-item">{item}</span>'
+    breadcrumb_html += '</div>'
+    
+    st.markdown(breadcrumb_html, unsafe_allow_html=True)
+
+def create_progress_bar(progress):
+    """
+    Cria uma barra de progresso.
+    
+    Args:
+        progress (float): Valor entre 0 e 1 representando o progresso
+    """
+    st.markdown(f"""
+        <div class="progress-bar">
+            <div class="progress-bar-fill" style="width: {progress * 100}%"></div>
+        </div>
     """, unsafe_allow_html=True)

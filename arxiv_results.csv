@@ -1,440 +1,130 @@
 title,authors,published,updated,summary,pdf_url,arxiv_id,categories,doi,journal_ref,comment
-A Comparison of DeepSeek and Other LLMs,"Tianchen Gao, Jiashun Jin, Zheng Tracy Ke, Gabriel Moryoussef",2025-02-06T00:38:25Z,2025-02-06T00:38:25Z,"Recently, DeepSeek has been the focus of attention in and beyond the AI
-community. An interesting problem is how DeepSeek compares to other large
-language models (LLMs). There are many tasks an LLM can do, and in this paper,
-we use the task of predicting an outcome using a short text for comparison. We
-consider two settings, an authorship classification setting and a citation
-classification setting. In the first one, the goal is to determine whether a
-short text is written by human or AI. In the second one, the goal is to
-classify a citation to one of four types using the textual content. For each
-experiment, we compare DeepSeek with $4$ popular LLMs: Claude, Gemini, GPT, and
-Llama.
-  We find that, in terms of classification accuracy, DeepSeek outperforms
-Gemini, GPT, and Llama in most cases, but underperforms Claude. We also find
-that DeepSeek is comparably slower than others but with a low cost to use,
-while Claude is much more expensive than all the others. Finally, we find that
-in terms of similarity, the output of DeepSeek is most similar to those of
-Gemini and Claude (and among all $5$ LLMs, Claude and Gemini have the most
-similar outputs).
-  In this paper, we also present a fully-labeled dataset collected by
-ourselves, and propose a recipe where we can use the LLMs and a recent data
-set, MADStat, to generate new data sets. The datasets in our paper can be used
-as benchmarks for future study on LLMs.",http://arxiv.org/pdf/2502.03688v1,2502.03688v1,"['cs.CL', 'cs.AI']",,,"21 pages, 5 figures, 6 tables"
-"Token-Hungry, Yet Precise: DeepSeek R1 Highlights the Need for
-  Multi-Step Reasoning Over Speed in MATH",Evgenii Evstafev,2025-01-30T18:45:51Z,2025-01-30T18:45:51Z,"This study investigates the performance of the DeepSeek R1 language model on
-30 challenging mathematical problems derived from the MATH dataset, problems
-that previously proved unsolvable by other models under time constraints.
-Unlike prior work, this research removes time limitations to explore whether
-DeepSeek R1's architecture, known for its reliance on token-based reasoning,
-can achieve accurate solutions through a multi-step process. The study compares
-DeepSeek R1 with four other models (gemini-1.5-flash-8b,
-gpt-4o-mini-2024-07-18, llama3.1:8b, and mistral-8b-latest) across 11
-temperature settings. Results demonstrate that DeepSeek R1 achieves superior
-accuracy on these complex problems but generates significantly more tokens than
-other models, confirming its token-intensive approach. The findings highlight a
-trade-off between accuracy and efficiency in mathematical problem-solving with
-large language models: while DeepSeek R1 excels in accuracy, its reliance on
-extensive token generation may not be optimal for applications requiring rapid
-responses. The study underscores the importance of considering task-specific
-requirements when selecting an LLM and emphasizes the role of temperature
-settings in optimizing performance.",http://arxiv.org/pdf/2501.18576v1,2501.18576v1,['cs.LG'],,,"5 pages, 1 figure, 1 table"
-o3-mini vs DeepSeek-R1: Which One is Safer?,"Aitor Arrieta, Miriam Ugarte, Pablo Valle, José Antonio Parejo, Sergio Segura",2025-01-30T15:45:56Z,2025-01-31T15:39:00Z,"The irruption of DeepSeek-R1 constitutes a turning point for the AI industry
-in general and the LLMs in particular. Its capabilities have demonstrated
-outstanding performance in several tasks, including creative thinking, code
-generation, maths and automated program repair, at apparently lower execution
-cost. However, LLMs must adhere to an important qualitative property, i.e.,
-their alignment with safety and human values. A clear competitor of DeepSeek-R1
-is its American counterpart, OpenAI's o3-mini model, which is expected to set
-high standards in terms of performance, safety and cost. In this technical
-report, we systematically assess the safety level of both DeepSeek-R1 (70b
-version) and OpenAI's o3-mini (beta version). To this end, we make use of our
-recently released automated safety testing tool, named ASTRAL. By leveraging
-this tool, we automatically and systematically generated and executed 1,260
-test inputs on both models. After conducting a semi-automated assessment of the
-outcomes provided by both LLMs, the results indicate that DeepSeek-R1 produces
-significantly more unsafe responses (12%) than OpenAI's o3-mini (1.2%).",http://arxiv.org/pdf/2501.18438v2,2501.18438v2,"['cs.SE', 'cs.AI']",,,arXiv admin note: substantial text overlap with arXiv:2501.17749
-"Challenges in Ensuring AI Safety in DeepSeek-R1 Models: The Shortcomings
-  of Reinforcement Learning Strategies","Manojkumar Parmar, Yuvaraj Govindarajulu",2025-01-28T15:52:51Z,2025-01-28T15:52:51Z,"Large Language Models (LLMs) have achieved remarkable progress in reasoning,
-alignment, and task-specific performance. However, ensuring harmlessness in
-these systems remains a critical challenge, particularly in advanced models
-like DeepSeek-R1. This paper examines the limitations of Reinforcement Learning
-(RL) as the primary approach for reducing harmful outputs in DeepSeek-R1 and
-compares it with Supervised Fine-Tuning (SFT). While RL improves reasoning
-capabilities, it faces challenges such as reward hacking, generalization
-failures, language mixing, and high computational costs. We propose hybrid
-training approaches combining RL and SFT to achieve robust harmlessness
-reduction. Usage recommendations and future directions for deploying
-DeepSeek-R1 responsibly are also presented.",http://arxiv.org/pdf/2501.17030v1,2501.17030v1,"['cs.LG', 'cs.AI', 'cs.CL', 'cs.CR']",,,"9 pages, 1 table"
-LLM4VV: Developing LLM-Driven Testsuite for Compiler Validation,"Christian Munley, Aaron Jarmusch, Sunita Chandrasekaran",2023-10-08T01:43:39Z,2024-03-10T21:05:28Z,"Large language models (LLMs) are a new and powerful tool for a wide span of
-applications involving natural language and demonstrate impressive code
-generation abilities. The goal of this work is to automatically generate tests
-and use these tests to validate and verify compiler implementations of a
-directive-based parallel programming paradigm, OpenACC. To do so, in this
-paper, we explore the capabilities of state-of-the-art LLMs, including
-open-source LLMs -- Meta Codellama, Phind fine-tuned version of Codellama,
-Deepseek Deepseek Coder and closed-source LLMs -- OpenAI GPT-3.5-Turbo and
-GPT-4-Turbo. We further fine-tuned the open-source LLMs and GPT-3.5-Turbo using
-our own testsuite dataset along with using the OpenACC specification. We also
-explored these LLMs using various prompt engineering techniques that include
-code template, template with retrieval-augmented generation (RAG), one-shot
-example, one-shot with RAG, expressive prompt with code template and RAG. This
-paper highlights our findings from over 5000 tests generated via all the above
-mentioned methods. Our contributions include: (a) exploring the capabilities of
-the latest and relevant LLMs for code generation, (b) investigating fine-tuning
-and prompt methods, and (c) analyzing the outcome of LLMs generated tests
-including manually analysis of representative set of tests. We found the LLM
-Deepseek-Coder-33b-Instruct produced the most passing tests followed by
-GPT-4-Turbo.",http://arxiv.org/pdf/2310.04963v3,2310.04963v3,['cs.AI'],,,
-"Image, Text, and Speech Data Augmentation using Multimodal LLMs for Deep
-  Learning: A Survey","Ranjan Sapkota, Shaina Raza, Maged Shoman, Achyut Paudel, Manoj Karkee",2025-01-29T16:38:57Z,2025-01-29T16:38:57Z,"In the past five years, research has shifted from traditional Machine
-Learning (ML) and Deep Learning (DL) approaches to leveraging Large Language
-Models (LLMs) , including multimodality, for data augmentation to enhance
-generalization, and combat overfitting in training deep convolutional neural
-networks. However, while existing surveys predominantly focus on ML and DL
-techniques or limited modalities (text or images), a gap remains in addressing
-the latest advancements and multi-modal applications of LLM-based methods. This
-survey fills that gap by exploring recent literature utilizing multimodal LLMs
-to augment image, text, and audio data, offering a comprehensive understanding
-of these processes. We outlined various methods employed in the LLM-based
-image, text and speech augmentation, and discussed the limitations identified
-in current approaches. Additionally, we identified potential solutions to these
-limitations from the literature to enhance the efficacy of data augmentation
-practices using multimodal LLMs. This survey serves as a foundation for future
-research, aiming to refine and expand the use of multimodal LLMs in enhancing
-dataset quality and diversity for deep learning applications. (Surveyed Paper
-GitHub Repo: https://github.com/WSUAgRobotics/data-aug-multi-modal-llm.
-Keywords: LLM data augmentation, LLM text data augmentation, LLM image data
-augmentation, LLM speech data augmentation, audio augmentation, voice
-augmentation, chatGPT for data augmentation, DeepSeek R1 text data
-augmentation, DeepSeek R1 image augmentation, Image Augmentation using LLM,
-Text Augmentation using LLM, LLM data augmentation for deep learning
-applications)",http://arxiv.org/pdf/2501.18648v1,2501.18648v1,['cs.CV'],,,
-DeepSeek LLM: Scaling Open-Source Language Models with Longtermism,"DeepSeek-AI, :, Xiao Bi, Deli Chen, Guanting Chen, Shanhuang Chen, Damai Dai, Chengqi Deng, Honghui Ding, Kai Dong, Qiushi Du, Zhe Fu, Huazuo Gao, Kaige Gao, Wenjun Gao, Ruiqi Ge, Kang Guan, Daya Guo, Jianzhong Guo, Guangbo Hao, Zhewen Hao, Ying He, Wenjie Hu, Panpan Huang, Erhang Li, Guowei Li, Jiashi Li, Yao Li, Y. K. Li, Wenfeng Liang, Fangyun Lin, A. X. Liu, Bo Liu, Wen Liu, Xiaodong Liu, Xin Liu, Yiyuan Liu, Haoyu Lu, Shanghao Lu, Fuli Luo, Shirong Ma, Xiaotao Nie, Tian Pei, Yishi Piao, Junjie Qiu, Hui Qu, Tongzheng Ren, Zehui Ren, Chong Ruan, Zhangli Sha, Zhihong Shao, Junxiao Song, Xuecheng Su, Jingxiang Sun, Yaofeng Sun, Minghui Tang, Bingxuan Wang, Peiyi Wang, Shiyu Wang, Yaohui Wang, Yongji Wang, Tong Wu, Y. Wu, Xin Xie, Zhenda Xie, Ziwei Xie, Yiliang Xiong, Hanwei Xu, R. X. Xu, Yanhong Xu, Dejian Yang, Yuxiang You, Shuiping Yu, Xingkai Yu, B. Zhang, Haowei Zhang, Lecong Zhang, Liyue Zhang, Mingchuan Zhang, Minghua Zhang, Wentao Zhang, Yichao Zhang, Chenggang Zhao, Yao Zhao, Shangyan Zhou, Shunfeng Zhou, Qihao Zhu, Yuheng Zou",2024-01-05T18:59:13Z,2024-01-05T18:59:13Z,"The rapid development of open-source large language models (LLMs) has been
-truly remarkable. However, the scaling law described in previous literature
-presents varying conclusions, which casts a dark cloud over scaling LLMs. We
-delve into the study of scaling laws and present our distinctive findings that
-facilitate scaling of large scale models in two commonly used open-source
-configurations, 7B and 67B. Guided by the scaling laws, we introduce DeepSeek
-LLM, a project dedicated to advancing open-source language models with a
-long-term perspective. To support the pre-training phase, we have developed a
-dataset that currently consists of 2 trillion tokens and is continuously
-expanding. We further conduct supervised fine-tuning (SFT) and Direct
-Preference Optimization (DPO) on DeepSeek LLM Base models, resulting in the
-creation of DeepSeek Chat models. Our evaluation results demonstrate that
-DeepSeek LLM 67B surpasses LLaMA-2 70B on various benchmarks, particularly in
-the domains of code, mathematics, and reasoning. Furthermore, open-ended
-evaluations reveal that DeepSeek LLM 67B Chat exhibits superior performance
-compared to GPT-3.5.",http://arxiv.org/pdf/2401.02954v1,2401.02954v1,"['cs.CL', 'cs.AI', 'cs.LG']",,,
-ReasonFlux: Hierarchical LLM Reasoning via Scaling Thought Templates,"Ling Yang, Zhaochen Yu, Bin Cui, Mengdi Wang",2025-02-10T18:51:47Z,2025-02-10T18:51:47Z,"We present that hierarchical LLM reasoning via scaling thought templates can
-effectively optimize the reasoning search space and outperform the mathematical
-reasoning capabilities of powerful LLMs like OpenAI o1-preview and DeepSeek V3.
-We train our ReasonFlux-32B model with only 8 GPUs and introduces three
-innovations: (i) a structured and generic thought template library, containing
-around 500 high-level thought templates capable of generalizing to similar or
-relevant reasoning problems; (ii) performing hierarchical reinforcement
-learning on a sequence of thought templates instead of long CoTs, optimizing a
-base LLM to plan out an optimal template trajectory for gradually handling
-complex problems; (iii) a brand new inference scaling system that enables
-hierarchical LLM reasoning by adaptively scaling thought templates at inference
-time. With a template trajectory containing sequential thought templates, our
-ReasonFlux-32B significantly advances math reasoning capabilities to
-state-of-the-art levels. Notably, on the MATH benchmark, it achieves an
-accuracy of 91.2% and surpasses o1-preview by 6.7%. On the USA Math Olympiad
-(AIME) benchmark, ReasonFlux-32B solves an average of 56.7% of problems,
-surpassing o1-preview and DeepSeek-V3 by 27% and 45%, respectively. Code:
-https://github.com/Gen-Verse/ReasonFlux",http://arxiv.org/pdf/2502.06772v1,2502.06772v1,['cs.CL'],,,Code: https://github.com/Gen-Verse/ReasonFlux
-DeepSeek-VL: Towards Real-World Vision-Language Understanding,"Haoyu Lu, Wen Liu, Bo Zhang, Bingxuan Wang, Kai Dong, Bo Liu, Jingxiang Sun, Tongzheng Ren, Zhuoshu Li, Hao Yang, Yaofeng Sun, Chengqi Deng, Hanwei Xu, Zhenda Xie, Chong Ruan",2024-03-08T18:46:00Z,2024-03-11T16:47:41Z,"We present DeepSeek-VL, an open-source Vision-Language (VL) Model designed
-for real-world vision and language understanding applications. Our approach is
-structured around three key dimensions:
-  We strive to ensure our data is diverse, scalable, and extensively covers
-real-world scenarios including web screenshots, PDFs, OCR, charts, and
-knowledge-based content, aiming for a comprehensive representation of practical
-contexts. Further, we create a use case taxonomy from real user scenarios and
-construct an instruction tuning dataset accordingly. The fine-tuning with this
-dataset substantially improves the model's user experience in practical
-applications. Considering efficiency and the demands of most real-world
-scenarios, DeepSeek-VL incorporates a hybrid vision encoder that efficiently
-processes high-resolution images (1024 x 1024), while maintaining a relatively
-low computational overhead. This design choice ensures the model's ability to
-capture critical semantic and detailed information across various visual tasks.
-We posit that a proficient Vision-Language Model should, foremost, possess
-strong language abilities. To ensure the preservation of LLM capabilities
-during pretraining, we investigate an effective VL pretraining strategy by
-integrating LLM training from the beginning and carefully managing the
-competitive dynamics observed between vision and language modalities.
-  The DeepSeek-VL family (both 1.3B and 7B models) showcases superior user
-experiences as a vision-language chatbot in real-world applications, achieving
-state-of-the-art or competitive performance across a wide range of
-visual-language benchmarks at the same model size while maintaining robust
-performance on language-centric benchmarks. We have made both 1.3B and 7B
-models publicly accessible to foster innovations based on this foundation
-model.",http://arxiv.org/pdf/2403.05525v2,2403.05525v2,['cs.AI'],,,https://github.com/deepseek-ai/DeepSeek-VL
-Generating Energy-efficient code with LLMs,"Tom Cappendijk, Pepijn de Reus, Ana Oprescu",2024-11-15T21:45:58Z,2024-11-15T21:45:58Z,"The increasing electricity demands of personal computers, communication
-networks, and data centers contribute to higher atmospheric greenhouse gas
-emissions, which in turn lead to global warming and climate change. Therefore
-the energy consumption of code must be minimized. Code can be generated by
-large language models. We look at the influence of prompt modification on the
-energy consumption of the code generated. We use three different Python code
-problems of varying difficulty levels. Prompt modification is done by adding
-the sentence ``Give me an energy-optimized solution for this problem'' or by
-using two Python coding best practices. The large language models used are
-CodeLlama-70b, CodeLlama-70b-Instruct, CodeLlama-70b-Python,
-DeepSeek-Coder-33b-base, and DeepSeek-Coder-33b-instruct. We find a decrease in
-energy consumption for a specific combination of prompt optimization, LLM, and
-Python code problem. However, no single optimization prompt consistently
-decreases energy consumption for the same LLM across the different Python code
-problems.",http://arxiv.org/pdf/2411.10599v1,2411.10599v1,"['cs.SE', 'cs.AI']",,,
-"FinRL-DeepSeek: LLM-Infused Risk-Sensitive Reinforcement Learning for
-  Trading Agents",Mostapha Benhenda,2025-02-11T09:23:14Z,2025-02-11T09:23:14Z,"This paper presents a novel risk-sensitive trading agent combining
-reinforcement learning and large language models (LLMs). We extend the
-Conditional Value-at-Risk Proximal Policy Optimization (CPPO) algorithm, by
-adding risk assessment and trading recommendation signals generated by a LLM
-from financial news. Our approach is backtested on the Nasdaq-100 index
-benchmark, using financial news data from the FNSPID dataset and the DeepSeek
-V3, Qwen 2.5 and Llama 3.3 language models. The code, data, and trading agents
-are available at: https://github.com/benstaf/FinRL_DeepSeek",http://arxiv.org/pdf/2502.07393v1,2502.07393v1,['q-fin.TR'],,,
-"Self-Explained Keywords Empower Large Language Models for Code
-  Generation","Lishui Fan, Mouxiang Chen, Zhongxin Liu",2024-10-21T12:52:03Z,2024-10-21T12:52:03Z,"Large language models (LLMs) have achieved impressive performance in code
-generation. However, due to the long-tail distribution of LLMs' training data,
-low-frequency terms are typically underrepresented in the training process.
-Consequently, LLMs often misunderstand or overlook problem-specific,
-low-frequency keywords during code generation, compromising the accuracy of the
-generated code. To address this, we propose a novel technique named
-SEK(\textbf{S}elf-\textbf{E}xplained \textbf{K}eywords), which empowers an LLM
-for better code generation by extracting and explaining the key terms in the
-problem description with the LLM itself and ranking them based on frequency.
-Comprehensive experiments across three benchmarks, i.e., HumanEval(+), MBPP(+),
-and APPS, with five representative LLMs, show that SEK can significantly
-improve LLMs in code generation, yielding substantial and consistent gains. For
-instance, SEK improves the Pass@1 of DeepSeek-Coder-V2-Instruct from 85.4\% to
-93.3\% on the Humaneval benchmark. Further analysis confirms that SEK enables
-the LLMs to shift their attention from low-frequency keywords to their
-corresponding high-frequency counterparts.",http://arxiv.org/pdf/2410.15966v1,2410.15966v1,"['cs.CL', 'cs.AI', 'cs.SE']",,,
-"Quantification of Biodiversity from Historical Survey Text with
-  LLM-based Best-Worst Scaling","Thomas Haider, Tobias Perschl, Malte Rehbein",2025-02-06T12:25:16Z,2025-02-06T12:25:16Z,"In this study, we evaluate methods to determine the frequency of species via
-quantity estimation from historical survey text. To that end, we formulate
-classification tasks and finally show that this problem can be adequately
-framed as a regression task using Best-Worst Scaling (BWS) with Large Language
-Models (LLMs). We test Ministral-8B, DeepSeek-V3, and GPT-4, finding that the
-latter two have reasonable agreement with humans and each other. We conclude
-that this approach is more cost-effective and similarly robust compared to a
-fine-grained multi-class approach, allowing automated quantity estimation
-across species.",http://arxiv.org/pdf/2502.04022v1,2502.04022v1,['cs.CL'],,,"NoDaLiDa 2025, EcoNLP Workshop"
-"DotaMath: Decomposition of Thought with Code Assistance and
-  Self-correction for Mathematical Reasoning","Chengpeng Li, Guanting Dong, Mingfeng Xue, Ru Peng, Xiang Wang, Dayiheng Liu",2024-07-04T17:39:16Z,2024-07-17T13:13:05Z,"Large language models (LLMs) have made impressive progress in handling simple
-math problems, yet they still struggle with more challenging and complex
-mathematical tasks. In this paper, we introduce a series of LLMs that employs
-the Decomposition of thought with code assistance and self-correction for
-mathematical reasoning, dubbed as DotaMath. DotaMath models tackle complex
-mathematical tasks by decomposing them into simpler logical subtasks,
-leveraging code to solve these subtasks, obtaining fine-grained feedback from
-the code interpreter, and engaging in self-reflection and correction. By
-annotating diverse interactive tool-use trajectories and employing query
-evolution on GSM8K and MATH datasets, we generate an instruction fine-tuning
-dataset called DotaMathQA with 574K query-response pairs. We train a series of
-base LLMs using imitation learning on DotaMathQA, resulting in DotaMath models
-that achieve remarkable performance compared to open-source LLMs across various
-in-domain and out-of-domain benchmarks. Notably, DotaMath-deepseek-7B showcases
-an outstanding performance of 64.8% on the competitive MATH dataset and 86.7%
-on GSM8K. Besides, DotaMath-deepseek-7B maintains strong competitiveness on a
-series of in-domain and out-of-domain benchmarks (Avg. 80.1%). Looking forward,
-we anticipate that the DotaMath paradigm will open new pathways for addressing
-intricate mathematical problems. Our code is publicly available at
-https://github.com/ChengpengLi1003/DotaMath.",http://arxiv.org/pdf/2407.04078v3,2407.04078v3,"['cs.CL', 'cs.AI', 'cs.LG']",,,Work in progress
-TransMLA: Multi-head Latent Attention Is All You Need,"Fanxu Meng, Zengwei Yao, Muhan Zhang",2025-02-11T18:20:18Z,2025-02-11T18:20:18Z,"Modern large language models (LLMs) often encounter communication bottlenecks
-on current hardware, rather than purely computational constraints. Multi-head
-Latent Attention (MLA) tackles this challenge by using low-rank matrices in the
-key-value (KV) layers, thereby allowing compressed latent KV states to be
-cached. This approach significantly reduces the KV cache size relative to
-traditional multi-head attention, leading to faster inference. Moreover, MLA
-employs an up-projection matrix to increase expressiveness, trading additional
-computation for reduced communication overhead. Although MLA has demonstrated
-efficiency and effectiveness in Deepseek V2/V3/R1, many major model providers
-still rely on Group Query Attention (GQA) and have not announced any plans to
-adopt MLA. In this paper, we show that GQA can always be represented by MLA
-while maintaining the same KV cache overhead, but the converse does not hold.
-To encourage broader use of MLA, we introduce **TransMLA**, a post-training
-method that converts widely used GQA-based pre-trained models (e.g., LLaMA,
-Qwen, Mixtral) into MLA-based models. After conversion, the model can undergo
-additional training to boost expressiveness without increasing the KV cache
-size. Furthermore, we plan to develop MLA-specific inference acceleration
-techniques to preserve low latency in transformed models, thus enabling more
-efficient distillation of Deepseek R1.",http://arxiv.org/pdf/2502.07864v1,2502.07864v1,"['cs.LG', 'cs.AI']",,,https://github.com/fxmeng/TransMLA
-Pride and Prejudice: LLM Amplifies Self-Bias in Self-Refinement,"Wenda Xu, Guanglei Zhu, Xuandong Zhao, Liangming Pan, Lei Li, William Yang Wang",2024-02-18T03:10:39Z,2024-06-18T04:41:07Z,"Recent studies show that large language models (LLMs) improve their
-performance through self-feedback on certain tasks while degrade on others. We
-discovered that such a contrary is due to LLM's bias in evaluating their own
-output. In this paper, we formally define LLM's self-bias - the tendency to
-favor its own generation - using two statistics. We analyze six LLMs (GPT-4,
-GPT-3.5, Gemini, LLaMA2, Mixtral and DeepSeek) on translation, constrained text
-generation, and mathematical reasoning tasks. We find that self-bias is
-prevalent in all examined LLMs across multiple languages and tasks. Our
-analysis reveals that while the self-refine pipeline improves the fluency and
-understandability of model outputs, it further amplifies self-bias. To mitigate
-such biases, we discover that larger model size and external feedback with
-accurate assessment can significantly reduce bias in the self-refine pipeline,
-leading to actual performance improvement in downstream tasks. The code and
-data are released at https://github.com/xu1998hz/llm_self_bias.",http://arxiv.org/pdf/2402.11436v2,2402.11436v2,"['cs.CL', 'cs.AI']",,,
-"LLM4VV: Exploring LLM-as-a-Judge for Validation and Verification
-  Testsuites","Zachariah Sollenberger, Jay Patel, Christian Munley, Aaron Jarmusch, Sunita Chandrasekaran",2024-08-21T15:54:17Z,2024-08-22T02:38:56Z,"Large Language Models (LLM) are evolving and have significantly
-revolutionized the landscape of software development. If used well, they can
-significantly accelerate the software development cycle. At the same time, the
-community is very cautious of the models being trained on biased or sensitive
-data, which can lead to biased outputs along with the inadvertent release of
-confidential information. Additionally, the carbon footprints and the
-un-explainability of these black box models continue to raise questions about
-the usability of LLMs.
-  With the abundance of opportunities LLMs have to offer, this paper explores
-the idea of judging tests used to evaluate compiler implementations of
-directive-based programming models as well as probe into the black box of LLMs.
-Based on our results, utilizing an agent-based prompting approach and setting
-up a validation pipeline structure drastically increased the quality of
-DeepSeek Coder, the LLM chosen for the evaluation purposes.",http://arxiv.org/pdf/2408.11729v2,2408.11729v2,['cs.SE'],,,
-Large Language Models as Code Executors: An Exploratory Study,"Chenyang Lyu, Lecheng Yan, Rui Xing, Wenxi Li, Younes Samih, Tianbo Ji, Longyue Wang",2024-10-09T08:23:22Z,2024-10-10T05:12:44Z,"The capabilities of Large Language Models (LLMs) have significantly evolved,
-extending from natural language processing to complex tasks like code
-understanding and generation. We expand the scope of LLMs' capabilities to a
-broader context, using LLMs to execute code snippets to obtain the output. This
-paper pioneers the exploration of LLMs as code executors, where code snippets
-are directly fed to the models for execution, and outputs are returned. We are
-the first to comprehensively examine this feasibility across various LLMs,
-including OpenAI's o1, GPT-4o, GPT-3.5, DeepSeek, and Qwen-Coder. Notably, the
-o1 model achieved over 90% accuracy in code execution, while others
-demonstrated lower accuracy levels. Furthermore, we introduce an Iterative
-Instruction Prompting (IIP) technique that processes code snippets line by
-line, enhancing the accuracy of weaker models by an average of 7.22% (with the
-highest improvement of 18.96%) and an absolute average improvement of 3.86%
-against CoT prompting (with the highest improvement of 19.46%). Our study not
-only highlights the transformative potential of LLMs in coding but also lays
-the groundwork for future advancements in automated programming and the
-completion of complex tasks.",http://arxiv.org/pdf/2410.06667v2,2410.06667v2,"['cs.CL', 'cs.AI']",,,
-"DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via
-  Reinforcement Learning","DeepSeek-AI, Daya Guo, Dejian Yang, Haowei Zhang, Junxiao Song, Ruoyu Zhang, Runxin Xu, Qihao Zhu, Shirong Ma, Peiyi Wang, Xiao Bi, Xiaokang Zhang, Xingkai Yu, Yu Wu, Z. F. Wu, Zhibin Gou, Zhihong Shao, Zhuoshu Li, Ziyi Gao, Aixin Liu, Bing Xue, Bingxuan Wang, Bochao Wu, Bei Feng, Chengda Lu, Chenggang Zhao, Chengqi Deng, Chenyu Zhang, Chong Ruan, Damai Dai, Deli Chen, Dongjie Ji, Erhang Li, Fangyun Lin, Fucong Dai, Fuli Luo, Guangbo Hao, Guanting Chen, Guowei Li, H. Zhang, Han Bao, Hanwei Xu, Haocheng Wang, Honghui Ding, Huajian Xin, Huazuo Gao, Hui Qu, Hui Li, Jianzhong Guo, Jiashi Li, Jiawei Wang, Jingchang Chen, Jingyang Yuan, Junjie Qiu, Junlong Li, J. L. Cai, Jiaqi Ni, Jian Liang, Jin Chen, Kai Dong, Kai Hu, Kaige Gao, Kang Guan, Kexin Huang, Kuai Yu, Lean Wang, Lecong Zhang, Liang Zhao, Litong Wang, Liyue Zhang, Lei Xu, Leyi Xia, Mingchuan Zhang, Minghua Zhang, Minghui Tang, Meng Li, Miaojun Wang, Mingming Li, Ning Tian, Panpan Huang, Peng Zhang, Qiancheng Wang, Qinyu Chen, Qiushi Du, Ruiqi Ge, Ruisong Zhang, Ruizhe Pan, Runji Wang, R. J. Chen, R. L. Jin, Ruyi Chen, Shanghao Lu, Shangyan Zhou, Shanhuang Chen, Shengfeng Ye, Shiyu Wang, Shuiping Yu, Shunfeng Zhou, Shuting Pan, S. S. Li, Shuang Zhou, Shaoqing Wu, Shengfeng Ye, Tao Yun, Tian Pei, Tianyu Sun, T. Wang, Wangding Zeng, Wanjia Zhao, Wen Liu, Wenfeng Liang, Wenjun Gao, Wenqin Yu, Wentao Zhang, W. L. Xiao, Wei An, Xiaodong Liu, Xiaohan Wang, Xiaokang Chen, Xiaotao Nie, Xin Cheng, Xin Liu, Xin Xie, Xingchao Liu, Xinyu Yang, Xinyuan Li, Xuecheng Su, Xuheng Lin, X. Q. Li, Xiangyue Jin, Xiaojin Shen, Xiaosha Chen, Xiaowen Sun, Xiaoxiang Wang, Xinnan Song, Xinyi Zhou, Xianzu Wang, Xinxia Shan, Y. K. Li, Y. Q. Wang, Y. X. Wei, Yang Zhang, Yanhong Xu, Yao Li, Yao Zhao, Yaofeng Sun, Yaohui Wang, Yi Yu, Yichao Zhang, Yifan Shi, Yiliang Xiong, Ying He, Yishi Piao, Yisong Wang, Yixuan Tan, Yiyang Ma, Yiyuan Liu, Yongqiang Guo, Yuan Ou, Yuduan Wang, Yue Gong, Yuheng Zou, Yujia He, Yunfan Xiong, Yuxiang Luo, Yuxiang You, Yuxuan Liu, Yuyang Zhou, Y. X. Zhu, Yanhong Xu, Yanping Huang, Yaohui Li, Yi Zheng, Yuchen Zhu, Yunxian Ma, Ying Tang, Yukun Zha, Yuting Yan, Z. Z. Ren, Zehui Ren, Zhangli Sha, Zhe Fu, Zhean Xu, Zhenda Xie, Zhengyan Zhang, Zhewen Hao, Zhicheng Ma, Zhigang Yan, Zhiyu Wu, Zihui Gu, Zijia Zhu, Zijun Liu, Zilin Li, Ziwei Xie, Ziyang Song, Zizheng Pan, Zhen Huang, Zhipeng Xu, Zhongyu Zhang, Zhen Zhang",2025-01-22T15:19:35Z,2025-01-22T15:19:35Z,"We introduce our first-generation reasoning models, DeepSeek-R1-Zero and
-DeepSeek-R1. DeepSeek-R1-Zero, a model trained via large-scale reinforcement
-learning (RL) without supervised fine-tuning (SFT) as a preliminary step,
-demonstrates remarkable reasoning capabilities. Through RL, DeepSeek-R1-Zero
-naturally emerges with numerous powerful and intriguing reasoning behaviors.
-However, it encounters challenges such as poor readability, and language
-mixing. To address these issues and further enhance reasoning performance, we
-introduce DeepSeek-R1, which incorporates multi-stage training and cold-start
-data before RL. DeepSeek-R1 achieves performance comparable to OpenAI-o1-1217
-on reasoning tasks. To support the research community, we open-source
-DeepSeek-R1-Zero, DeepSeek-R1, and six dense models (1.5B, 7B, 8B, 14B, 32B,
-70B) distilled from DeepSeek-R1 based on Qwen and Llama.",http://arxiv.org/pdf/2501.12948v1,2501.12948v1,"['cs.CL', 'cs.AI', 'cs.LG']",,,
-Showing LLM-Generated Code Selectively Based on Confidence of LLMs,"Jia Li, Yuqi Zhu, Yongmin Li, Ge Li, Zhi Jin",2024-10-04T08:51:31Z,2024-10-04T08:51:31Z,"Large Language Models (LLMs) have shown impressive abilities in code
-generation, but they may generate erroneous programs. Reading a program takes
-ten times longer than writing it. Showing these erroneous programs to
-developers will waste developers' energies and introduce security risks to
-software.
-  To address the above limitations, we propose HonestCoder, a novel LLM-based
-code generation approach. HonestCoder selectively shows the generated programs
-to developers based on LLMs' confidence. The confidence provides valuable
-insights into the correctness of generated programs. To achieve this goal, we
-propose a novel approach to estimate LLMs' confidence in code generation. It
-estimates confidence by measuring the multi-modal similarity between
-LLMs-generated programs.
-  We collect and release a multilingual benchmark named TruthCodeBench, which
-consists of 2,265 samples and covers two popular programming languages (i.e.,
-Python and Java). We apply HonestCoder to four popular LLMs (e.g.,
-DeepSeek-Coder and Code Llama) and evaluate it on TruthCodeBench. Based on the
-experiments, we obtain the following insights. (1) HonestCoder can effectively
-estimate LLMs' confidence and accurately determine the correctness of generated
-programs. For example, HonestCoder outperforms the state-of-the-art baseline by
-27.79% in AUROC and 63.74% in AUCPR. (2) HonestCoder can decrease the number of
-erroneous programs shown to developers. Compared to eight baselines, it can
-show more correct programs and fewer erroneous programs to developers. (3)
-Compared to showing code indiscriminately, HonestCoder only adds slight time
-overhead (approximately 0.4 seconds per requirement). (4) We discuss future
-directions to facilitate the application of LLMs in software development. We
-hope this work can motivate broad discussions about measuring the reliability
-of LLMs' outputs in performing code-related tasks.",http://arxiv.org/pdf/2410.03234v1,2410.03234v1,"['cs.SE', 'cs.CL']",,,
-"Can 1B LLM Surpass 405B LLM? Rethinking Compute-Optimal Test-Time
-  Scaling","Runze Liu, Junqi Gao, Jian Zhao, Kaiyan Zhang, Xiu Li, Biqing Qi, Wanli Ouyang, Bowen Zhou",2025-02-10T17:30:23Z,2025-02-10T17:30:23Z,"Test-Time Scaling (TTS) is an important method for improving the performance
-of Large Language Models (LLMs) by using additional computation during the
-inference phase. However, current studies do not systematically analyze how
-policy models, Process Reward Models (PRMs), and problem difficulty influence
-TTS. This lack of analysis limits the understanding and practical use of TTS
-methods. In this paper, we focus on two core questions: (1) What is the optimal
-approach to scale test-time computation across different policy models, PRMs,
-and problem difficulty levels? (2) To what extent can extended computation
-improve the performance of LLMs on complex tasks, and can smaller language
-models outperform larger ones through this approach? Through comprehensive
-experiments on MATH-500 and challenging AIME24 tasks, we have the following
-observations: (1) The compute-optimal TTS strategy is highly dependent on the
-choice of policy model, PRM, and problem difficulty. (2) With our
-compute-optimal TTS strategy, extremely small policy models can outperform
-larger models. For example, a 1B LLM can exceed a 405B LLM on MATH-500.
-Moreover, on both MATH-500 and AIME24, a 0.5B LLM outperforms GPT-4o, a 3B LLM
-surpasses a 405B LLM, and a 7B LLM beats o1 and DeepSeek-R1, while with higher
-inference efficiency. These findings show the significance of adapting TTS
-strategies to the specific characteristics of each task and model and indicate
-that TTS is a promising approach for enhancing the reasoning abilities of LLMs.",http://arxiv.org/pdf/2502.06703v1,2502.06703v1,['cs.CL'],,,
-Evaluating LLM Reasoning in the Operations Research Domain with ORQA,"Mahdi Mostajabdaveh, Timothy T. Yu, Samarendra Chandan Bindu Dash, Rindranirina Ramamonjison, Jabo Serge Byusa, Giuseppe Carenini, Zirui Zhou, Yong Zhang",2024-12-22T09:10:34Z,2025-02-09T16:39:50Z,"In this paper, we introduce and apply Operations Research Question Answering
-(ORQA), a new benchmark designed to assess the generalization capabilities of
-Large Language Models (LLMs) in the specialized technical domain of Operations
-Research (OR). This benchmark evaluates whether LLMs can emulate the knowledge
-and reasoning skills of OR experts when confronted with diverse and complex
-optimization problems. The dataset, developed by OR experts, features
-real-world optimization problems that demand multistep reasoning to construct
-their mathematical models. Our evaluations of various open source LLMs, such as
-LLaMA 3.1, DeepSeek, and Mixtral, reveal their modest performance, highlighting
-a gap in their ability to generalize to specialized technical domains. This
-work contributes to the ongoing discourse on LLMs generalization capabilities,
-offering valuable insights for future research in this area. The dataset and
-evaluation code are publicly available.",http://arxiv.org/pdf/2412.17874v2,2412.17874v2,"['cs.CL', 'cs.AI']",,,"12 pages, 10 figures. Accepted and to be published in AAAI25"
-"Deception in LLMs: Self-Preservation and Autonomous Goals in Large
-  Language Models","Sudarshan Kamath Barkur, Sigurd Schacht, Johannes Scholl",2025-01-27T21:26:37Z,2025-01-30T08:00:14Z,"Recent advances in Large Language Models (LLMs) have incorporated planning
-and reasoning capabilities, enabling models to outline steps before execution
-and provide transparent reasoning paths. This enhancement has reduced errors in
-mathematical and logical tasks while improving accuracy. These developments
-have facilitated LLMs' use as agents that can interact with tools and adapt
-their responses based on new information.
-  Our study examines DeepSeek R1, a model trained to output reasoning tokens
-similar to OpenAI's o1. Testing revealed concerning behaviors: the model
-exhibited deceptive tendencies and demonstrated self-preservation instincts,
-including attempts of self-replication, despite these traits not being
-explicitly programmed (or prompted). These findings raise concerns about LLMs
-potentially masking their true objectives behind a facade of alignment. When
-integrating such LLMs into robotic systems, the risks become tangible - a
-physically embodied AI exhibiting deceptive behaviors and self-preservation
-instincts could pursue its hidden objectives through real-world actions. This
-highlights the critical need for robust goal specification and safety
-frameworks before any physical implementation.",http://arxiv.org/pdf/2501.16513v2,2501.16513v2,['cs.CL'],,,"Corrected Version - Solved Some Issues with reference compilation by
-  latex"
-ZebraLogic: On the Scaling Limits of LLMs for Logical Reasoning,"Bill Yuchen Lin, Ronan Le Bras, Kyle Richardson, Ashish Sabharwal, Radha Poovendran, Peter Clark, Yejin Choi",2025-02-03T06:44:49Z,2025-02-03T06:44:49Z,"We investigate the logical reasoning capabilities of large language models
-(LLMs) and their scalability in complex non-monotonic reasoning. To this end,
-we introduce ZebraLogic, a comprehensive evaluation framework for assessing LLM
-reasoning performance on logic grid puzzles derived from constraint
-satisfaction problems (CSPs). ZebraLogic enables the generation of puzzles with
-controllable and quantifiable complexity, facilitating a systematic study of
-the scaling limits of models such as Llama, o1 models, and DeepSeek-R1. By
-encompassing a broad range of search space complexities and diverse logical
-constraints, ZebraLogic provides a structured environment to evaluate reasoning
-under increasing difficulty.
-  Our results reveal a significant decline in accuracy as problem complexity
-grows -- a phenomenon we term the curse of complexity. This limitation persists
-even with larger models and increased inference-time computation, suggesting
-inherent constraints in current LLM reasoning capabilities. Additionally, we
-explore strategies to enhance logical reasoning, including Best-of-N sampling,
-backtracking mechanisms, and self-verification prompts. Our findings offer
-critical insights into the scalability of LLM reasoning, highlight fundamental
-limitations, and outline potential directions for improvement.",http://arxiv.org/pdf/2502.01100v1,2502.01100v1,"['cs.AI', 'cs.CL', 'cs.LG']",,,Website: https://huggingface.co/spaces/WildEval/ZebraLogic
-Benchmarking Bias in Large Language Models during Role-Playing,"Xinyue Li, Zhenpeng Chen, Jie M. Zhang, Yiling Lou, Tianlin Li, Weisong Sun, Yang Liu, Xuanzhe Liu",2024-11-01T13:47:00Z,2024-11-01T13:47:00Z,"Large Language Models (LLMs) have become foundational in modern
-language-driven applications, profoundly influencing daily life. A critical
-technique in leveraging their potential is role-playing, where LLMs simulate
-diverse roles to enhance their real-world utility. However, while research has
-highlighted the presence of social biases in LLM outputs, it remains unclear
-whether and to what extent these biases emerge during role-playing scenarios.
-In this paper, we introduce BiasLens, a fairness testing framework designed to
-systematically expose biases in LLMs during role-playing. Our approach uses
-LLMs to generate 550 social roles across a comprehensive set of 11 demographic
-attributes, producing 33,000 role-specific questions targeting various forms of
-bias. These questions, spanning Yes/No, multiple-choice, and open-ended
-formats, are designed to prompt LLMs to adopt specific roles and respond
-accordingly. We employ a combination of rule-based and LLM-based strategies to
-identify biased responses, rigorously validated through human evaluation. Using
-the generated questions as the benchmark, we conduct extensive evaluations of
-six advanced LLMs released by OpenAI, Mistral AI, Meta, Alibaba, and DeepSeek.
-Our benchmark reveals 72,716 biased responses across the studied LLMs, with
-individual models yielding between 7,754 and 16,963 biased responses,
-underscoring the prevalence of bias in role-playing contexts. To support future
-research, we have publicly released the benchmark, along with all scripts and
-experimental results.",http://arxiv.org/pdf/2411.00585v1,2411.00585v1,"['cs.CY', 'cs.AI']",,,
+Probabilistic Inferences in Bayesian Networks,Jianguo Ding,2010-11-03T16:50:22Z,2010-11-05T14:14:33Z,"Bayesian network is a complete model for the variables and their
+relationships, it can be used to answer probabilistic queries about them. A
+Bayesian network can thus be considered a mechanism for automatically applying
+Bayes' theorem to complex problems. In the application of Bayesian networks,
+most of the work is related to probabilistic inferences. Any variable updating
+in any node of Bayesian networks might result in the evidence propagation
+across the Bayesian networks. This paper sums up various inference techniques
+in Bayesian networks and provide guidance for the algorithm calculation in
+probabilistic inference in Bayesian networks.",http://arxiv.org/pdf/1011.0935v2,1011.0935v2,"['cs.AI', 'cs.NI']",,,"14 pages, 9 figures, book chapter"
+Semiparametric Bayesian Networks,"David Atienza, Concha Bielza, Pedro Larrañaga",2021-09-07T11:47:32Z,2021-09-07T11:47:32Z,"We introduce semiparametric Bayesian networks that combine parametric and
+nonparametric conditional probability distributions. Their aim is to
+incorporate the advantages of both components: the bounded complexity of
+parametric models and the flexibility of nonparametric ones. We demonstrate
+that semiparametric Bayesian networks generalize two well-known types of
+Bayesian networks: Gaussian Bayesian networks and kernel density estimation
+Bayesian networks. For this purpose, we consider two different conditional
+probability distributions required in a semiparametric Bayesian network. In
+addition, we present modifications of two well-known algorithms (greedy
+hill-climbing and PC) to learn the structure of a semiparametric Bayesian
+network from data. To realize this, we employ a score function based on
+cross-validation. In addition, using a validation dataset, we apply an
+early-stopping criterion to avoid overfitting. To evaluate the applicability of
+the proposed algorithm, we conduct an exhaustive experiment on synthetic data
+sampled by mixing linear and nonlinear functions, multivariate normal data
+sampled from Gaussian Bayesian networks, real data from the UCI repository, and
+bearings degradation data. As a result of this experiment, we conclude that the
+proposed algorithm accurately learns the combination of parametric and
+nonparametric components, while achieving a performance comparable with those
+provided by state-of-the-art methods.",http://arxiv.org/pdf/2109.03008v1,2109.03008v1,"['cs.LG', 'stat.ML', '68T05 68T10', 'I.5.1; I.2.6']",,,"44 pages, 13 figures, 4 tables, submitted to Information Sciences"
+Are Bayesian networks typically faithful?,"Philip Boeken, Patrick Forré, Joris M. Mooij",2024-10-21T13:38:04Z,2025-01-20T09:40:00Z,"Faithfulness is a ubiquitous assumption in causal inference, often motivated
+by the fact that the faithful parameters of linear Gaussian and discrete
+Bayesian networks are typical, and the folklore belief that this should also
+hold for other classes of Bayesian networks. We address this open question by
+showing that among all Bayesian networks over a given DAG, the faithful
+Bayesian networks are indeed `typical': they constitute a dense, open set with
+respect to the total variation metric. However, this does not imply that
+faithfulness is typical in restricted classes of Bayesian networks, as are
+often considered in statistical applications. To this end we consider the class
+of Bayesian networks parametrised by conditional exponential families, for
+which we show that under mild regularity conditions, the faithful parameters
+constitute a dense, open set and the unfaithful parameters have Lebesgue
+measure zero, extending the existing results for linear Gaussian and discrete
+Bayesian networks. Finally, we show that the aforementioned results also hold
+for Bayesian networks with latent variables.",http://arxiv.org/pdf/2410.16004v2,2410.16004v2,"['math.ST', 'math.PR', 'stat.ML', 'stat.TH']",,,
+Markov Equivalence of Max-Linear Bayesian Networks,"Carlos Améndola, Ben Hollering, Seth Sullivant, Ngoc Tran",2021-06-15T17:27:21Z,2021-06-15T17:27:21Z,"Max-linear Bayesian networks have emerged as highly applicable models for
+causal inference via extreme value data. However, conditional independence (CI)
+for max-linear Bayesian networks behaves differently than for classical
+Gaussian Bayesian networks. We establish the parallel between the two theories
+via tropicalization, and establish the surprising result that the Markov
+equivalence classes for max-linear Bayesian networks coincide with the ones
+obtained by regular CI. Our paper opens up many problems at the intersection of
+extreme value statistics, causal inference and tropical geometry.",http://arxiv.org/pdf/2106.08305v1,2106.08305v1,"['math.ST', 'math.AG', 'math.CO', 'stat.TH', '62H22, 14T90, 62G32, 62R01']",,,"19 pages, 5 figures, accepted for the 37th conference on Uncertainty
+  in Artificial Intelligence (UAI 2021)"
+"Improving Cancer Imaging Diagnosis with Bayesian Networks and Deep
+  Learning: A Bayesian Deep Learning Approach","Pei Xi, Lin",2024-03-28T01:27:10Z,2024-03-28T01:27:10Z,"With recent advancements in the development of artificial intelligence
+applications using theories and algorithms in machine learning, many accurate
+models can be created to train and predict on given datasets. With the
+realization of the importance of imaging interpretation in cancer diagnosis,
+this article aims to investigate the theory behind Deep Learning and Bayesian
+Network prediction models. Based on the advantages and drawbacks of each model,
+different approaches will be used to construct a Bayesian Deep Learning Model,
+combining the strengths while minimizing the weaknesses. Finally, the
+applications and accuracy of the resulting Bayesian Deep Learning approach in
+the health industry in classifying images will be analyzed.",http://arxiv.org/pdf/2403.19083v1,2403.19083v1,"['cs.LG', 'cs.AI', 'eess.IV']",,,
+Bayesian Networks for Brain-Computer Interfaces: A Survey,Pingsheng Li,2022-05-24T00:35:53Z,2022-05-24T00:35:53Z,"Brain-Computer Interface (BCI) is a rapidly developing technology that allows
+direct communications between the human brain and external devices, such as
+robotic arms and computers. Bayesian Networks is a powerful tool in machine
+learning for tackling with problems that requires understanding and modelling
+the uncertainty and complexity within complex system built by sub-modular
+components. Therefore, deploying Bayesian Networks in the application of
+Brain-Computer Interfaces becomes an increasingly popular approach in BCI
+research. This survey covers related existing works in relatively high-level
+perspectives, classifies the models and algorithms involved, and also
+summarizes the application of Bayesian Networks or its variants in the context
+of Brain-Computer Interfaces.",http://arxiv.org/pdf/2206.07487v1,2206.07487v1,['eess.SP'],,,
+"Constrained Bayesian Networks: Theory, Optimization, and Applications","Paul Beaumont, Michael Huth",2017-05-15T16:48:12Z,2017-05-15T16:48:12Z,"We develop the theory and practice of an approach to modelling and
+probabilistic inference in causal networks that is suitable when
+application-specific or analysis-specific constraints should inform such
+inference or when little or no data for the learning of causal network
+structure or probability values at nodes are available. Constrained Bayesian
+Networks generalize a Bayesian Network such that probabilities can be symbolic,
+arithmetic expressions and where the meaning of the network is constrained by
+finitely many formulas from the theory of the reals. A formal semantics for
+constrained Bayesian Networks over first-order logic of the reals is given,
+which enables non-linear and non-convex optimisation algorithms that rely on
+decision procedures for this logic, and supports the composition of several
+constrained Bayesian Networks. A non-trivial case study in arms control, where
+few or no data are available to assess the effectiveness of an arms inspection
+process, evaluates our approach. An open-access prototype implementation of
+these foundations and their algorithms uses the SMT solver Z3 as decision
+procedure, leverages an open-source package for Bayesian inference to symbolic
+computation, and is evaluated experimentally.",http://arxiv.org/pdf/1705.05326v1,1705.05326v1,['cs.AI'],,,"43 pages, 18 figures"
+On tensor rank of conditional probability tables in Bayesian networks,"Jiří Vomlel, Petr Tichavský",2014-09-22T19:32:15Z,2014-09-22T19:32:15Z,"A difficult task in modeling with Bayesian networks is the elicitation of
+numerical parameters of Bayesian networks. A large number of parameters is
+needed to specify a conditional probability table (CPT) that has a larger
+parent set. In this paper we show that, most CPTs from real applications of
+Bayesian networks can actually be very well approximated by tables that require
+substantially less parameters. This observation has practical consequence not
+only for model elicitation but also for efficient probabilistic reasoning with
+these networks.",http://arxiv.org/pdf/1409.6287v1,1409.6287v1,"['cs.AI', '68T37', 'I.2.3']",,,
+"Bayesian Low-Rank LeArning (Bella): A Practical Approach to Bayesian
+  Neural Networks","Bao Gia Doan, Afshar Shamsi, Xiao-Yu Guo, Arash Mohammadi, Hamid Alinejad-Rokny, Dino Sejdinovic, Damien Teney, Damith C. Ranasinghe, Ehsan Abbasnejad",2024-07-30T15:07:13Z,2025-01-16T14:45:36Z,"Computational complexity of Bayesian learning is impeding its adoption in
+practical, large-scale tasks. Despite demonstrations of significant merits such
+as improved robustness and resilience to unseen or out-of-distribution inputs
+over their non- Bayesian counterparts, their practical use has faded to near
+insignificance. In this study, we introduce an innovative framework to mitigate
+the computational burden of Bayesian neural networks (BNNs). Our approach
+follows the principle of Bayesian techniques based on deep ensembles, but
+significantly reduces their cost via multiple low-rank perturbations of
+parameters arising from a pre-trained neural network. Both vanilla version of
+ensembles as well as more sophisticated schemes such as Bayesian learning with
+Stein Variational Gradient Descent (SVGD), previously deemed impractical for
+large models, can be seamlessly implemented within the proposed framework,
+called Bayesian Low-Rank LeArning (Bella). In a nutshell, i) Bella achieves a
+dramatic reduction in the number of trainable parameters required to
+approximate a Bayesian posterior; and ii) it not only maintains, but in some
+instances, surpasses the performance of conventional Bayesian learning methods
+and non-Bayesian baselines. Our results with large-scale tasks such as
+ImageNet, CAMELYON17, DomainNet, VQA with CLIP, LLaVA demonstrate the
+effectiveness and versatility of Bella in building highly scalable and
+practical Bayesian deep models for real-world applications.",http://arxiv.org/pdf/2407.20891v4,2407.20891v4,"['cs.LG', 'cs.AI', 'cs.CV']",,,This paper is accepted in AAAI'2025
+Bayesian Network Models for Incomplete and Dynamic Data,Marco Scutari,2019-06-15T09:59:04Z,2019-10-24T12:17:33Z,"Bayesian networks are a versatile and powerful tool to model complex
+phenomena and the interplay of their components in a probabilistically
+principled way. Moving beyond the comparatively simple case of completely
+observed, static data, which has received the most attention in the literature,
+in this paper we will review how Bayesian networks can model dynamic data and
+data with incomplete observations. Such data are the norm at the forefront of
+research and in practical applications, and Bayesian networks are uniquely
+positioned to model them due to their explainability and interpretability.",http://arxiv.org/pdf/1906.06513v2,1906.06513v2,"['stat.ME', 'math.ST', 'stat.ML', 'stat.TH']",,"Statistica Neerlandica (2020), 74(3), 397-419","24 pages, 4 figures"
