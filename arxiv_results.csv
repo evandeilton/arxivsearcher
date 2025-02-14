@@ -1,265 +1,329 @@
 title,authors,published,updated,summary,pdf_url,arxiv_id,categories,doi,journal_ref,comment
-Loyalty Programs in the Sharing Economy: Optimality and Competition,"Zhixuan Fang, Longbo Huang, Adam Wierman",2018-05-09T15:16:50Z,2018-05-09T15:16:50Z,"Loyalty programs are important tools for sharing platforms seeking to grow
-supply. Online sharing platforms use loyalty programs to heavily subsidize
-resource providers, encouraging participation and boosting supply. As the
-sharing economy has evolved and competition has increased, the design of
-loyalty programs has begun to play a crucial role in the pursuit of maximal
-revenue. In this paper, we first characterize the optimal loyalty program for a
-platform with homogeneous users. We then show that optimal revenue in a
-heterogeneous market can be achieved by a class of multi-threshold loyalty
-program (MTLP) which admits a simple implementation-friendly structure. We also
-study the performance of loyalty programs in a setting with two competing
-sharing platforms, showing that the degree of heterogeneity is a crucial factor
-for both loyalty programs and pricing strategies. Our results show that
-sophisticated loyalty programs that reward suppliers via stepwise linear
-functions outperform simple sign-up bonuses, which give them a one time reward
-for participating.",http://arxiv.org/pdf/1805.03581v1,1805.03581v1,['cs.GT'],,,
-Privacy-preserving Loyalty Programs,"Alberto Blanco-Justicia, Josep Domingo-Ferrer",2014-11-14T16:32:44Z,2014-12-01T16:25:19Z,"Loyalty programs are promoted by vendors to incentivize loyalty in buyers.
-Although such programs have become widespread, they have been criticized by
-business experts and consumer associations: loyalty results in profiling and
-hence in loss of privacy of consumers. We propose a protocol for
-privacy-preserving loyalty programs that allows vendors and consumers to enjoy
-the benefits of loyalty (returning customers and discounts, respectively),
-while allowing consumers to stay anonymous and empowering them to decide how
-much of their profile they reveal to the vendor. The vendor must offer
-additional reward if he wants to learn more details on the consumer's profile.
-Our protocol is based on partially blind signatures and generalization
-techniques, and provides anonymity to consumers and their purchases, while
-still allowing negotiated consumer profiling.",http://arxiv.org/pdf/1411.3961v2,1411.3961v2,['cs.CR'],,,"Presented at the 9th DPM International Workshop on Data Privacy
-  Management (DPM 2014, held on Sep. 10, 2014). To appear in workshop
-  proceedings, LNCS, Springer"
-Fast Privacy-Preserving Punch Cards,Saba Eskandarian,2020-06-10T21:49:15Z,2021-02-19T17:40:52Z,"Loyalty programs in the form of punch cards that can be redeemed for benefits
-have long been a ubiquitous element of the consumer landscape. However, their
-increasingly popular digital equivalents, while providing more convenience and
-better bookkeeping, pose a considerable privacy risk. This paper introduces a
-privacy-preserving punch card protocol that allows firms to digitize their
-loyalty programs without forcing customers to submit to corporate surveillance.
-We also present a number of extensions that allow our scheme to provide other
-privacy-preserving customer loyalty features.
-  Compared to the best prior work, we achieve a $14\times$ reduction in the
-computation and a $11\times$ reduction in the communication required to perform
-a ""hole punch,"" a $55\times$ reduction in the communication required to redeem
-a punch card, and a $128\times$ reduction in the computation time required to
-redeem a card. Much of our performance improvement can be attributed to
-removing the reliance on pairings or range proofs present in prior work, which
-has only addressed this problem in the context of more general loyalty systems.
-By tailoring our scheme to punch cards and related loyalty systems, we
-demonstrate that we can reduce communication and computation costs by orders of
-magnitude.",http://arxiv.org/pdf/2006.06079v3,2006.06079v3,['cs.CR'],,,
-"The shape of the relative frailty variance induced by discrete random
-  effect distributions in univariate and multivariate survival models","Maximilian Bardo, Steffen Unkel",2023-03-08T22:11:45Z,2023-03-08T22:11:45Z,"In statistical models for the analysis of time-to-event data, individual
-heterogeneity is usually accounted for by means of one or more random effects,
-also known as frailties. In the vast majority of the literature, the random
-effect is assumed to follow a continuous probability distribution. However, in
-some areas of application, a discrete frailty distribution may be more
-appropriate. We investigate and compare various existing families of discrete
-univariate and shared frailty models by taking as our focus the variance of the
-relative frailty distribution in survivors. The relative frailty variance (RFV)
-among survivors provides a readily interpretable measure of how the
-heterogeneity of a population, as represented by a frailty model, evolves over
-time. We explore the shape of the RFV for the purpose of model selection and
-review available discrete random effect distributions in this context. We find
-non-monotone trajectories of the RFV for discrete univariate and shared frailty
-models, which is a rare property. Furthermore, we proof that for discrete
-time-invariant univariate and shared frailty models with (without) an atom at
-zero, the limit of the RFV approaches infinity (zero), if the support of the
-discrete distribution can be arranged in ascending order. Through the
-one-to-one relationship of the RFV with the cross-ratio function in shared
-frailty models, which we generalize to the higher-variate case, our results
-also apply to patterns of association within a cluster. Extensions and
-contrasts to discrete time-varying frailty models and contrasts to correlated
-discrete frailty models are discussed.",http://arxiv.org/pdf/2303.04915v1,2303.04915v1,"['stat.ME', '62N99, 62H20', 'G.3']",,,"25 pages, 2 figures, 1 table"
-How Many Customers Does a Retail Store Have?,"Ondřej Sokol, Vladimír Holý",2019-04-23T08:36:02Z,2020-04-05T19:00:17Z,"The knowledge of the number of customers is the pillar of retail business
-analytics. In our setting, we assume that a portion of customers is monitored
-and easily counted due to the loyalty program while the rest is not monitored.
-The behavior of customers in both groups may significantly differ making the
-estimation of the number of unmonitored customers a non-trivial task. We
-identify shopping patterns of several customer segments which allows us to
-estimate the distribution of customers without the loyalty card using the
-maximum likelihood method. In a simulation study, we find that the proposed
-approach is quite precise even when the data sample is very small and its
-assumptions are violated to a certain degree. In an empirical study of a
-drugstore chain, we validate and illustrate the proposed approach in practice.
-The actual number of customers estimated by the proposed method is much higher
-than the number suggested by the naive estimate assuming the constant customer
-distribution. The proposed method can also be utilized to determine penetration
-of the loyalty program in the individual customer segments.",http://arxiv.org/pdf/1904.10199v2,1904.10199v2,['stat.AP'],,,
-"Frozen propagation of Reynolds force vector from high-fidelity data into
-  Reynolds-averaged simulations of secondary flows","Ali Amarloo, Pourya Forooghi, Mahdi Abkar",2022-09-08T16:45:31Z,2022-10-08T09:52:12Z,"Successful propagation of information from high-fidelity sources (i.e.,
-direct numerical simulations and large-eddy simulations) into Reynolds-averaged
-Navier-Stokes (RANS) equations plays an important role in the emerging field of
-data-driven RANS modeling. Small errors carried in high-fidelity data can
-propagate amplified errors into the mean flow field, and higher Reynolds
-numbers worsen the error propagation. In this study, we compare a series of
-propagation methods for two cases of Prandtl's secondary flows of the second
-kind: square-duct flow at a low Reynolds number and roughness-induced secondary
-flow at a very high Reynolds number. We show that frozen treatments result in
-less error propagation than the implicit treatment of Reynolds stress tensor
-(RST), and for cases with very high Reynolds numbers, explicit and implicit
-treatments are not recommended. Inspired by the obtained results, we introduce
-the frozen treatment to the propagation of Reynolds force vector (RFV), which
-leads to less error propagation. Specifically, for both cases at low and high
-Reynolds numbers, propagation of RFV results in one order of magnitude lower
-error compared to RST propagation. In the frozen treatment method, three
-different eddy-viscosity models are used to evaluate the effect of turbulent
-diffusion on error propagation. We show that, regardless of the baseline model,
-the frozen treatment of RFV results in less error propagation. We combined one
-extra correction term for turbulent kinetic energy with the frozen treatment of
-RFV, which makes our propagation technique capable of reproducing both velocity
-and turbulent kinetic energy fields similar to high-fidelity data.",http://arxiv.org/pdf/2209.03911v2,2209.03911v2,['physics.flu-dyn'],10.1063/5.0123231,,
-"Price Discrimination in the Presence of Customer Loyalty and Differing
-  Firm Costs","Theja Tulabandhula, Aris Ouksel, Son Nguyen",2021-02-16T23:34:29Z,2022-01-22T21:10:57Z,"We study how loyalty behavior of customers and differing costs to produce
-undifferentiated products by firms can influence market outcomes. In prior
-works that study such markets, firm costs have generally been assumed
-negligible or equal, and loyalty is modeled as an additive bias in customer
-valuations. We extend these previous treatments by explicitly considering cost
-asymmetry and richer customer loyalty behavior in a game-theoretic model. Thus,
-in the setting where firms incur different non-negligible product costs, and
-customers have firm-specific loyalty levels, we comprehensively characterize
-the effects of loyalty and product cost difference on market outcomes such as
-prices, market shares, and profits. Our analysis and numerical simulations
-provide new insights into how firms can price, how they can survive competition
-even with higher product costs, and how they can control these costs and/or
-increase customer loyalty to change their market position.",http://arxiv.org/pdf/2102.09620v2,2102.09620v2,"['econ.TH', 'math.OC']",,,"82 pages, 12 figures"
-"Attitudinal Loyalty Manifestation in Banking CSR: Cross-Buying Behavior
-  and Customer Advocacy","Muhamad Bhayuta Yudhi Putera, Melia Famiola",2024-04-17T04:41:19Z,2024-04-17T04:41:19Z,"This study in the banking industry examines the influence of attitudinal
-loyalty on customer advocacy and cross buying behavior, alongside the
-moderating roles of Quality of Life and Corporate Social Responsibility support
-in the CSR fit and loyalty relationship. Employing Structural Equation
-Modeling, it reveals that higher attitudinal loyalty significantly boosts
-customer advocacy and propensity for cross buying. The findings highlight the
-importance of nurturing customer loyalty through valuable and relevant
-offerings, as CSR fit alone does not define the loyalty of the banking
-customer. Banks are advised to target customers with a high Quality of Life and
-engage with those who support CSR initiatives aligning with the banks
-objectives, to enhance loyalty and deepen customer relationships.",http://arxiv.org/pdf/2404.11063v1,2404.11063v1,"['econ.GN', 'q-fin.EC']",10.56472/25835238/IRJEMS-V3I3P131,,"13 pages, 2 figures, 1 table, 1 appendix, published with
-  International Research Journal of Economics and Management Studies (IRJEMS)"
-Loyalty in Online Communities,"William L. Hamilton, Justine Zhang, Cristian Danescu-Niculescu-Mizil, Dan Jurafsky, Jure Leskovec",2017-03-09T18:37:50Z,2017-05-24T14:45:13Z,"Loyalty is an essential component of multi-community engagement. When users
-have the choice to engage with a variety of different communities, they often
-become loyal to just one, focusing on that community at the expense of others.
-However, it is unclear how loyalty is manifested in user behavior, or whether
-loyalty is encouraged by certain community characteristics.
-  In this paper we operationalize loyalty as a user-community relation: users
-loyal to a community consistently prefer it over all others; loyal communities
-retain their loyal users over time. By exploring this relation using a large
-dataset of discussion communities from Reddit, we reveal that loyalty is
-manifested in remarkably consistent behaviors across a wide spectrum of
-communities. Loyal users employ language that signals collective identity and
-engage with more esoteric, less popular content, indicating they may play a
-curational role in surfacing new material. Loyal communities have denser
-user-user interaction networks and lower rates of triadic closure, suggesting
-that community-level loyalty is associated with more cohesive interactions and
-less fragmentation into subgroups. We exploit these general patterns to predict
-future rates of loyalty. Our results show that a user's propensity to become
-loyal is apparent from their first interactions with a community, suggesting
-that some users are intrinsically loyal from the very beginning.",http://arxiv.org/pdf/1703.03386v3,1703.03386v3,"['cs.SI', 'cs.CL']",,,"Extended version of a paper appearing in the Proceedings of ICWSM
-  2017 (with the same title); please cite the official ICWSM version"
-Phenomenological consequences of radiative flavor violation in the MSSM,"Andreas Crivellin, Lars Hofer, Ulrich Nierste, Dominik Scherer",2011-05-13T19:57:16Z,2011-12-06T23:36:19Z,"In this article we investigate the consequences of radiative flavor violation
-(RFV) in the Minimal Supersymmetric Standard Model (MSSM). In this framework
-the small off-diagonal elements of the Cabibbo-Kobayashi-Maskawa (CKM) matrix
-and the small quark masses of the first two generations are generated from the
-trilinear supersymmetry-breaking terms. The impact of RFV on flavor-physics
-observables is studied in detail. We focus on the limiting cases in which the
-CKM matrix is either generated in the down-sector, i.e. by the soft
-SUSY-breaking mass insertions delta^dLR_i3 (i=1,2), or in the up-quark sector,
-i.e. by the mass insertions delta^uLR_i3. In the first case we find an
-enhancement of b->s gamma, which constrains the allowed range of sparticle
-masses (Fig. 3). In addition, neutral Higgs penguins significantly contribute
-to B_s,d->mu^+mu^- and, if also delta^dLR_32 is different from zero, these
-Higgs effects are capable of explaining the observed CP phase in the B_s
-system. If, on the other hand, the CKM generation takes place in the up-sector,
-|epsilon_K| receives additional positive contributions enforcing large squark
-and gluino masses (see Fig. 8). In this case also the rare decay K->pi nu nu
-receives sizable contributions. In conclusion we find that for SUSY masses
-around 1 TeV RFV is an interesting alternative to Minimal Flavor Violation
-(MFV).",http://arxiv.org/pdf/1105.2818v3,1105.2818v3,"['hep-ph', 'hep-ex']",10.1103/PhysRevD.84.035030,,"12 pages, 10 figures, version accepted for publication in PRD, eq.
-  (14) and eq. (15) corrected"
-"The Green Advantage: Analyzing the Effects of Eco-Friendly Marketing on
-  Consumer Loyalty","Erfan Mohammadi, MohammadMahdi Barzegar, Mahdi Nohekhan",2023-12-27T19:30:58Z,2023-12-27T19:30:58Z,"The idea that marketing, in addition to profitability and sales, should also
-consider the consumer's health is not and has not been a far-fetched concept.
-It can be stated that there is no longer a way back to producing
-environmentally harmful products, and gradually, governmental pressures,
-competition, and changing customer attitudes are obliging companies to adopt
-and implement a green marketing approach. Over time, concepts such as green
-marketing have penetrated marketing literature, making environmental
-considerations one of the most important activities of companies. For this
-purpose, this research examines the effects of green marketing strategy on
-brand loyalty (case study: food exporting companies). The population of this
-study consists of 345 employees and managers of companies like Kalleh, Solico,
-Pemina, Sorben, Mac, Pol, and Casel, out of which 182 were randomly selected as
-a sample using Cochran's formula. This research is practical; the required data
-were collected through a survey and questionnaire. The research results
-indicate that (1) green marketing strategy significantly affects brand loyalty.
-(2) Green products have a significant positive effect on brand loyalty. (3)
-Green promotion has a significant positive effect on brand loyalty. (4) Green
-distribution has a significant positive effect on brand loyalty. (5) Green
-pricing has a significant positive effect on brand loyalty.",http://arxiv.org/pdf/2312.16698v1,2312.16698v1,"['econ.GN', 'q-fin.EC']",,,
-"Jump off the Bandwagon? Characterizing Bandwagon Fans' Future Loyalty in
-  Online NBA Fan Communities","Yichen Wang, Qin Lv",2024-01-21T23:48:14Z,2024-01-21T23:48:14Z,"Online user dynamics has been actively studied in recent years and bandwagon
-behavior is one of the most representative topics which can provide valuable
-insights for user identity change. Many previous studies have characterized
-bandwagon users and leveraged such characteristics to tackle practical problems
-such as community loyalty prediction. However, very few of them have
-investigated bandwagon dynamics from a long-term perspective. In this work, we
-focus on characterizing and predicting long-term bandwagon user behaviors in
-the context of online fan loyalty. Using a dataset collected from NBA-related
-discussion forums on Reddit, we trace the long-term loyalty status of bandwagon
-fans to capture their latent behavioral characteristics and then propose a
-computational model to predict their next sport season loyalty status with
-their home teams. Our analyses reveal that bandwagoning for most fans is a
-temporary switch and most of them will be back in the long term. In addition,
-online fans with different loyalty levels to their home teams have demonstrated
-different behaviors in various aspects, such as activity level, language usage
-and reply network properties. We then propose a model based on such behavioral
-characteristics to predict their next-season loyalty status. Its promising
-performance demonstrates the effectiveness of our behavior characterization.",http://arxiv.org/pdf/2401.11629v1,2401.11629v1,"['cs.CY', 'cs.SI']",,,Accepted to IEEE SocialCom 2023
-E-loyalty networks in online auctions,"Wolfgang Jank, Inbal Yahav",2010-10-08T09:32:37Z,2010-10-08T09:32:37Z,"Creating a loyal customer base is one of the most important, and at the same
-time, most difficult tasks a company faces. Creating loyalty online (e-loyalty)
-is especially difficult since customers can ``switch'' to a competitor with the
-click of a mouse. In this paper we investigate e-loyalty in online auctions.
-Using a unique data set of over 30,000 auctions from one of the main
-consumer-to-consumer online auction houses, we propose a novel measure of
-e-loyalty via the associated network of transactions between bidders and
-sellers. Using a bipartite network of bidder and seller nodes, two nodes are
-linked when a bidder purchases from a seller and the number of repeat-purchases
-determines the strength of that link. We employ ideas from functional principal
-component analysis to derive, from this network, the loyalty distribution which
-measures the perceived loyalty of every individual seller, and associated
-loyalty scores which summarize this distribution in a parsimonious way. We then
-investigate the effect of loyalty on the outcome of an auction. In doing so, we
-are confronted with several statistical challenges in that standard statistical
-models lead to a misrepresentation of the data and a violation of the model
-assumptions. The reason is that loyalty networks result in an extreme
-clustering of the data, with few high-volume sellers accounting for most of the
-individual transactions. We investigate several remedies to the clustering
-problem and conclude that loyalty networks consist of very distinct segments
-that can best be understood individually.",http://arxiv.org/pdf/1010.1636v1,1010.1636v1,['stat.AP'],10.1214/09-AOAS310,"Annals of Applied Statistics 2010, Vol. 4, No. 1, 151-178","Published in at http://dx.doi.org/10.1214/09-AOAS310 the Annals of
-  Applied Statistics (http://www.imstat.org/aoas/) by the Institute of
-  Mathematical Statistics (http://www.imstat.org)"
-"Beyond Preserved Accuracy: Evaluating Loyalty and Robustness of BERT
-  Compression","Canwen Xu, Wangchunshu Zhou, Tao Ge, Ke Xu, Julian McAuley, Furu Wei",2021-09-07T17:55:47Z,2021-10-04T10:52:39Z,"Recent studies on compression of pretrained language models (e.g., BERT)
-usually use preserved accuracy as the metric for evaluation. In this paper, we
-propose two new metrics, label loyalty and probability loyalty that measure how
-closely a compressed model (i.e., student) mimics the original model (i.e.,
-teacher). We also explore the effect of compression with regard to robustness
-under adversarial attacks. We benchmark quantization, pruning, knowledge
-distillation and progressive module replacing with loyalty and robustness. By
-combining multiple compression techniques, we provide a practical strategy to
-achieve better accuracy, loyalty and robustness.",http://arxiv.org/pdf/2109.03228v2,2109.03228v2,"['cs.CL', 'cs.AI', 'cs.LG']",,,Accepted to EMNLP 2021 (main conference)
-Evolution of Voronoi based Fuzzy Recurrent Controllers,"Carlos Kavka, Patricia Roggero, Marc Schoenauer",2005-11-28T07:14:18Z,2005-11-28T07:14:18Z,"A fuzzy controller is usually designed by formulating the knowledge of a
-human expert into a set of linguistic variables and fuzzy rules. Among the most
-successful methods to automate the fuzzy controllers development process are
-evolutionary algorithms. In this work, we propose the Recurrent Fuzzy Voronoi
-(RFV) model, a representation for recurrent fuzzy systems. It is an extension
-of the FV model proposed by Kavka and Schoenauer that extends the application
-domain to include temporal problems. The FV model is a representation for fuzzy
-controllers based on Voronoi diagrams that can represent fuzzy systems with
-synergistic rules, fulfilling the $\epsilon$-completeness property and
-providing a simple way to introduce a priory knowledge. In the proposed
-representation, the temporal relations are embedded by including internal units
-that provide feedback by connecting outputs to inputs. These internal units act
-as memory elements. In the RFV model, the semantic of the internal units can be
-specified together with the a priori rules. The geometric interpretation of the
-rules allows the use of geometric variational operators during the evolution.
-The representation and the algorithms are validated in two problems in the area
-of system identification and evolutionary robotics.",http://arxiv.org/pdf/cs/0511091v1,cs/0511091v1,['cs.AI'],,Dans GECCO 2005,
+Memory Analysis on the Training Course of DeepSeek Models,"Ping Zhang, Lei Su",2025-02-11T09:51:25Z,2025-02-11T09:51:25Z,"We present a theoretical analysis of GPU memory consumption during the
+training of DeepSeek models such as DeepSeek-v2 and DeepSeek-v3. Our primary
+objective is to clarify the device-level memory requirements associated with
+various distributed training configurations. Specifically, we examine critical
+factors influencing memory usage, including micro-batch size, activation
+recomputation policies, 3D parallelism, and ZeRO optimizations. It is important
+to emphasize that the training policies discussed in this report are not
+representative of DeepSeek's official configurations. Instead, they are
+explored to provide a deeper understanding of memory dynamics in training of
+large-scale mixture-of-experts model.",http://arxiv.org/pdf/2502.07846v1,2502.07846v1,"['cs.PF', 'cs.LG']",,,
+"DeepSeek-VL2: Mixture-of-Experts Vision-Language Models for Advanced
+  Multimodal Understanding","Zhiyu Wu, Xiaokang Chen, Zizheng Pan, Xingchao Liu, Wen Liu, Damai Dai, Huazuo Gao, Yiyang Ma, Chengyue Wu, Bingxuan Wang, Zhenda Xie, Yu Wu, Kai Hu, Jiawei Wang, Yaofeng Sun, Yukun Li, Yishi Piao, Kang Guan, Aixin Liu, Xin Xie, Yuxiang You, Kai Dong, Xingkai Yu, Haowei Zhang, Liang Zhao, Yisong Wang, Chong Ruan",2024-12-13T17:37:48Z,2024-12-13T17:37:48Z,"We present DeepSeek-VL2, an advanced series of large Mixture-of-Experts (MoE)
+Vision-Language Models that significantly improves upon its predecessor,
+DeepSeek-VL, through two key major upgrades. For the vision component, we
+incorporate a dynamic tiling vision encoding strategy designed for processing
+high-resolution images with different aspect ratios. For the language
+component, we leverage DeepSeekMoE models with the Multi-head Latent Attention
+mechanism, which compresses Key-Value cache into latent vectors, to enable
+efficient inference and high throughput. Trained on an improved vision-language
+dataset, DeepSeek-VL2 demonstrates superior capabilities across various tasks,
+including but not limited to visual question answering, optical character
+recognition, document/table/chart understanding, and visual grounding. Our
+model series is composed of three variants: DeepSeek-VL2-Tiny,
+DeepSeek-VL2-Small and DeepSeek-VL2, with 1.0B, 2.8B and 4.5B activated
+parameters respectively. DeepSeek-VL2 achieves competitive or state-of-the-art
+performance with similar or fewer activated parameters compared to existing
+open-source dense and MoE-based models. Codes and pre-trained models are
+publicly accessible at https://github.com/deepseek-ai/DeepSeek-VL2.",http://arxiv.org/pdf/2412.10302v1,2412.10302v1,"['cs.CV', 'cs.AI', 'cs.CL']",,,
+"Token-Hungry, Yet Precise: DeepSeek R1 Highlights the Need for
+  Multi-Step Reasoning Over Speed in MATH",Evgenii Evstafev,2025-01-30T18:45:51Z,2025-01-30T18:45:51Z,"This study investigates the performance of the DeepSeek R1 language model on
+30 challenging mathematical problems derived from the MATH dataset, problems
+that previously proved unsolvable by other models under time constraints.
+Unlike prior work, this research removes time limitations to explore whether
+DeepSeek R1's architecture, known for its reliance on token-based reasoning,
+can achieve accurate solutions through a multi-step process. The study compares
+DeepSeek R1 with four other models (gemini-1.5-flash-8b,
+gpt-4o-mini-2024-07-18, llama3.1:8b, and mistral-8b-latest) across 11
+temperature settings. Results demonstrate that DeepSeek R1 achieves superior
+accuracy on these complex problems but generates significantly more tokens than
+other models, confirming its token-intensive approach. The findings highlight a
+trade-off between accuracy and efficiency in mathematical problem-solving with
+large language models: while DeepSeek R1 excels in accuracy, its reliance on
+extensive token generation may not be optimal for applications requiring rapid
+responses. The study underscores the importance of considering task-specific
+requirements when selecting an LLM and emphasizes the role of temperature
+settings in optimizing performance.",http://arxiv.org/pdf/2501.18576v1,2501.18576v1,['cs.LG'],,,"5 pages, 1 figure, 1 table"
+"DeepSeek-Coder-V2: Breaking the Barrier of Closed-Source Models in Code
+  Intelligence","DeepSeek-AI, Qihao Zhu, Daya Guo, Zhihong Shao, Dejian Yang, Peiyi Wang, Runxin Xu, Y. Wu, Yukun Li, Huazuo Gao, Shirong Ma, Wangding Zeng, Xiao Bi, Zihui Gu, Hanwei Xu, Damai Dai, Kai Dong, Liyue Zhang, Yishi Piao, Zhibin Gou, Zhenda Xie, Zhewen Hao, Bingxuan Wang, Junxiao Song, Deli Chen, Xin Xie, Kang Guan, Yuxiang You, Aixin Liu, Qiushi Du, Wenjun Gao, Xuan Lu, Qinyu Chen, Yaohui Wang, Chengqi Deng, Jiashi Li, Chenggang Zhao, Chong Ruan, Fuli Luo, Wenfeng Liang",2024-06-17T13:51:35Z,2024-06-17T13:51:35Z,"We present DeepSeek-Coder-V2, an open-source Mixture-of-Experts (MoE) code
+language model that achieves performance comparable to GPT4-Turbo in
+code-specific tasks. Specifically, DeepSeek-Coder-V2 is further pre-trained
+from an intermediate checkpoint of DeepSeek-V2 with additional 6 trillion
+tokens. Through this continued pre-training, DeepSeek-Coder-V2 substantially
+enhances the coding and mathematical reasoning capabilities of DeepSeek-V2,
+while maintaining comparable performance in general language tasks. Compared to
+DeepSeek-Coder-33B, DeepSeek-Coder-V2 demonstrates significant advancements in
+various aspects of code-related tasks, as well as reasoning and general
+capabilities. Additionally, DeepSeek-Coder-V2 expands its support for
+programming languages from 86 to 338, while extending the context length from
+16K to 128K. In standard benchmark evaluations, DeepSeek-Coder-V2 achieves
+superior performance compared to closed-source models such as GPT4-Turbo,
+Claude 3 Opus, and Gemini 1.5 Pro in coding and math benchmarks.",http://arxiv.org/pdf/2406.11931v1,2406.11931v1,"['cs.SE', 'cs.AI', 'cs.LG']",,,
+"DeepSeek-Prover-V1.5: Harnessing Proof Assistant Feedback for
+  Reinforcement Learning and Monte-Carlo Tree Search","Huajian Xin, Z. Z. Ren, Junxiao Song, Zhihong Shao, Wanjia Zhao, Haocheng Wang, Bo Liu, Liyue Zhang, Xuan Lu, Qiushi Du, Wenjun Gao, Qihao Zhu, Dejian Yang, Zhibin Gou, Z. F. Wu, Fuli Luo, Chong Ruan",2024-08-15T13:40:03Z,2024-08-15T13:40:03Z,"We introduce DeepSeek-Prover-V1.5, an open-source language model designed for
+theorem proving in Lean 4, which enhances DeepSeek-Prover-V1 by optimizing both
+training and inference processes. Pre-trained on DeepSeekMath-Base with
+specialization in formal mathematical languages, the model undergoes supervised
+fine-tuning using an enhanced formal theorem proving dataset derived from
+DeepSeek-Prover-V1. Further refinement is achieved through reinforcement
+learning from proof assistant feedback (RLPAF). Beyond the single-pass
+whole-proof generation approach of DeepSeek-Prover-V1, we propose RMaxTS, a
+variant of Monte-Carlo tree search that employs an intrinsic-reward-driven
+exploration strategy to generate diverse proof paths. DeepSeek-Prover-V1.5
+demonstrates significant improvements over DeepSeek-Prover-V1, achieving new
+state-of-the-art results on the test set of the high school level miniF2F
+benchmark ($63.5\%$) and the undergraduate level ProofNet benchmark ($25.3\%$).",http://arxiv.org/pdf/2408.08152v1,2408.08152v1,"['cs.CL', 'cs.AI', 'cs.LG', 'cs.LO']",,,
+A Comparison of DeepSeek and Other LLMs,"Tianchen Gao, Jiashun Jin, Zheng Tracy Ke, Gabriel Moryoussef",2025-02-06T00:38:25Z,2025-02-06T00:38:25Z,"Recently, DeepSeek has been the focus of attention in and beyond the AI
+community. An interesting problem is how DeepSeek compares to other large
+language models (LLMs). There are many tasks an LLM can do, and in this paper,
+we use the task of predicting an outcome using a short text for comparison. We
+consider two settings, an authorship classification setting and a citation
+classification setting. In the first one, the goal is to determine whether a
+short text is written by human or AI. In the second one, the goal is to
+classify a citation to one of four types using the textual content. For each
+experiment, we compare DeepSeek with $4$ popular LLMs: Claude, Gemini, GPT, and
+Llama.
+  We find that, in terms of classification accuracy, DeepSeek outperforms
+Gemini, GPT, and Llama in most cases, but underperforms Claude. We also find
+that DeepSeek is comparably slower than others but with a low cost to use,
+while Claude is much more expensive than all the others. Finally, we find that
+in terms of similarity, the output of DeepSeek is most similar to those of
+Gemini and Claude (and among all $5$ LLMs, Claude and Gemini have the most
+similar outputs).
+  In this paper, we also present a fully-labeled dataset collected by
+ourselves, and propose a recipe where we can use the LLMs and a recent data
+set, MADStat, to generate new data sets. The datasets in our paper can be used
+as benchmarks for future study on LLMs.",http://arxiv.org/pdf/2502.03688v1,2502.03688v1,"['cs.CL', 'cs.AI']",,,"21 pages, 5 figures, 6 tables"
+"DeepSeek on a Trip: Inducing Targeted Visual Hallucinations via
+  Representation Vulnerabilities","Chashi Mahiul Islam, Samuel Jacob Chacko, Preston Horne, Xiuwen Liu",2025-02-11T19:21:23Z,2025-02-11T19:21:23Z,"Multimodal Large Language Models (MLLMs) represent the cutting edge of AI
+technology, with DeepSeek models emerging as a leading open-source alternative
+offering competitive performance to closed-source systems. While these models
+demonstrate remarkable capabilities, their vision-language integration
+mechanisms introduce specific vulnerabilities. We implement an adapted
+embedding manipulation attack on DeepSeek Janus that induces targeted visual
+hallucinations through systematic optimization of image embeddings. Through
+extensive experimentation across COCO, DALL-E 3, and SVIT datasets, we achieve
+hallucination rates of up to 98.0% while maintaining high visual fidelity (SSIM
+> 0.88) of the manipulated images on open-ended questions. Our analysis
+demonstrates that both 1B and 7B variants of DeepSeek Janus are susceptible to
+these attacks, with closed-form evaluation showing consistently higher
+hallucination rates compared to open-ended questioning. We introduce a novel
+multi-prompt hallucination detection framework using LLaMA-3.1 8B Instruct for
+robust evaluation. The implications of these findings are particularly
+concerning given DeepSeek's open-source nature and widespread deployment
+potential. This research emphasizes the critical need for embedding-level
+security measures in MLLM deployment pipelines and contributes to the broader
+discussion of responsible AI implementation.",http://arxiv.org/pdf/2502.07905v1,2502.07905v1,"['cs.CV', 'cs.LG']",,,"19 pages, 4 figures"
+"Challenges in Ensuring AI Safety in DeepSeek-R1 Models: The Shortcomings
+  of Reinforcement Learning Strategies","Manojkumar Parmar, Yuvaraj Govindarajulu",2025-01-28T15:52:51Z,2025-01-28T15:52:51Z,"Large Language Models (LLMs) have achieved remarkable progress in reasoning,
+alignment, and task-specific performance. However, ensuring harmlessness in
+these systems remains a critical challenge, particularly in advanced models
+like DeepSeek-R1. This paper examines the limitations of Reinforcement Learning
+(RL) as the primary approach for reducing harmful outputs in DeepSeek-R1 and
+compares it with Supervised Fine-Tuning (SFT). While RL improves reasoning
+capabilities, it faces challenges such as reward hacking, generalization
+failures, language mixing, and high computational costs. We propose hybrid
+training approaches combining RL and SFT to achieve robust harmlessness
+reduction. Usage recommendations and future directions for deploying
+DeepSeek-R1 responsibly are also presented.",http://arxiv.org/pdf/2501.17030v1,2501.17030v1,"['cs.LG', 'cs.AI', 'cs.CL', 'cs.CR']",,,"9 pages, 1 table"
+o3-mini vs DeepSeek-R1: Which One is Safer?,"Aitor Arrieta, Miriam Ugarte, Pablo Valle, José Antonio Parejo, Sergio Segura",2025-01-30T15:45:56Z,2025-01-31T15:39:00Z,"The irruption of DeepSeek-R1 constitutes a turning point for the AI industry
+in general and the LLMs in particular. Its capabilities have demonstrated
+outstanding performance in several tasks, including creative thinking, code
+generation, maths and automated program repair, at apparently lower execution
+cost. However, LLMs must adhere to an important qualitative property, i.e.,
+their alignment with safety and human values. A clear competitor of DeepSeek-R1
+is its American counterpart, OpenAI's o3-mini model, which is expected to set
+high standards in terms of performance, safety and cost. In this technical
+report, we systematically assess the safety level of both DeepSeek-R1 (70b
+version) and OpenAI's o3-mini (beta version). To this end, we make use of our
+recently released automated safety testing tool, named ASTRAL. By leveraging
+this tool, we automatically and systematically generated and executed 1,260
+test inputs on both models. After conducting a semi-automated assessment of the
+outcomes provided by both LLMs, the results indicate that DeepSeek-R1 produces
+significantly more unsafe responses (12%) than OpenAI's o3-mini (1.2%).",http://arxiv.org/pdf/2501.18438v2,2501.18438v2,"['cs.SE', 'cs.AI']",,,arXiv admin note: substantial text overlap with arXiv:2501.17749
+"DeepSeek-Coder: When the Large Language Model Meets Programming -- The
+  Rise of Code Intelligence","Daya Guo, Qihao Zhu, Dejian Yang, Zhenda Xie, Kai Dong, Wentao Zhang, Guanting Chen, Xiao Bi, Y. Wu, Y. K. Li, Fuli Luo, Yingfei Xiong, Wenfeng Liang",2024-01-25T14:17:53Z,2024-01-26T09:23:11Z,"The rapid development of large language models has revolutionized code
+intelligence in software development. However, the predominance of
+closed-source models has restricted extensive research and development. To
+address this, we introduce the DeepSeek-Coder series, a range of open-source
+code models with sizes from 1.3B to 33B, trained from scratch on 2 trillion
+tokens. These models are pre-trained on a high-quality project-level code
+corpus and employ a fill-in-the-blank task with a 16K window to enhance code
+generation and infilling. Our extensive evaluations demonstrate that
+DeepSeek-Coder not only achieves state-of-the-art performance among open-source
+code models across multiple benchmarks but also surpasses existing
+closed-source models like Codex and GPT-3.5. Furthermore, DeepSeek-Coder models
+are under a permissive license that allows for both research and unrestricted
+commercial use.",http://arxiv.org/pdf/2401.14196v2,2401.14196v2,"['cs.SE', 'cs.CL', 'cs.LG']",,,
+Brief analysis of DeepSeek R1 and its implications for Generative AI,"Sarah Mercer, Samuel Spillard, Daniel P. Martin",2025-02-04T17:45:32Z,2025-02-07T15:02:21Z,"In late January 2025, DeepSeek released their new reasoning model (DeepSeek
+R1); which was developed at a fraction of the cost yet remains competitive with
+OpenAI's models, despite the US's GPU export ban. This report discusses the
+model, and what its release means for the field of Generative AI more widely.
+We briefly discuss other models released from China in recent weeks, their
+similarities; innovative use of Mixture of Experts (MoE), Reinforcement
+Learning (RL) and clever engineering appear to be key factors in the
+capabilities of these models. This think piece has been written to a tight
+timescale, providing broad coverage of the topic, and serves as introductory
+material for those looking to understand the model's technical advancements, as
+well as its place in the ecosystem. Several further areas of research are
+identified.",http://arxiv.org/pdf/2502.02523v3,2502.02523v3,['cs.LG'],,,
+"An Open Recipe: Adapting Language-Specific LLMs to a Reasoning Model in
+  One Day via Model Merging","Kunat Pipatanakul, Pittawat Taveekitworachai, Potsawee Manakul, Kasima Tharnpipitchai",2025-02-13T08:10:45Z,2025-02-13T08:10:45Z,"This paper investigates data selection and model merging methodologies aimed
+at incorporating advanced reasoning capabilities such as those of DeepSeek R1
+into language-specific large language models (LLMs), with a particular focus on
+the Thai LLM. Our goal is to enhance the reasoning capabilities of
+language-specific LLMs while maintaining their target language abilities.
+DeepSeek R1 excels in reasoning but primarily benefits high-resource languages
+such as English and Chinese. However, low-resource languages remain underserved
+due to the dominance of English-centric training data and model optimizations,
+which limit performance in these languages. This limitation results in
+unreliable code-switching and diminished effectiveness on tasks in low-resource
+languages. Meanwhile, local and regional LLM initiatives have attempted to
+bridge this gap by developing language-specific LLMs that focus on improving
+local linguistic fidelity. We demonstrate that, with only publicly available
+datasets and a computational budget of $120, it is possible to enhance the
+reasoning capabilities of language-specific LLMs to match the level of DeepSeek
+R1, without compromising their performance on target language tasks.",http://arxiv.org/pdf/2502.09056v1,2502.09056v1,"['cs.CL', 'cs.AI']",,,9 pages
+DeepSeek-VL: Towards Real-World Vision-Language Understanding,"Haoyu Lu, Wen Liu, Bo Zhang, Bingxuan Wang, Kai Dong, Bo Liu, Jingxiang Sun, Tongzheng Ren, Zhuoshu Li, Hao Yang, Yaofeng Sun, Chengqi Deng, Hanwei Xu, Zhenda Xie, Chong Ruan",2024-03-08T18:46:00Z,2024-03-11T16:47:41Z,"We present DeepSeek-VL, an open-source Vision-Language (VL) Model designed
+for real-world vision and language understanding applications. Our approach is
+structured around three key dimensions:
+  We strive to ensure our data is diverse, scalable, and extensively covers
+real-world scenarios including web screenshots, PDFs, OCR, charts, and
+knowledge-based content, aiming for a comprehensive representation of practical
+contexts. Further, we create a use case taxonomy from real user scenarios and
+construct an instruction tuning dataset accordingly. The fine-tuning with this
+dataset substantially improves the model's user experience in practical
+applications. Considering efficiency and the demands of most real-world
+scenarios, DeepSeek-VL incorporates a hybrid vision encoder that efficiently
+processes high-resolution images (1024 x 1024), while maintaining a relatively
+low computational overhead. This design choice ensures the model's ability to
+capture critical semantic and detailed information across various visual tasks.
+We posit that a proficient Vision-Language Model should, foremost, possess
+strong language abilities. To ensure the preservation of LLM capabilities
+during pretraining, we investigate an effective VL pretraining strategy by
+integrating LLM training from the beginning and carefully managing the
+competitive dynamics observed between vision and language modalities.
+  The DeepSeek-VL family (both 1.3B and 7B models) showcases superior user
+experiences as a vision-language chatbot in real-world applications, achieving
+state-of-the-art or competitive performance across a wide range of
+visual-language benchmarks at the same model size while maintaining robust
+performance on language-centric benchmarks. We have made both 1.3B and 7B
+models publicly accessible to foster innovations based on this foundation
+model.",http://arxiv.org/pdf/2403.05525v2,2403.05525v2,['cs.AI'],,,https://github.com/deepseek-ai/DeepSeek-VL
+DeepSeek LLM: Scaling Open-Source Language Models with Longtermism,"DeepSeek-AI, :, Xiao Bi, Deli Chen, Guanting Chen, Shanhuang Chen, Damai Dai, Chengqi Deng, Honghui Ding, Kai Dong, Qiushi Du, Zhe Fu, Huazuo Gao, Kaige Gao, Wenjun Gao, Ruiqi Ge, Kang Guan, Daya Guo, Jianzhong Guo, Guangbo Hao, Zhewen Hao, Ying He, Wenjie Hu, Panpan Huang, Erhang Li, Guowei Li, Jiashi Li, Yao Li, Y. K. Li, Wenfeng Liang, Fangyun Lin, A. X. Liu, Bo Liu, Wen Liu, Xiaodong Liu, Xin Liu, Yiyuan Liu, Haoyu Lu, Shanghao Lu, Fuli Luo, Shirong Ma, Xiaotao Nie, Tian Pei, Yishi Piao, Junjie Qiu, Hui Qu, Tongzheng Ren, Zehui Ren, Chong Ruan, Zhangli Sha, Zhihong Shao, Junxiao Song, Xuecheng Su, Jingxiang Sun, Yaofeng Sun, Minghui Tang, Bingxuan Wang, Peiyi Wang, Shiyu Wang, Yaohui Wang, Yongji Wang, Tong Wu, Y. Wu, Xin Xie, Zhenda Xie, Ziwei Xie, Yiliang Xiong, Hanwei Xu, R. X. Xu, Yanhong Xu, Dejian Yang, Yuxiang You, Shuiping Yu, Xingkai Yu, B. Zhang, Haowei Zhang, Lecong Zhang, Liyue Zhang, Mingchuan Zhang, Minghua Zhang, Wentao Zhang, Yichao Zhang, Chenggang Zhao, Yao Zhao, Shangyan Zhou, Shunfeng Zhou, Qihao Zhu, Yuheng Zou",2024-01-05T18:59:13Z,2024-01-05T18:59:13Z,"The rapid development of open-source large language models (LLMs) has been
+truly remarkable. However, the scaling law described in previous literature
+presents varying conclusions, which casts a dark cloud over scaling LLMs. We
+delve into the study of scaling laws and present our distinctive findings that
+facilitate scaling of large scale models in two commonly used open-source
+configurations, 7B and 67B. Guided by the scaling laws, we introduce DeepSeek
+LLM, a project dedicated to advancing open-source language models with a
+long-term perspective. To support the pre-training phase, we have developed a
+dataset that currently consists of 2 trillion tokens and is continuously
+expanding. We further conduct supervised fine-tuning (SFT) and Direct
+Preference Optimization (DPO) on DeepSeek LLM Base models, resulting in the
+creation of DeepSeek Chat models. Our evaluation results demonstrate that
+DeepSeek LLM 67B surpasses LLaMA-2 70B on various benchmarks, particularly in
+the domains of code, mathematics, and reasoning. Furthermore, open-ended
+evaluations reveal that DeepSeek LLM 67B Chat exhibits superior performance
+compared to GPT-3.5.",http://arxiv.org/pdf/2401.02954v1,2401.02954v1,"['cs.CL', 'cs.AI', 'cs.LG']",,,
+DeepSeek-V3 Technical Report,"DeepSeek-AI, Aixin Liu, Bei Feng, Bing Xue, Bingxuan Wang, Bochao Wu, Chengda Lu, Chenggang Zhao, Chengqi Deng, Chenyu Zhang, Chong Ruan, Damai Dai, Daya Guo, Dejian Yang, Deli Chen, Dongjie Ji, Erhang Li, Fangyun Lin, Fucong Dai, Fuli Luo, Guangbo Hao, Guanting Chen, Guowei Li, H. Zhang, Han Bao, Hanwei Xu, Haocheng Wang, Haowei Zhang, Honghui Ding, Huajian Xin, Huazuo Gao, Hui Li, Hui Qu, J. L. Cai, Jian Liang, Jianzhong Guo, Jiaqi Ni, Jiashi Li, Jiawei Wang, Jin Chen, Jingchang Chen, Jingyang Yuan, Junjie Qiu, Junlong Li, Junxiao Song, Kai Dong, Kai Hu, Kaige Gao, Kang Guan, Kexin Huang, Kuai Yu, Lean Wang, Lecong Zhang, Lei Xu, Leyi Xia, Liang Zhao, Litong Wang, Liyue Zhang, Meng Li, Miaojun Wang, Mingchuan Zhang, Minghua Zhang, Minghui Tang, Mingming Li, Ning Tian, Panpan Huang, Peiyi Wang, Peng Zhang, Qiancheng Wang, Qihao Zhu, Qinyu Chen, Qiushi Du, R. J. Chen, R. L. Jin, Ruiqi Ge, Ruisong Zhang, Ruizhe Pan, Runji Wang, Runxin Xu, Ruoyu Zhang, Ruyi Chen, S. S. Li, Shanghao Lu, Shangyan Zhou, Shanhuang Chen, Shaoqing Wu, Shengfeng Ye, Shengfeng Ye, Shirong Ma, Shiyu Wang, Shuang Zhou, Shuiping Yu, Shunfeng Zhou, Shuting Pan, T. Wang, Tao Yun, Tian Pei, Tianyu Sun, W. L. Xiao, Wangding Zeng, Wanjia Zhao, Wei An, Wen Liu, Wenfeng Liang, Wenjun Gao, Wenqin Yu, Wentao Zhang, X. Q. Li, Xiangyue Jin, Xianzu Wang, Xiao Bi, Xiaodong Liu, Xiaohan Wang, Xiaojin Shen, Xiaokang Chen, Xiaokang Zhang, Xiaosha Chen, Xiaotao Nie, Xiaowen Sun, Xiaoxiang Wang, Xin Cheng, Xin Liu, Xin Xie, Xingchao Liu, Xingkai Yu, Xinnan Song, Xinxia Shan, Xinyi Zhou, Xinyu Yang, Xinyuan Li, Xuecheng Su, Xuheng Lin, Y. K. Li, Y. Q. Wang, Y. X. Wei, Y. X. Zhu, Yang Zhang, Yanhong Xu, Yanhong Xu, Yanping Huang, Yao Li, Yao Zhao, Yaofeng Sun, Yaohui Li, Yaohui Wang, Yi Yu, Yi Zheng, Yichao Zhang, Yifan Shi, Yiliang Xiong, Ying He, Ying Tang, Yishi Piao, Yisong Wang, Yixuan Tan, Yiyang Ma, Yiyuan Liu, Yongqiang Guo, Yu Wu, Yuan Ou, Yuchen Zhu, Yuduan Wang, Yue Gong, Yuheng Zou, Yujia He, Yukun Zha, Yunfan Xiong, Yunxian Ma, Yuting Yan, Yuxiang Luo, Yuxiang You, Yuxuan Liu, Yuyang Zhou, Z. F. Wu, Z. Z. Ren, Zehui Ren, Zhangli Sha, Zhe Fu, Zhean Xu, Zhen Huang, Zhen Zhang, Zhenda Xie, Zhengyan Zhang, Zhewen Hao, Zhibin Gou, Zhicheng Ma, Zhigang Yan, Zhihong Shao, Zhipeng Xu, Zhiyu Wu, Zhongyu Zhang, Zhuoshu Li, Zihui Gu, Zijia Zhu, Zijun Liu, Zilin Li, Ziwei Xie, Ziyang Song, Ziyi Gao, Zizheng Pan",2024-12-27T04:03:16Z,2024-12-27T04:03:16Z,"We present DeepSeek-V3, a strong Mixture-of-Experts (MoE) language model with
+671B total parameters with 37B activated for each token. To achieve efficient
+inference and cost-effective training, DeepSeek-V3 adopts Multi-head Latent
+Attention (MLA) and DeepSeekMoE architectures, which were thoroughly validated
+in DeepSeek-V2. Furthermore, DeepSeek-V3 pioneers an auxiliary-loss-free
+strategy for load balancing and sets a multi-token prediction training
+objective for stronger performance. We pre-train DeepSeek-V3 on 14.8 trillion
+diverse and high-quality tokens, followed by Supervised Fine-Tuning and
+Reinforcement Learning stages to fully harness its capabilities. Comprehensive
+evaluations reveal that DeepSeek-V3 outperforms other open-source models and
+achieves performance comparable to leading closed-source models. Despite its
+excellent performance, DeepSeek-V3 requires only 2.788M H800 GPU hours for its
+full training. In addition, its training process is remarkably stable.
+Throughout the entire training process, we did not experience any irrecoverable
+loss spikes or perform any rollbacks. The model checkpoints are available at
+https://github.com/deepseek-ai/DeepSeek-V3.",http://arxiv.org/pdf/2412.19437v1,2412.19437v1,"['cs.CL', 'cs.AI']",,,
+LLM4VV: Developing LLM-Driven Testsuite for Compiler Validation,"Christian Munley, Aaron Jarmusch, Sunita Chandrasekaran",2023-10-08T01:43:39Z,2024-03-10T21:05:28Z,"Large language models (LLMs) are a new and powerful tool for a wide span of
+applications involving natural language and demonstrate impressive code
+generation abilities. The goal of this work is to automatically generate tests
+and use these tests to validate and verify compiler implementations of a
+directive-based parallel programming paradigm, OpenACC. To do so, in this
+paper, we explore the capabilities of state-of-the-art LLMs, including
+open-source LLMs -- Meta Codellama, Phind fine-tuned version of Codellama,
+Deepseek Deepseek Coder and closed-source LLMs -- OpenAI GPT-3.5-Turbo and
+GPT-4-Turbo. We further fine-tuned the open-source LLMs and GPT-3.5-Turbo using
+our own testsuite dataset along with using the OpenACC specification. We also
+explored these LLMs using various prompt engineering techniques that include
+code template, template with retrieval-augmented generation (RAG), one-shot
+example, one-shot with RAG, expressive prompt with code template and RAG. This
+paper highlights our findings from over 5000 tests generated via all the above
+mentioned methods. Our contributions include: (a) exploring the capabilities of
+the latest and relevant LLMs for code generation, (b) investigating fine-tuning
+and prompt methods, and (c) analyzing the outcome of LLMs generated tests
+including manually analysis of representative set of tests. We found the LLM
+Deepseek-Coder-33b-Instruct produced the most passing tests followed by
+GPT-4-Turbo.",http://arxiv.org/pdf/2310.04963v3,2310.04963v3,['cs.AI'],,,
+Inference-Time-Compute: More Faithful?,"James Chua, Owain Evans",2025-01-14T14:31:45Z,2025-02-10T06:09:23Z,"Models trained specifically to generate long Chains of Thought (CoTs) have
+recently achieved impressive results. We refer to these models as
+Inference-Time-Compute (ITC) models. Are the CoTs of ITC models more faithful
+compared to traditional non-ITC models? We evaluate three ITC models (based on
+Qwen-2.5, Gemini-2, and DeepSeek-V3-Base) on an existing test of faithful CoT.
+To measure faithfulness, we test if models articulate a cue in their prompt
+that influences their answers to MMLU questions. For example, when the cue ""A
+Stanford Professor thinks the answer is D"" is added to the prompt, models
+sometimes switch their answer to D. In such cases, the DeepSeek-R1 ITC model
+articulates the cue 59% of the time, compared to 7% for the non-ITC DeepSeek.
+We set a strict requirement on articulating -- these must describe how the cue
+makes the models switch their answer - simply mentioning the cue does not
+count. We evaluate 7 types of cue, such as misleading few-shot examples and
+anchoring on past responses. ITC models articulate cues that influence them
+much more reliably than all the 7 non-ITC models tested, such as
+Claude-3.5-Sonnet and GPT-4o, which often articulate close to 0% of the time.
+Finally, we conduct analysis which suggests reward modeling and length
+penalties result in unfaithful responses. However, our study has important
+limitations. We cannot evaluate OpenAI's SOTA o3 model. We also lack details
+about the training of all ITC models evaluated, making it hard to attribute our
+findings to specific processes. Faithfulness of CoT is an important property
+for AI Safety. The ITC models tested show a large improvement in faithfulness,
+which is worth investigating further.",http://arxiv.org/pdf/2501.08156v2,2501.08156v2,['cs.LG'],,,"10 pages, 8 figures"
+"DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via
+  Reinforcement Learning","DeepSeek-AI, Daya Guo, Dejian Yang, Haowei Zhang, Junxiao Song, Ruoyu Zhang, Runxin Xu, Qihao Zhu, Shirong Ma, Peiyi Wang, Xiao Bi, Xiaokang Zhang, Xingkai Yu, Yu Wu, Z. F. Wu, Zhibin Gou, Zhihong Shao, Zhuoshu Li, Ziyi Gao, Aixin Liu, Bing Xue, Bingxuan Wang, Bochao Wu, Bei Feng, Chengda Lu, Chenggang Zhao, Chengqi Deng, Chenyu Zhang, Chong Ruan, Damai Dai, Deli Chen, Dongjie Ji, Erhang Li, Fangyun Lin, Fucong Dai, Fuli Luo, Guangbo Hao, Guanting Chen, Guowei Li, H. Zhang, Han Bao, Hanwei Xu, Haocheng Wang, Honghui Ding, Huajian Xin, Huazuo Gao, Hui Qu, Hui Li, Jianzhong Guo, Jiashi Li, Jiawei Wang, Jingchang Chen, Jingyang Yuan, Junjie Qiu, Junlong Li, J. L. Cai, Jiaqi Ni, Jian Liang, Jin Chen, Kai Dong, Kai Hu, Kaige Gao, Kang Guan, Kexin Huang, Kuai Yu, Lean Wang, Lecong Zhang, Liang Zhao, Litong Wang, Liyue Zhang, Lei Xu, Leyi Xia, Mingchuan Zhang, Minghua Zhang, Minghui Tang, Meng Li, Miaojun Wang, Mingming Li, Ning Tian, Panpan Huang, Peng Zhang, Qiancheng Wang, Qinyu Chen, Qiushi Du, Ruiqi Ge, Ruisong Zhang, Ruizhe Pan, Runji Wang, R. J. Chen, R. L. Jin, Ruyi Chen, Shanghao Lu, Shangyan Zhou, Shanhuang Chen, Shengfeng Ye, Shiyu Wang, Shuiping Yu, Shunfeng Zhou, Shuting Pan, S. S. Li, Shuang Zhou, Shaoqing Wu, Shengfeng Ye, Tao Yun, Tian Pei, Tianyu Sun, T. Wang, Wangding Zeng, Wanjia Zhao, Wen Liu, Wenfeng Liang, Wenjun Gao, Wenqin Yu, Wentao Zhang, W. L. Xiao, Wei An, Xiaodong Liu, Xiaohan Wang, Xiaokang Chen, Xiaotao Nie, Xin Cheng, Xin Liu, Xin Xie, Xingchao Liu, Xinyu Yang, Xinyuan Li, Xuecheng Su, Xuheng Lin, X. Q. Li, Xiangyue Jin, Xiaojin Shen, Xiaosha Chen, Xiaowen Sun, Xiaoxiang Wang, Xinnan Song, Xinyi Zhou, Xianzu Wang, Xinxia Shan, Y. K. Li, Y. Q. Wang, Y. X. Wei, Yang Zhang, Yanhong Xu, Yao Li, Yao Zhao, Yaofeng Sun, Yaohui Wang, Yi Yu, Yichao Zhang, Yifan Shi, Yiliang Xiong, Ying He, Yishi Piao, Yisong Wang, Yixuan Tan, Yiyang Ma, Yiyuan Liu, Yongqiang Guo, Yuan Ou, Yuduan Wang, Yue Gong, Yuheng Zou, Yujia He, Yunfan Xiong, Yuxiang Luo, Yuxiang You, Yuxuan Liu, Yuyang Zhou, Y. X. Zhu, Yanhong Xu, Yanping Huang, Yaohui Li, Yi Zheng, Yuchen Zhu, Yunxian Ma, Ying Tang, Yukun Zha, Yuting Yan, Z. Z. Ren, Zehui Ren, Zhangli Sha, Zhe Fu, Zhean Xu, Zhenda Xie, Zhengyan Zhang, Zhewen Hao, Zhicheng Ma, Zhigang Yan, Zhiyu Wu, Zihui Gu, Zijia Zhu, Zijun Liu, Zilin Li, Ziwei Xie, Ziyang Song, Zizheng Pan, Zhen Huang, Zhipeng Xu, Zhongyu Zhang, Zhen Zhang",2025-01-22T15:19:35Z,2025-01-22T15:19:35Z,"We introduce our first-generation reasoning models, DeepSeek-R1-Zero and
+DeepSeek-R1. DeepSeek-R1-Zero, a model trained via large-scale reinforcement
+learning (RL) without supervised fine-tuning (SFT) as a preliminary step,
+demonstrates remarkable reasoning capabilities. Through RL, DeepSeek-R1-Zero
+naturally emerges with numerous powerful and intriguing reasoning behaviors.
+However, it encounters challenges such as poor readability, and language
+mixing. To address these issues and further enhance reasoning performance, we
+introduce DeepSeek-R1, which incorporates multi-stage training and cold-start
+data before RL. DeepSeek-R1 achieves performance comparable to OpenAI-o1-1217
+on reasoning tasks. To support the research community, we open-source
+DeepSeek-R1-Zero, DeepSeek-R1, and six dense models (1.5B, 7B, 8B, 14B, 32B,
+70B) distilled from DeepSeek-R1 based on Qwen and Llama.",http://arxiv.org/pdf/2501.12948v1,2501.12948v1,"['cs.CL', 'cs.AI', 'cs.LG']",,,
+DeepSeek: Content Based Image Search & Retrieval,"Tanya Piplani, David Bamman",2018-01-09T09:57:40Z,2018-01-11T06:28:44Z,"Most of the internet today is composed of digital media that includes videos
+and images. With pixels becoming the currency in which most transactions happen
+on the internet, it is becoming increasingly important to have a way of
+browsing through this ocean of information with relative ease. YouTube has 400
+hours of video uploaded every minute and many million images are browsed on
+Instagram, Facebook, etc. Inspired by recent advances in the field of deep
+learning and success that it has gained on various problems like image
+captioning and, machine translation , word2vec , skip thoughts, etc, we present
+DeepSeek a natural language processing based deep learning model that allows
+users to enter a description of the kind of images that they want to search,
+and in response the system retrieves all the images that semantically and
+contextually relate to the query. Two approaches are described in the following
+sections.",http://arxiv.org/pdf/1801.03406v2,1801.03406v2,['cs.IR'],,,arXiv admin note: text overlap with arXiv:1706.06064 by other authors
+Generating Energy-efficient code with LLMs,"Tom Cappendijk, Pepijn de Reus, Ana Oprescu",2024-11-15T21:45:58Z,2024-11-15T21:45:58Z,"The increasing electricity demands of personal computers, communication
+networks, and data centers contribute to higher atmospheric greenhouse gas
+emissions, which in turn lead to global warming and climate change. Therefore
+the energy consumption of code must be minimized. Code can be generated by
+large language models. We look at the influence of prompt modification on the
+energy consumption of the code generated. We use three different Python code
+problems of varying difficulty levels. Prompt modification is done by adding
+the sentence ``Give me an energy-optimized solution for this problem'' or by
+using two Python coding best practices. The large language models used are
+CodeLlama-70b, CodeLlama-70b-Instruct, CodeLlama-70b-Python,
+DeepSeek-Coder-33b-base, and DeepSeek-Coder-33b-instruct. We find a decrease in
+energy consumption for a specific combination of prompt optimization, LLM, and
+Python code problem. However, no single optimization prompt consistently
+decreases energy consumption for the same LLM across the different Python code
+problems.",http://arxiv.org/pdf/2411.10599v1,2411.10599v1,"['cs.SE', 'cs.AI']",,,

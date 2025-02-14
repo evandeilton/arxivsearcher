@@ -1,10 +1,10 @@
-#reviewer_ui.py - Interface de usuário para revisão de literatura com Streamlit
+# reviewer_ui.py
 #!/usr/bin/env python3
 import streamlit as st
 import pandas as pd
 from datetime import datetime
 from pathlib import Path
-from typing import Optional, Tuple, Dict
+from typing import Optional, Tuple, Dict, Callable
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 import plotly.express as px
@@ -16,12 +16,20 @@ from styles import (
     create_data_stats,
     create_progress_indicator
 )
+# from mdtopdf import MarkdownPDFConverter
+# from fpdf.enums import XPos, YPos
+# import markdown
+# from fpdf import HTMLMixin, FPDF  # adicionado HTMLMixin para renderizar HTML
 
 try:
     from integrated_reviewer import IntegratedReviewSystem
 except ImportError as ie:
     st.error("Módulo 'integrated_reviewer' não encontrado. Verifique se o arquivo existe e está no caminho correto.")
     raise ie
+
+# Adiciona uma classe auxiliar para renderização HTML no PDF
+# class MyFPDF(FPDF, HTMLMixin):
+#     pass
 
 class ReviewerUI:
     """
@@ -42,10 +50,11 @@ class ReviewerUI:
         
         self._initialized = True
         self.initialize_session_state()
-        self.config = {}  # Inicializa o dicionário de configuração
+        self.config = {}
+        self.system = IntegratedReviewSystem()  # Inicializa o sistema uma única vez
         apply_custom_styles()
 
-    def initialize_session_state(self):
+    def initialize_session_state(self) -> None:
         """Inicializa o estado da sessão com valores padrão."""
         default_states = {
             'search_results': None,
@@ -57,15 +66,23 @@ class ReviewerUI:
             'last_update': None,
             'theme_color': 'light',
             'language': 'pt-BR',
-            'show_success_animation': False  # Nova flag para controlar a animação
+            'show_success_animation': False,
+            'processing': False  # Novo estado para controlar processamento
         }
         
         for key, value in default_states.items():
             if key not in st.session_state:
                 st.session_state[key] = value
 
-    def execute_review(self):
-        """Executa a geração da revisão de literatura."""
+    def execute_review(self) -> None:
+        """Executa a geração da revisão de literatura com tratamento de erros aprimorado."""
+        if st.session_state.processing:
+            create_notification(
+                "Já existe um processamento em andamento.",
+                type="warning"
+            )
+            return
+
         try:
             df_all = st.session_state.search_results.copy()
             selected_indices = [i for i, val in st.session_state.selected_rows.items() if val]
@@ -80,9 +97,12 @@ class ReviewerUI:
             df_filtered = df_all.iloc[selected_indices]
             total_articles = len(df_filtered)
             
+            st.session_state.processing = True
             progress_placeholder = st.empty()
             
-            def update_progress(current, total, message=""):
+            def update_progress(current: int, total: int, message: str = "") -> None:
+                if not st.session_state.processing:
+                    return
                 progress = int((current / total) * 100)
                 with progress_placeholder.container():
                     create_progress_indicator(current, total, f"Processando artigos: {message}")
@@ -90,16 +110,16 @@ class ReviewerUI:
                         create_notification(
                             f"Processando artigo {current} de {total}: {message}",
                             type="info",
-                            duration=1000
+                            duration=30
                         )
+
+            # Configura o callback no sistema
+            self.system.set_progress_callback(update_progress)
 
             with st.spinner("🔄 Gerando revisão de literatura..."):
                 update_progress(0, total_articles, "Iniciando processamento")
                 
-                system = IntegratedReviewSystem()
-                system.set_progress_callback(update_progress)
-                
-                review_text, saved_files = system.review_papers(
+                review_text, saved_files = self.system.review_papers(
                     df=df_filtered,
                     theme=self.config['theme'],
                     provider=self.config['provider'],
@@ -109,26 +129,23 @@ class ReviewerUI:
                     output_dir=self.config['output_dir']
                 )
                 
-                update_progress(total_articles, total_articles, "Processamento concluído")
-                
                 st.session_state.review_text = review_text
                 st.session_state.saved_files = saved_files
-                st.session_state.show_success_animation = True  # Ativa a animação
+                st.session_state.show_success_animation = True
                 
-                # Exibe a animação de glitter e mensagem de sucesso
-                create_glitter_animation()
-                create_success_message(f"Revisão gerada com sucesso! {total_articles} artigos analisados.")
+                update_progress(total_articles, total_articles, "Processamento concluído")
+                st.balloons()
                 
                 # Rola para a aba de revisão
-                js = f"""
+                js = """
                     <script>
-                        setTimeout(() => {{
+                        setTimeout(() => {
                             const reviewTab = document.querySelector('button[role="tab"]:nth-child(3)');
-                            if (reviewTab) {{
+                            if (reviewTab) {
                                 reviewTab.click();
-                                reviewTab.scrollIntoView({{ behavior: 'smooth' }});
-                            }}
-                        }}, 1000);
+                                reviewTab.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        }, 1000);
                     </script>
                 """
                 st.markdown(js, unsafe_allow_html=True)
@@ -137,21 +154,20 @@ class ReviewerUI:
             create_notification(
                 f"❌ Erro ao gerar revisão: {str(e)}",
                 type="error",
-                duration=5000
+                duration=600
             )
             progress_placeholder.empty()
+        finally:
+            st.session_state.processing = False
 
-    def display_results(self):
+    def display_results(self) -> None:
         """Exibe os resultados da pesquisa em uma interface moderna e interativa."""
         if st.session_state.search_results is None:
             return
 
-        # Se a animação ainda não foi mostrada e deveria ser mostrada
         if st.session_state.show_success_animation:
-            # Cria a animação e mensagem apenas uma vez
-            create_glitter_animation()
-            create_success_message(f"✨ Revisão concluída com sucesso!")
-            # Desativa a flag para não mostrar novamente
+            st.balloons()
+            create_notification("✨ Revisão concluída com sucesso!", type="success", duration=10)
             st.session_state.show_success_animation = False
 
         tabs = st.tabs(["📊 Resultados", "📈 Análises", "📝 Revisão"])
@@ -165,7 +181,7 @@ class ReviewerUI:
         with tabs[2]:
             self.display_review_tab()
 
-    def create_header(self):
+    def create_header(self) -> None:
         """Cria o cabeçalho da aplicação com animação e estilo moderno."""
         st.markdown("""
             <div style="text-align: center; padding: 0 0 2rem 0; animation: fadeIn 0.5s ease-out;">
@@ -180,10 +196,10 @@ class ReviewerUI:
 
     def create_sidebar_config(self) -> Dict:
         """
-        Cria a configuração da barra lateral com interface moderna.
+        Cria a configuração da barra lateral com interface moderna e validações.
         
         Returns:
-            Dict: Configurações selecionadas pelo usuário
+            Dict: Configurações validadas selecionadas pelo usuário
         """
         with st.sidebar:
             st.markdown("""
@@ -199,7 +215,7 @@ class ReviewerUI:
                     "Tema da Pesquisa",
                     help="Digite o tema principal da sua pesquisa",
                     placeholder="Ex: COVID-19 and Vaccines"
-                )
+                ).strip()
                 
                 self.config['max_results'] = st.slider(
                     "Número de Artigos",
@@ -209,6 +225,7 @@ class ReviewerUI:
 
             with tabs[1]:
                 providers = {
+                    "openrouter": "🔍 OpenRouter",
                     "anthropic": "🌟 Anthropic",
                     "gemini": "🔵 Gemini",
                     "openai": "🤖 OpenAI",
@@ -222,6 +239,15 @@ class ReviewerUI:
                 )
 
                 provider_model_map = {
+                    "openrouter": ["google/gemini-2.0-pro-exp-02-05:free","cognitivecomputations/dolphin3.0-r1-mistral-24b:free",
+                                    "cognitivecomputations/dolphin3.0-mistral-24b:free","openai/o3-mini-high","openai/o3-mini",
+                                    "openai/chatgpt-4o-latest","openai/gpt-4o-mini","google/gemini-2.0-flash-001",
+                                    "google/gemini-2.0-flash-thinking-exp:free","google/gemini-2.0-flash-lite-preview-02-05:free",
+                                    "google/gemini-2.0-pro-exp-02-05:free", "deepseek/deepseek-r1-distill-llama-70b:free",
+                                    "deepseek/deepseek-r1-distill-qwen-32b","deepseek/deepseek-r1:free","qwen/qwen-plus",
+                                    "qwen/qwen-max","qwen/qwen-turbo","mistralai/codestral-2501","mistralai/mistral-small-24b-instruct-2501:free",
+                                    "anthropic/claude-3.5-haiku-20241022:beta","anthropic/claude-3.5-sonnet","perplexity/sonar-reasoning",
+                                    "perplexity/sonar","perplexity/llama-3.1-sonar-large-128k-online"],
                     "anthropic": ["claude-3-5-haiku-20241022", "claude-3-5-sonnet-20241022"],
                     "gemini": ["gemini-2.0-flash-lite-preview-02-05","gemini-2.0-flash", "gemini-1.5-flash","gemini-1.5-pro"],
                     "openai": ["gpt-4o", "gpt-4o-mini", "o1-mini"],
@@ -269,7 +295,10 @@ class ReviewerUI:
                                 format="DD/MM/YYYY"
                             )
                         if start_date and end_date:
-                            self.config['date_range'] = (start_date, end_date)
+                            if start_date > end_date:
+                                st.error("Data inicial deve ser anterior à data final")
+                            else:
+                                self.config['date_range'] = (start_date, end_date)
 
                 sort_options = {
                     "relevance": "Relevância",
@@ -295,12 +324,12 @@ class ReviewerUI:
                         "Diretório de Saída",
                         value="reviews",
                         help="Pasta onde os arquivos serão salvos"
-                    )
+                    ).strip()
                     
                     if self.config['download_all']:
-                        self.config['download_count'] = st.slider(
-                            "Quantidade",
-                            1, self.config['max_results'], 2
+                        self.config['download_count'] = st.slider("Quantidade",
+                            1, self.config['max_results'], 2,
+                            help="Quantidade de PDFs para download"
                         )
                     else:
                         self.config['download_count'] = 0
@@ -312,8 +341,9 @@ class ReviewerUI:
             with col1:
                 if st.button("🔍 Pesquisar", 
                             use_container_width=True,
-                            help="Iniciar pesquisa de artigos"):
-                    if not self.config['theme'].strip():
+                            help="Iniciar pesquisa de artigos",
+                            disabled=st.session_state.processing):
+                    if not self.config['theme']:
                         create_notification(
                             "Por favor, digite um tema para pesquisar.",
                             type="error",
@@ -325,7 +355,8 @@ class ReviewerUI:
             with col2:
                 if st.button("🔄 Limpar",
                             use_container_width=True,
-                            help="Limpar resultados"):
+                            help="Limpar resultados",
+                            disabled=st.session_state.processing):
                     self.clear_results()
                     create_notification(
                         "Resultados limpos com sucesso!",
@@ -334,26 +365,30 @@ class ReviewerUI:
 
             return self.config
 
-    def execute_search(self):
-        """Executa a busca de artigos com feedback visual aprimorado."""
+    def execute_search(self) -> None:
+        """Executa a busca de artigos com tratamento de erros aprimorado."""
+        if st.session_state.processing:
+            return
+
         try:
+            st.session_state.processing = True
             with st.spinner("🔄 Realizando pesquisa..."):
-                system = IntegratedReviewSystem()
-                results_df = system.search_papers(
+                results_df = self.system.search_papers(
                     query=self.config['theme'],
                     max_results=self.config['max_results'],
-                    download_count=self.config['download_count'],
-                    download_pdfs=self.config['download_all'],
+                    download_count=self.config.get('download_count', 0),
+                    download_pdfs=self.config.get('download_all', False),
                     save_results=True,
-                    output_dir=self.config['output_dir'],
-                    date_range=self.config['date_range'],
-                    sort_by=self.config['sort_by'],
-                    sort_order=self.config['sort_order']
+                    output_dir=self.config.get('output_dir', 'reviews'),
+                    date_range=self.config.get('date_range'),
+                    sort_by=self.config.get('sort_by'),
+                    sort_order=self.config.get('sort_order')
                 )
                 
                 st.session_state.search_results = results_df
                 st.session_state.review_text = None
                 st.session_state.saved_files = []
+                st.session_state.selected_rows = {}
                 
                 create_notification(
                     f"🎉 Encontrados {len(results_df)} artigos relevantes!",
@@ -362,115 +397,14 @@ class ReviewerUI:
                 
         except Exception as e:
             create_notification(
-                f"❌ Erro: {str(e)}",
-                type="error"
-            )
-
-    def execute_review(self):
-        """Executa a geração da revisão de literatura com feedback de progresso."""
-        try:
-            df_all = st.session_state.search_results.copy()
-            selected_indices = [i for i, val in st.session_state.selected_rows.items() if val]
-            
-            if not selected_indices:
-                create_notification(
-                    "Selecione pelo menos um artigo para gerar a revisão.",
-                    type="warning"
-                )
-                return
-
-            df_filtered = df_all.iloc[selected_indices]
-            total_articles = len(df_filtered)
-            
-            # Cria um placeholder para a barra de progresso
-            progress_placeholder = st.empty()
-            
-            # Função de callback para atualizar o progresso
-            def update_progress(current, total, message=""):
-                progress = int((current / total) * 100)
-                with progress_placeholder.container():
-                    create_progress_indicator(current, total, f"Processando artigos: {message}")
-                    if progress < 100:
-                        create_notification(
-                            f"Processando artigo {current} de {total}: {message}",
-                            type="info",
-                            duration=1000
-                        )
-
-            with st.spinner("🔄 Gerando revisão de literatura..."):
-                # Inicializa o progresso
-                update_progress(0, total_articles, "Iniciando processamento")
-                
-                system = IntegratedReviewSystem()
-                
-                # Configura o callback no sistema
-                system.set_progress_callback(update_progress)
-                
-                # Executa a revisão
-                review_text, saved_files = system.review_papers(
-                    df=df_filtered,
-                    theme=self.config['theme'],
-                    provider=self.config['provider'],
-                    model=self.config['model'],
-                    output_lang=self.config['output_lang'],
-                    save_results=True,
-                    output_dir=self.config['output_dir']
-                )
-                
-                # Atualiza o progresso para 100%
-                update_progress(total_articles, total_articles, "Processamento concluído")
-                
-                st.session_state.review_text = review_text
-                st.session_state.saved_files = saved_files
-                
-                # Notificação de sucesso com som
-                st.balloons()
-                create_notification(
-                    f"✨ Revisão gerada com sucesso! {total_articles} artigos analisados.",
-                    type="success",
-                    duration=5000
-                )
-                
-                # Rola a página para a aba de revisão
-                js = f"""
-                    <script>
-                        setTimeout(() => {{
-                            const reviewTab = document.querySelector('button[role="tab"]:nth-child(3)');
-                            if (reviewTab) {{
-                                reviewTab.click();
-                                reviewTab.scrollIntoView({{ behavior: 'smooth' }});
-                            }}
-                        }}, 1000);
-                    </script>
-                """
-                st.markdown(js, unsafe_allow_html=True)
-                
-        except Exception as e:
-            create_notification(
-                f"❌ Erro ao gerar revisão: {str(e)}",
+                f"❌ Erro na busca: {str(e)}",
                 type="error",
                 duration=5000
             )
-            # Remove a barra de progresso em caso de erro
-            progress_placeholder.empty()
+        finally:
+            st.session_state.processing = False
 
-    def display_results(self):
-        """Exibe os resultados da pesquisa em uma interface moderna e interativa."""
-        if st.session_state.search_results is None:
-            return
-
-        tabs = st.tabs(["📊 Resultados", "📈 Análises", "📝 Revisão"])
-        
-        with tabs[0]:
-            self.display_results_tab()
-        
-        with tabs[1]:
-            self.display_analysis_tab()
-        
-        with tabs[2]:
-            self.display_review_tab()
-
-    def display_results_tab(self):
+    def display_results_tab(self) -> None:
         """Exibe a aba de resultados com tabela interativa e opções de seleção."""
         st.markdown("""
             <h3 style="color: var(--primary-700); margin-bottom: 1rem;">
@@ -486,7 +420,8 @@ class ReviewerUI:
         column_config = {
             "selected": st.column_config.CheckboxColumn(
                 "✓",
-                help="Selecionar para revisão"
+                help="Selecionar para revisão",
+                default=False
             ),
             "title": st.column_config.TextColumn(
                 "Título",
@@ -494,7 +429,8 @@ class ReviewerUI:
             ),
             "pdf_url": st.column_config.LinkColumn(
                 "PDF",
-                width="medium"
+                width="medium",
+                validate="url"
             ),
             "summary": st.column_config.TextColumn(
                 "Resumo",
@@ -514,7 +450,8 @@ class ReviewerUI:
             hide_index=True,
             use_container_width=True,
             disabled=["title", "authors", "summary", "published", "pdf_url"],
-            column_order=desired_columns + other_columns
+            column_order=desired_columns + other_columns,
+            key="results_editor"
         )
 
         # Atualização das seleções
@@ -523,8 +460,8 @@ class ReviewerUI:
         }
 
         # Botão de geração de revisão
-        if any(st.session_state.selected_rows.values()):
-            selected_count = sum(st.session_state.selected_rows.values())
+        selected_count = sum(st.session_state.selected_rows.values())
+        if selected_count > 0:
             st.markdown(f"""
                 <div style="margin: 1rem 0;">
                     <p style="color: var(--primary-700);">
@@ -535,14 +472,15 @@ class ReviewerUI:
             
             if st.button("📝 Gerar Revisão",
                         use_container_width=True,
-                        help="Iniciar geração da revisão de literatura"):
+                        help="Iniciar geração da revisão de literatura",
+                        disabled=st.session_state.processing):
                 self.execute_review()
 
-    def display_analysis_tab(self):
+    def display_analysis_tab(self) -> None:
         """Exibe a aba de análises com visualizações interativas."""
         df = st.session_state.search_results
 
-        if df is not None:
+        if df is not None and not df.empty:
             # Estatísticas gerais
             stats = {
                 "Total de Artigos": len(df),
@@ -564,7 +502,7 @@ class ReviewerUI:
                     "⏳ Aguardando geração da revisão..."
                 )
 
-    def display_timeline(self, df: pd.DataFrame):
+    def display_timeline(self, df: pd.DataFrame) -> None:
         """
         Cria um gráfico de linha do tempo interativo.
         
@@ -642,43 +580,30 @@ class ReviewerUI:
         plt.tight_layout(pad=0)
         return fig
 
-    def display_review_tab(self):
+    def display_review_tab(self) -> None:
         """Exibe a aba de revisão com o texto gerado e opções de download."""
         if st.session_state.review_text:
-            create_card(
-                "Revisão de Literatura",
-                st.session_state.review_text,
-                footer="""
-                    <div style="display: flex; justify-content: flex-end;">
-                        <button onclick="downloadReview()" class="stButton">
-                            📄 Baixar Revisão
-                        </button>
-                    </div>
-                """
-            )
-            
-            # Botão de download
+            st.markdown(st.session_state.review_text)
             st.download_button(
-                "📄 Salvar Revisão",
+                "📥 Baixar Revisão em TXT",
                 st.session_state.review_text,
                 file_name=f"revisao_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt",
                 mime="text/plain",
-                help="Salvar revisão em arquivo de texto"
+                help="Baixar a revisão em formato TXT",
+                key="download_txt_button"
             )
         else:
-            create_card(
-                "Revisão de Literatura",
-                "Selecione os artigos na aba 'Resultados' e clique em 'Gerar Revisão' para criar sua revisão de literatura.",
-                "👆 Aguardando seleção de artigos..."
-            )
+            st.info("Nenhuma revisão gerada no momento.")
 
-    def clear_results(self):
+    def clear_results(self) -> None:
         """Limpa todos os resultados e reinicia o estado da sessão."""
         st.session_state.search_results = None
         st.session_state.review_text = None
         st.session_state.selected_rows = {}
         st.session_state.saved_files = []
         st.session_state.error_message = None
+        st.session_state.processing = False
+        st.session_state.show_success_animation = False
 
 def main():
     """Função principal que inicializa e executa a interface do usuário."""
@@ -711,4 +636,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
