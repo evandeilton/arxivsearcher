@@ -1,4 +1,4 @@
-# Integrated Literature Review System
+# findpaper: Integrated Literature Review System
 
 This project provides an integrated system for searching academic papers on arXiv, generating literature reviews using AI, and interacting with the system through a user-friendly interface. It streamlines the research process by combining the functionality of `arxivsearcher.py`, `integrated_reviewer.py`, `reviewer_ui.py`, and `styles.py`.
 
@@ -22,7 +22,7 @@ This project provides an integrated system for searching academic papers on arXi
 ## Features
 
 - **ArXiv Search:** Search for papers on arXiv using keywords, date ranges, and sorting options.
-- **AI-Powered Review Generation:** Generate comprehensive literature reviews using various AI providers (Anthropic, OpenAI, Gemini, Deepseek).
+- **AI-Powered Review Generation:** Generate comprehensive literature reviews using various AI providers (Anthropic, OpenAI, Gemini, Deepseek, OpenRouter).
 - **Streamlit User Interface:** Interactive web interface for easy access to system features.
 - **PDF Downloads:** Option to download PDFs of selected papers.
 - **Result Export:** Save search results and generated reviews.
@@ -43,28 +43,56 @@ Before using the system, set up the following environment variables with your AP
 - `OPENAI_API_KEY`: Obtain from [OpenAI's documentation](https://platform.openai.com/docs/overview).
 - `GEMINI_API_KEY`: Obtain from [Google AI Studio documentation](https://ai.google.dev/tutorials/setup).
 - `DEEPSEEK_API_KEY`: Obtain from [Deepseek's documentation](https://platform.deepseek.com/docs).
+- `OPENROUTER_API_KEY`: Obtain from [OpenRouter's documentation](https://openrouter.ai/docs).
 
 Default models for each provider are configurable:
 - **Anthropic:** `claude-3-5-haiku-20241022`
 - **OpenAI:** `gpt-4o`
 - **Gemini:** `gemini-2.0-flash`
 - **Deepseek:** `deepseek-chat`
+- **OpenRouter:** `google/gemini-2.0-pro-exp-02-05:free`
+
+Available models for OpenRouter:
+
+- `cognitivecomputations/dolphin3.0-r1-mistral-24b:free`
+- `cognitivecomputations/dolphin3.0-mistral-24b:free`
+- `openai/o3-mini-high`
+- `openai/o3-mini`
+- `openai/chatgpt-4o-latest`
+- `openai/gpt-4o-mini`
+- `google/gemini-2.0-flash-001`
+- `google/gemini-2.0-flash-thinking-exp:free`
+- `google/gemini-2.0-flash-lite-preview-02-05:free`
+- `google/gemini-2.0-pro-exp-02-05:free`
+- `deepseek/deepseek-r1-distill-llama-70b:free`
+- `deepseek/deepseek-r1-distill-qwen-32b`
+- `deepseek/deepseek-r1:free`
+- `qwen/qwen-plus`
+- `qwen/qwen-max`
+- `qwen/qwen-turbo`
+- `mistralai/codestral-2501`
+- `mistralai/mistral-small-24b-instruct-2501:free`
+- `anthropic/claude-3.5-haiku-20241022:beta`
+- `anthropic/claude-3.5-sonnet`
+- `perplexity/sonar-reasoning`
+- `perplexity/sonar`
+- `perplexity/llama-3.1-sonar-large-128k-online`
 
 ## Execution Flow
 
 The system operates in four main phases:
 
-1. **Search Phase:**  
-   `arxivsearcher.py` performs a query on arXiv, downloading articles while applying retries, caching, and rate limiting.
+1.  **Search Phase:**  
+    `arxivsearcher.py` performs a query on arXiv, downloading articles while applying retries, caching, and rate limiting.
 
-2. **Review Phase:**  
-   `integrated_reviewer.py` processes the search results, using progress callbacks to provide ongoing feedback and logging events for debugging.
+2.  **Review Phase:**  
+    `integrated_reviewer.py` processes the search results, using progress callbacks to provide ongoing feedback and logging events for debugging.
 
-3. **Synthesis Phase:**  
-   The system synthesizes a full literature review using AI providers, ensuring academic rigor and a critical perspective.
+3.  **Synthesis Phase:**  
+    The system synthesizes a full literature review using AI providers, ensuring academic rigor and a critical perspective.
 
-4. **Output Phase:**  
-   The generated review and references are saved in the output directory (typically within the `reviews` folder).
+4.  **Output Phase:**  
+    The generated review and references are saved in the output directory (typically within the `reviews` folder).
 
 A simplified diagram of the workflow:
 
@@ -93,31 +121,25 @@ A simplified diagram of the workflow:
 
 ### Steps
 
-1. **Clone the Repository**
+1.  **Clone the Repository**
 
-   ```bash
-   git clone https://github.com/evandeilton/arxivsearcher.git  # Verify this URL is correct.
-   cd arxivsearcher
-   ```
+    ```bash
+    git clone https://github.com/evandeilton/findpaper.git
+    cd findpaper
+    ```
 
-2. **Create a Virtual Environment (Optional but Recommended)**
+2.  **Create a Virtual Environment (Optional but Recommended)**
 
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate  # On Windows: venv\Scripts\activate
+    ```
 
-3. **Install Dependencies**
+3.  **Install Dependencies**
 
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-   **Additional Dependencies:**
-
-   ```bash
-   pip install anthropic google-genai
-   ```
+    ```bash
+    pip install -r requirements.txt
+    ```
 
 ## Usage
 
@@ -142,7 +164,7 @@ python arxivsearcher.py --help
 Execute to search arXiv and generate a literature review:
 
 ```bash
-python integrated_reviewer.py --query "large language models" --theme "recent advances" --max_results 10 --provider anthropic --output_lang pt-BR --download_pdfs
+python integrated_reviewer.py --query "large language models" --theme "recent advances" --max_results 10 --provider openrouter --output_lang pt-BR --download_pdfs
 ```
 
 ### Streamlit UI (reviewer_ui.py)
@@ -168,7 +190,7 @@ results_df, review_text, saved_files = system.search_and_review(
     query="large language models",
     theme="ethical implications",
     max_results=10,
-    provider="anthropic",
+    provider="openrouter",
     output_lang="en-US"
 )
 print(review_text)
@@ -176,18 +198,19 @@ print(review_text)
 
 ## Dependencies
 
-- requests
-- pandas
 - feedparser
+- pandas
+- requests
 - tenacity
 - tqdm
 - streamlit
 - matplotlib
-- networkx
 - wordcloud
 - anthropic
 - google-genai
+- google-generativeai
 - plotly
+- openai
 
 ## Contributing
 
@@ -203,6 +226,4 @@ The `styles.py` file contains functions and custom CSS to enhance the appearance
 
 ## `reviews` Directory
 
-The `reviews` directory stores the output of the literature review process, including:
-- `references.bib`: A BibTeX file with bibliographic data.
-- `review_*.Rmd`: R Markdown files with the generated literature reviews, each including a timestamp indicating when the review was generated.
+The `reviews` directory stores the output of the literature review process. It contains R Markdown files (`review_*.Rmd`) with the generated literature reviews and BibTeX files (`references_*.bib`) with the corresponding bibliographic data. Each file includes a timestamp to indicate when it was generated.
