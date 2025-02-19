@@ -1,4 +1,4 @@
-# findpaper: Integrated Literature Review System
+# Integrated Literature Review System
 
 This project provides an integrated system for searching academic papers on arXiv, generating literature reviews using AI, and interacting with the system through a user-friendly interface. It streamlines the research process by combining the functionality of `arxivsearcher.py`, `integrated_reviewer.py`, `reviewer_ui.py`, and `styles.py`.
 
@@ -124,8 +124,8 @@ A simplified diagram of the workflow:
 1.  **Clone the Repository**
 
     ```bash
-    git clone https://github.com/evandeilton/arxivsearcher.git
-    cd arxivsearcher
+    git clone https://github.com/evandeilton/findpaper.git
+    cd findpaper
     ```
 
 2.  **Create a Virtual Environment (Optional but Recommended)**
