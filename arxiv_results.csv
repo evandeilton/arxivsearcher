@@ -1,0 +1,166 @@
+title,authors,published,updated,summary,pdf_url,arxiv_id,categories,doi,journal_ref,comment
+"Quantifying the Capability Boundary of DeepSeek Models: An
+  Application-Driven Performance Analysis","Shiguo Lian, Kaikai Zhao, Xuejiao Lei, Ning Wang, Zhenhong Long, Peijun Yang, Minjie Hua, Chaoyang Ma, Wen Liu, Kai Wang, Zhaoxiang Liu",2025-02-16T15:29:58Z,2025-02-16T15:29:58Z,"DeepSeek-R1, known for its low training cost and exceptional reasoning
+capabilities, has achieved state-of-the-art performance on various benchmarks.
+However, detailed evaluations from the perspective of real-world applications
+are lacking, making it challenging for users to select the most suitable
+DeepSeek models for their specific needs. To address this gap, we evaluate the
+DeepSeek-V3, DeepSeek-R1, DeepSeek-R1-Distill-Qwen series, and
+DeepSeek-R1-Distill-Llama series on A-Eval, an application-driven benchmark. By
+comparing original instruction-tuned models with their distilled counterparts,
+we analyze how reasoning enhancements impact performance across diverse
+practical tasks. Our results show that reasoning-enhanced models, while
+generally powerful, do not universally outperform across all tasks, with
+performance gains varying significantly across tasks and models. To further
+assist users in model selection, we quantify the capability boundary of
+DeepSeek models through performance tier classifications and intuitive line
+charts. Specific examples provide actionable insights to help users select and
+deploy the most cost-effective DeepSeek models, ensuring optimal performance
+and resource efficiency in real-world applications.",http://arxiv.org/pdf/2502.11164v1,2502.11164v1,"['cs.AI', 'cs.LG']",,,
+Memory Analysis on the Training Course of DeepSeek Models,"Ping Zhang, Lei Su",2025-02-11T09:51:25Z,2025-02-11T09:51:25Z,"We present a theoretical analysis of GPU memory consumption during the
+training of DeepSeek models such as DeepSeek-v2 and DeepSeek-v3. Our primary
+objective is to clarify the device-level memory requirements associated with
+various distributed training configurations. Specifically, we examine critical
+factors influencing memory usage, including micro-batch size, activation
+recomputation policies, 3D parallelism, and ZeRO optimizations. It is important
+to emphasize that the training policies discussed in this report are not
+representative of DeepSeek's official configurations. Instead, they are
+explored to provide a deeper understanding of memory dynamics in training of
+large-scale mixture-of-experts model.",http://arxiv.org/pdf/2502.07846v1,2502.07846v1,"['cs.PF', 'cs.LG']",,,
+"DeepSeek-VL2: Mixture-of-Experts Vision-Language Models for Advanced
+  Multimodal Understanding","Zhiyu Wu, Xiaokang Chen, Zizheng Pan, Xingchao Liu, Wen Liu, Damai Dai, Huazuo Gao, Yiyang Ma, Chengyue Wu, Bingxuan Wang, Zhenda Xie, Yu Wu, Kai Hu, Jiawei Wang, Yaofeng Sun, Yukun Li, Yishi Piao, Kang Guan, Aixin Liu, Xin Xie, Yuxiang You, Kai Dong, Xingkai Yu, Haowei Zhang, Liang Zhao, Yisong Wang, Chong Ruan",2024-12-13T17:37:48Z,2024-12-13T17:37:48Z,"We present DeepSeek-VL2, an advanced series of large Mixture-of-Experts (MoE)
+Vision-Language Models that significantly improves upon its predecessor,
+DeepSeek-VL, through two key major upgrades. For the vision component, we
+incorporate a dynamic tiling vision encoding strategy designed for processing
+high-resolution images with different aspect ratios. For the language
+component, we leverage DeepSeekMoE models with the Multi-head Latent Attention
+mechanism, which compresses Key-Value cache into latent vectors, to enable
+efficient inference and high throughput. Trained on an improved vision-language
+dataset, DeepSeek-VL2 demonstrates superior capabilities across various tasks,
+including but not limited to visual question answering, optical character
+recognition, document/table/chart understanding, and visual grounding. Our
+model series is composed of three variants: DeepSeek-VL2-Tiny,
+DeepSeek-VL2-Small and DeepSeek-VL2, with 1.0B, 2.8B and 4.5B activated
+parameters respectively. DeepSeek-VL2 achieves competitive or state-of-the-art
+performance with similar or fewer activated parameters compared to existing
+open-source dense and MoE-based models. Codes and pre-trained models are
+publicly accessible at https://github.com/deepseek-ai/DeepSeek-VL2.",http://arxiv.org/pdf/2412.10302v1,2412.10302v1,"['cs.CV', 'cs.AI', 'cs.CL']",,,
+"Token-Hungry, Yet Precise: DeepSeek R1 Highlights the Need for
+  Multi-Step Reasoning Over Speed in MATH",Evgenii Evstafev,2025-01-30T18:45:51Z,2025-01-30T18:45:51Z,"This study investigates the performance of the DeepSeek R1 language model on
+30 challenging mathematical problems derived from the MATH dataset, problems
+that previously proved unsolvable by other models under time constraints.
+Unlike prior work, this research removes time limitations to explore whether
+DeepSeek R1's architecture, known for its reliance on token-based reasoning,
+can achieve accurate solutions through a multi-step process. The study compares
+DeepSeek R1 with four other models (gemini-1.5-flash-8b,
+gpt-4o-mini-2024-07-18, llama3.1:8b, and mistral-8b-latest) across 11
+temperature settings. Results demonstrate that DeepSeek R1 achieves superior
+accuracy on these complex problems but generates significantly more tokens than
+other models, confirming its token-intensive approach. The findings highlight a
+trade-off between accuracy and efficiency in mathematical problem-solving with
+large language models: while DeepSeek R1 excels in accuracy, its reliance on
+extensive token generation may not be optimal for applications requiring rapid
+responses. The study underscores the importance of considering task-specific
+requirements when selecting an LLM and emphasizes the role of temperature
+settings in optimizing performance.",http://arxiv.org/pdf/2501.18576v1,2501.18576v1,['cs.LG'],,,"5 pages, 1 figure, 1 table"
+Safety Evaluation of DeepSeek Models in Chinese Contexts,"Wenjing Zhang, Xuejiao Lei, Zhaoxiang Liu, Ning Wang, Zhenhong Long, Peijun Yang, Jiaojiao Zhao, Minjie Hua, Chaoyang Ma, Kai Wang, Shiguo Lian",2025-02-16T14:05:54Z,2025-02-16T14:05:54Z,"Recently, the DeepSeek series of models, leveraging their exceptional
+reasoning capabilities and open-source strategy, is reshaping the global AI
+landscape. Despite these advantages, they exhibit significant safety
+deficiencies. Research conducted by Robust Intelligence, a subsidiary of Cisco,
+in collaboration with the University of Pennsylvania, revealed that DeepSeek-R1
+has a 100\% attack success rate when processing harmful prompts. Additionally,
+multiple safety companies and research institutions have confirmed critical
+safety vulnerabilities in this model. As models demonstrating robust
+performance in Chinese and English, DeepSeek models require equally crucial
+safety assessments in both language contexts. However, current research has
+predominantly focused on safety evaluations in English environments, leaving a
+gap in comprehensive assessments of their safety performance in Chinese
+contexts. In response to this gap, this study introduces CHiSafetyBench, a
+Chinese-specific safety evaluation benchmark. This benchmark systematically
+evaluates the safety of DeepSeek-R1 and DeepSeek-V3 in Chinese contexts,
+revealing their performance across safety categories. The experimental results
+quantify the deficiencies of these two models in Chinese contexts, providing
+key insights for subsequent improvements.",http://arxiv.org/pdf/2502.11137v1,2502.11137v1,"['cs.CL', 'cs.AI']",,,
+"DeepSeek-Coder-V2: Breaking the Barrier of Closed-Source Models in Code
+  Intelligence","DeepSeek-AI, Qihao Zhu, Daya Guo, Zhihong Shao, Dejian Yang, Peiyi Wang, Runxin Xu, Y. Wu, Yukun Li, Huazuo Gao, Shirong Ma, Wangding Zeng, Xiao Bi, Zihui Gu, Hanwei Xu, Damai Dai, Kai Dong, Liyue Zhang, Yishi Piao, Zhibin Gou, Zhenda Xie, Zhewen Hao, Bingxuan Wang, Junxiao Song, Deli Chen, Xin Xie, Kang Guan, Yuxiang You, Aixin Liu, Qiushi Du, Wenjun Gao, Xuan Lu, Qinyu Chen, Yaohui Wang, Chengqi Deng, Jiashi Li, Chenggang Zhao, Chong Ruan, Fuli Luo, Wenfeng Liang",2024-06-17T13:51:35Z,2024-06-17T13:51:35Z,"We present DeepSeek-Coder-V2, an open-source Mixture-of-Experts (MoE) code
+language model that achieves performance comparable to GPT4-Turbo in
+code-specific tasks. Specifically, DeepSeek-Coder-V2 is further pre-trained
+from an intermediate checkpoint of DeepSeek-V2 with additional 6 trillion
+tokens. Through this continued pre-training, DeepSeek-Coder-V2 substantially
+enhances the coding and mathematical reasoning capabilities of DeepSeek-V2,
+while maintaining comparable performance in general language tasks. Compared to
+DeepSeek-Coder-33B, DeepSeek-Coder-V2 demonstrates significant advancements in
+various aspects of code-related tasks, as well as reasoning and general
+capabilities. Additionally, DeepSeek-Coder-V2 expands its support for
+programming languages from 86 to 338, while extending the context length from
+16K to 128K. In standard benchmark evaluations, DeepSeek-Coder-V2 achieves
+superior performance compared to closed-source models such as GPT4-Turbo,
+Claude 3 Opus, and Gemini 1.5 Pro in coding and math benchmarks.",http://arxiv.org/pdf/2406.11931v1,2406.11931v1,"['cs.SE', 'cs.AI', 'cs.LG']",,,
+"DeepSeek-Prover-V1.5: Harnessing Proof Assistant Feedback for
+  Reinforcement Learning and Monte-Carlo Tree Search","Huajian Xin, Z. Z. Ren, Junxiao Song, Zhihong Shao, Wanjia Zhao, Haocheng Wang, Bo Liu, Liyue Zhang, Xuan Lu, Qiushi Du, Wenjun Gao, Qihao Zhu, Dejian Yang, Zhibin Gou, Z. F. Wu, Fuli Luo, Chong Ruan",2024-08-15T13:40:03Z,2024-08-15T13:40:03Z,"We introduce DeepSeek-Prover-V1.5, an open-source language model designed for
+theorem proving in Lean 4, which enhances DeepSeek-Prover-V1 by optimizing both
+training and inference processes. Pre-trained on DeepSeekMath-Base with
+specialization in formal mathematical languages, the model undergoes supervised
+fine-tuning using an enhanced formal theorem proving dataset derived from
+DeepSeek-Prover-V1. Further refinement is achieved through reinforcement
+learning from proof assistant feedback (RLPAF). Beyond the single-pass
+whole-proof generation approach of DeepSeek-Prover-V1, we propose RMaxTS, a
+variant of Monte-Carlo tree search that employs an intrinsic-reward-driven
+exploration strategy to generate diverse proof paths. DeepSeek-Prover-V1.5
+demonstrates significant improvements over DeepSeek-Prover-V1, achieving new
+state-of-the-art results on the test set of the high school level miniF2F
+benchmark ($63.5\%$) and the undergraduate level ProofNet benchmark ($25.3\%$).",http://arxiv.org/pdf/2408.08152v1,2408.08152v1,"['cs.CL', 'cs.AI', 'cs.LG', 'cs.LO']",,,
+A Comparison of DeepSeek and Other LLMs,"Tianchen Gao, Jiashun Jin, Zheng Tracy Ke, Gabriel Moryoussef",2025-02-06T00:38:25Z,2025-02-06T00:38:25Z,"Recently, DeepSeek has been the focus of attention in and beyond the AI
+community. An interesting problem is how DeepSeek compares to other large
+language models (LLMs). There are many tasks an LLM can do, and in this paper,
+we use the task of predicting an outcome using a short text for comparison. We
+consider two settings, an authorship classification setting and a citation
+classification setting. In the first one, the goal is to determine whether a
+short text is written by human or AI. In the second one, the goal is to
+classify a citation to one of four types using the textual content. For each
+experiment, we compare DeepSeek with $4$ popular LLMs: Claude, Gemini, GPT, and
+Llama.
+  We find that, in terms of classification accuracy, DeepSeek outperforms
+Gemini, GPT, and Llama in most cases, but underperforms Claude. We also find
+that DeepSeek is comparably slower than others but with a low cost to use,
+while Claude is much more expensive than all the others. Finally, we find that
+in terms of similarity, the output of DeepSeek is most similar to those of
+Gemini and Claude (and among all $5$ LLMs, Claude and Gemini have the most
+similar outputs).
+  In this paper, we also present a fully-labeled dataset collected by
+ourselves, and propose a recipe where we can use the LLMs and a recent data
+set, MADStat, to generate new data sets. The datasets in our paper can be used
+as benchmarks for future study on LLMs.",http://arxiv.org/pdf/2502.03688v1,2502.03688v1,"['cs.CL', 'cs.AI']",,,"21 pages, 5 figures, 6 tables"
+"DeepSeek on a Trip: Inducing Targeted Visual Hallucinations via
+  Representation Vulnerabilities","Chashi Mahiul Islam, Samuel Jacob Chacko, Preston Horne, Xiuwen Liu",2025-02-11T19:21:23Z,2025-02-11T19:21:23Z,"Multimodal Large Language Models (MLLMs) represent the cutting edge of AI
+technology, with DeepSeek models emerging as a leading open-source alternative
+offering competitive performance to closed-source systems. While these models
+demonstrate remarkable capabilities, their vision-language integration
+mechanisms introduce specific vulnerabilities. We implement an adapted
+embedding manipulation attack on DeepSeek Janus that induces targeted visual
+hallucinations through systematic optimization of image embeddings. Through
+extensive experimentation across COCO, DALL-E 3, and SVIT datasets, we achieve
+hallucination rates of up to 98.0% while maintaining high visual fidelity (SSIM
+> 0.88) of the manipulated images on open-ended questions. Our analysis
+demonstrates that both 1B and 7B variants of DeepSeek Janus are susceptible to
+these attacks, with closed-form evaluation showing consistently higher
+hallucination rates compared to open-ended questioning. We introduce a novel
+multi-prompt hallucination detection framework using LLaMA-3.1 8B Instruct for
+robust evaluation. The implications of these findings are particularly
+concerning given DeepSeek's open-source nature and widespread deployment
+potential. This research emphasizes the critical need for embedding-level
+security measures in MLLM deployment pipelines and contributes to the broader
+discussion of responsible AI implementation.",http://arxiv.org/pdf/2502.07905v1,2502.07905v1,"['cs.CV', 'cs.LG']",,,"19 pages, 4 figures"
+"Semantic Specialization in MoE Appears with Scale: A Study of DeepSeek
+  R1 Expert Specialization","Matthew Lyle Olson, Neale Ratzlaff, Musashi Hinck, Man Luo, Sungduk Yu, Chendi Xue, Vasudev Lal",2025-02-15T23:37:32Z,2025-02-15T23:37:32Z,"DeepSeek-R1, the largest open-source Mixture-of-Experts (MoE) model, has
+demonstrated reasoning capabilities comparable to proprietary frontier models.
+Prior research has explored expert routing in MoE models, but findings suggest
+that expert selection is often token-dependent rather than semantically driven.
+Given DeepSeek-R1's enhanced reasoning abilities, we investigate whether its
+routing mechanism exhibits greater semantic specialization than previous MoE
+models. To explore this, we conduct two key experiments: (1) a word sense
+disambiguation task, where we examine expert activation patterns for words with
+differing senses, and (2) a cognitive reasoning analysis, where we assess
+DeepSeek-R1's structured thought process in an interactive task setting of
+DiscoveryWorld. We conclude that DeepSeek-R1's routing mechanism is more
+semantically aware and it engages in structured cognitive processes.",http://arxiv.org/pdf/2502.10928v1,2502.10928v1,"['cs.LG', 'cs.AI', 'cs.CL']",,,
