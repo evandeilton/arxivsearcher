@@ -16,20 +16,12 @@ from styles import (
     create_data_stats,
     create_progress_indicator
 )
-# from mdtopdf import MarkdownPDFConverter
-# from fpdf.enums import XPos, YPos
-# import markdown
-# from fpdf import HTMLMixin, FPDF  # adicionado HTMLMixin para renderizar HTML
 
 try:
     from integrated_reviewer import IntegratedReviewSystem
 except ImportError as ie:
     st.error("Módulo 'integrated_reviewer' não encontrado. Verifique se o arquivo existe e está no caminho correto.")
     raise ie
-
-# Adiciona uma classe auxiliar para renderização HTML no PDF
-# class MyFPDF(FPDF, HTMLMixin):
-#     pass
 
 class ReviewerUI:
     """
@@ -636,3 +628,734 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
+
+# #!/usr/bin/env python3
+# import streamlit as st
+# import pandas as pd
+# from datetime import datetime
+# from pathlib import Path
+# from typing import Optional, Tuple, Dict, Callable
+# from wordcloud import WordCloud
+# import matplotlib.pyplot as plt
+# import plotly.express as px
+# import plotly.graph_objects as go
+# from enhanced_styles import (
+#     apply_enhanced_styles,
+#     create_theme_switcher,
+#     create_tutorial_step,
+#     create_loading_skeleton,
+#     setup_keyboard_shortcuts,
+#     ModernUI,
+#     create_micro_interaction,
+#     show_interactive_tooltip
+# )
+
+# try:
+#     from integrated_reviewer import IntegratedReviewSystem
+# except ImportError as ie:
+#     st.error("Módulo 'integrated_reviewer' não encontrado. Verifique se o arquivo existe e está no caminho correto.")
+#     raise ie
+
+# class ReviewerUI:
+#     """
+#     Classe principal para gerenciar a interface do usuário do sistema de revisão.
+#     Implementa padrão Singleton para garantir única instância.
+#     """
+#     _instance = None
+
+#     def __new__(cls):
+#         if cls._instance is None:
+#             cls._instance = super(ReviewerUI, cls).__new__(cls)
+#             cls._instance._initialized = False
+#         return cls._instance
+
+#     def __init__(self):
+#         if self._initialized:
+#             return
+        
+#         self._initialized = True
+#         self.initialize_session_state()
+#         self.config = {}
+#         self.system = IntegratedReviewSystem()
+        
+#         # Aplica estilos modernos
+#         apply_enhanced_styles()
+#         setup_keyboard_shortcuts()
+
+#     def initialize_session_state(self) -> None:
+#         """Inicializa o estado da sessão com valores padrão."""
+#         default_states = {
+#             'search_results': None,
+#             'review_text': None,
+#             'saved_files': [],
+#             'error_message': None,
+#             'selected_rows': {},
+#             'search_history': [],
+#             'last_update': None,
+#             'theme_color': 'light',
+#             'language': 'pt-BR',
+#             'show_success_animation': False,
+#             'processing': False,
+#             'show_tutorial': True,  # Novo estado para tutorial
+#             'loading': False,       # Novo estado para loading
+#             'success_message': None,
+#             'tutorial_step': 1      # Controle do passo do tutorial
+#         }
+        
+#         for key, value in default_states.items():
+#             if key not in st.session_state:
+#                 st.session_state[key] = value
+
+#     def execute_review(self) -> None:
+#         """Executa a geração da revisão de literatura com tratamento de erros aprimorado."""
+#         if st.session_state.processing:
+#             ModernUI.show_error_message("Já existe um processamento em andamento.")
+#             return
+
+#         try:
+#             df_all = st.session_state.search_results.copy()
+#             selected_indices = [i for i, val in st.session_state.selected_rows.items() if val]
+            
+#             if not selected_indices:
+#                 ModernUI.show_error_message("Selecione pelo menos um artigo para gerar a revisão.")
+#                 return
+
+#             df_filtered = df_all.iloc[selected_indices]
+#             total_articles = len(df_filtered)
+            
+#             st.session_state.processing = True
+#             st.session_state.loading = True
+#             progress_placeholder = st.empty()
+            
+#             def update_progress(current: int, total: int, message: str = "") -> None:
+#                 if not st.session_state.processing:
+#                     return
+#                 progress = int((current / total) * 100)
+#                 with progress_placeholder.container():
+#                     st.progress(progress)
+#                     if progress < 100:
+#                         ModernUI.show_success_message(f"Processando artigo {current} de {total}: {message}")
+
+#             self.system.set_progress_callback(update_progress)
+
+#             with st.spinner("🔄 Gerando revisão de literatura..."):
+#                 review_text, saved_files = self.system.review_papers(
+#                     df=df_filtered,
+#                     theme=self.config['theme'],
+#                     provider=self.config['provider'],
+#                     model=self.config['model'],
+#                     output_lang=self.config['output_lang'],
+#                     save_results=True,
+#                     output_dir=self.config['output_dir']
+#                 )
+                
+#                 st.session_state.review_text = review_text
+#                 st.session_state.saved_files = saved_files
+#                 st.session_state.show_success_animation = True
+                
+#                 ModernUI.show_success_message("✨ Revisão gerada com sucesso!")
+#                 st.balloons()
+                
+#                 # Rola para a aba de revisão com animação suave
+#                 js = """
+#                     <script>
+#                         setTimeout(() => {
+#                             const reviewTab = document.querySelector('button[role="tab"]:nth-child(3)');
+#                             if (reviewTab) {
+#                                 reviewTab.click();
+#                                 reviewTab.scrollIntoView({ behavior: 'smooth' });
+#                             }
+#                         }, 1000);
+#                     </script>
+#                 """
+#                 st.markdown(js, unsafe_allow_html=True)
+                
+#         except Exception as e:
+#             ModernUI.show_error_message(f"❌ Erro ao gerar revisão: {str(e)}")
+#             progress_placeholder.empty()
+#         finally:
+#             st.session_state.processing = False
+#             st.session_state.loading = False
+
+#     def display_results(self) -> None:
+#         """Exibe os resultados da pesquisa em uma interface moderna e interativa."""
+#         if st.session_state.search_results is None:
+#             return
+
+#         if st.session_state.show_success_animation:
+#             st.balloons()
+#             ModernUI.show_success_message("✨ Revisão concluída com sucesso!")
+#             st.session_state.show_success_animation = False
+
+#         tabs = st.tabs(["📊 Resultados", "📈 Análises", "📝 Revisão"])
+        
+#         with tabs[0]:
+#             self.display_results_tab()
+        
+#         with tabs[1]:
+#             self.display_analysis_tab()
+        
+#         with tabs[2]:
+#             self.display_review_tab()
+
+#     def create_header(self) -> None:
+#         """Cria o cabeçalho da aplicação com animação e estilo moderno."""
+#         st.markdown("""
+#             <div style="animation: fadeIn 0.5s ease-out;">
+#                 <h1 style="text-align: center; color: var(--text-primary);">
+#                     📚 Revisão de Literatura Inteligente
+#                 </h1>
+#                 <p style="text-align: center; color: var(--text-secondary);">
+#                     Automatize sua pesquisa acadêmica com IA
+#                 </p>
+#             </div>
+#         """, unsafe_allow_html=True)
+
+#     def create_sidebar_config(self) -> Dict:
+#         """
+#         Cria a configuração da barra lateral com interface moderna e validações.
+        
+#         Returns:
+#             Dict: Configurações validadas selecionadas pelo usuário
+#         """
+#         with st.sidebar:
+#             st.markdown("""
+#                 <h3 style="text-align: center; color: var(--text-primary);">
+#                     🔧 Configurações
+#                 </h3>
+#             """, unsafe_allow_html=True)
+
+#             # Switcher de tema
+#             create_theme_switcher()
+
+#             tabs = st.tabs(["📝 Básico", "🤖 IA", "⚙️ Avançado"])
+            
+#             with tabs[0]:
+#                 self.config['theme'] = st.text_input(
+#                     "Tema da Pesquisa",
+#                     help="Digite o tema principal da sua pesquisa",
+#                     placeholder="Ex: COVID-19 and Vaccines",
+#                     key="theme-input"
+#                 ).strip()
+                
+#                 show_interactive_tooltip(
+#                     "Defina o número máximo de artigos para busca",
+#                     "max-results"
+#                 )
+#                 self.config['max_results'] = st.slider(
+#                     "Número de Artigos",
+#                     2, 50, 10
+#                 )
+
+#             with tabs[1]:
+#                 providers = {
+#                     "openrouter": "🔍 OpenRouter",
+#                     "anthropic": "🌟 Anthropic",
+#                     "gemini": "🔵 Gemini",
+#                     "openai": "🤖 OpenAI",
+#                     "deepseek": "🎯 DeepSeek"
+#                 }
+                
+#                 self.config['provider'] = st.selectbox(
+#                     "Provedor de IA",
+#                     options=list(providers.keys()),
+#                     format_func=lambda x: providers[x]
+#                 )
+
+#                 # Atualizado com os modelos mais recentes
+#                 provider_model_map = {
+#                     "openrouter": [
+#                         "google/gemini-2.0-pro-exp-02-05:free",
+#                         "cognitivecomputations/dolphin3.0-mistral-24b:free",
+#                         "openai/o3-mini-high",
+#                         "anthropic/claude-3.5-sonnet",
+#                         "perplexity/sonar-medium-online"
+#                     ],
+#                     "anthropic": ["claude-3-5-haiku-20241022", "claude-3-5-sonnet-20241022"],
+#                     "gemini": ["gemini-2.0-flash-lite-preview-02-05", "gemini-1.5-pro"],
+#                     "openai": ["gpt-4o", "gpt-4o-mini", "o1-mini"],
+#                     "deepseek": ["deepseek-chat", "deepseek-reasoner"]
+#                 }
+                
+#                 self.config['model'] = st.selectbox(
+#                     "Modelo de IA",
+#                     options=provider_model_map[self.config['provider']]
+#                 )
+                
+#                 languages = {
+#                     "pt-BR": "🇧🇷 Português (Brasil)",
+#                     "en-US": "🇺🇸 Inglês (EUA)",
+#                     "es-ES": "🇪🇸 Espanhol (Espanha)",
+#                     "fr-FR": "🇫🇷 Francês (França)"
+#                 }
+                
+#                 self.config['output_lang'] = st.selectbox(
+#                     "Idioma da Revisão",
+#                     options=list(languages.keys()),
+#                     format_func=lambda x: languages[x]
+#                 )
+
+#             with tabs[2]:
+#                 with st.expander("📅 Filtros de Data", expanded=False):
+#                     self.config['use_date_range'] = st.checkbox("Filtrar por Data")
+#                     self.config['date_range'] = None
+                    
+#                     if self.config['use_date_range']:
+#                         col1, col2 = st.columns(2)
+#                         with col1:
+#                             start_date = st.date_input(
+#                                 "Data Inicial",
+#                                 value=datetime(2010, 1, 1).date(),
+#                                 format="DD/MM/YYYY"
+#                             )
+#                         with col2:
+#                             end_date = st.date_input(
+#                                 "Data Final",
+#                                 format="DD/MM/YYYY"
+#                             )
+#                         if start_date and end_date:
+#                             if start_date > end_date:
+#                                 ModernUI.show_error_message("Data inicial deve ser anterior à data final")
+#                             else:
+#                                 self.config['date_range'] = (start_date, end_date)
+
+#                 sort_options = {
+#                     "relevance": "Relevância",
+#                     "lastUpdatedDate": "Última Atualização",
+#                     "submittedDate": "Data de Submissão"
+#                 }
+                
+#                 self.config['sort_by'] = st.selectbox(
+#                     "Ordenar Por",
+#                     options=list(sort_options.keys()),
+#                     format_func=lambda x: sort_options[x]
+#                 )
+                
+#                 self.config['sort_order'] = st.selectbox(
+#                     "Ordem",
+#                     options=["descending", "ascending"],
+#                     format_func=lambda x: "Decrescente" if x == "descending" else "Crescente"
+#                 )
+
+#                 with st.expander("📥 Download", expanded=False):
+#                     self.config['download_all'] = st.checkbox("Baixar PDFs")
+#                     self.config['output_dir'] = st.text_input(
+#                         "Diretório de Saída",
+#                         value="reviews",
+#                         help="Pasta onde os arquivos serão salvos"
+#                     ).strip()
+                    
+#                     if self.config['download_all']:
+#                         self.config['download_count'] = st.slider(
+#                             "Quantidade",
+#                             1, self.config['max_results'], 2,
+#                             help="Quantidade de PDFs para download"
+#                         )
+#                     else:
+#                         self.config['download_count'] = 0
+
+#             # Área de Ações com botões modernos
+#             st.markdown("<hr>", unsafe_allow_html=True)
+#             col1, col2 = st.columns([1, 1])
+            
+#             with col1:
+#                 ModernUI.create_gradient_button(
+#                     "🔍 Pesquisar",
+#                     lambda: self.execute_search() if not st.session_state.processing else None
+#                 )
+            
+#             with col2:
+#                 ModernUI.create_gradient_button(
+#                     "🔄 Limpar",
+#                     lambda: self.clear_results() if not st.session_state.processing else None
+#                 )
+
+#             return self.config
+
+#     def execute_search(self) -> None:
+#         """Executa a busca de artigos com tratamento de erros aprimorado."""
+#         if st.session_state.processing:
+#             return
+
+#         try:
+#             st.session_state.processing = True
+#             st.session_state.loading = True
+            
+#             with st.spinner("🔄 Realizando pesquisa..."):
+#                 results_df = self.system.search_papers(
+#                     query=self.config['theme'],
+#                     max_results=self.config['max_results'],
+#                     download_count=self.config.get('download_count', 0),
+#                     download_pdfs=self.config.get('download_all', False),
+#                     save_results=True,
+#                     output_dir=self.config.get('output_dir', 'reviews'),
+#                     date_range=self.config.get('date_range'),
+#                     sort_by=self.config.get('sort_by'),
+#                     sort_order=self.config.get('sort_order')
+#                 )
+                
+#                 st.session_state.search_results = results_df
+#                 st.session_state.review_text = None
+#                 st.session_state.saved_files = []
+#                 st.session_state.selected_rows = {}
+                
+#                 ModernUI.show_success_message(f"🎉 Encontrados {len(results_df)} artigos relevantes!")
+                
+#         except Exception as e:
+#             ModernUI.show_error_message(f"❌ Erro na busca: {str(e)}")
+#         finally:
+#             st.session_state.processing = False
+#             st.session_state.loading = False
+
+#     def display_results_tab(self) -> None:
+#         """Exibe a aba de resultados com tabela interativa e opções de seleção."""
+#         st.markdown("""
+#             <div class="animate-fade-in">
+#                 <h3 style="color: var(--text-primary); margin-bottom: 1rem;">
+#                     📚 Artigos Encontrados
+#                 </h3>
+#             </div>
+#         """, unsafe_allow_html=True)
+
+#         if st.session_state.loading:
+#             create_loading_skeleton("card", 3)
+#             return
+
+#         df = st.session_state.search_results.copy()
+#         if 'selected' not in df.columns:
+#             df['selected'] = False
+
+#         # Configuração das colunas com estilos modernos
+#         column_config = {
+#             "selected": st.column_config.CheckboxColumn(
+#                 "✓",
+#                 help="Selecionar para revisão",
+#                 default=False
+#             ),
+#             "title": st.column_config.TextColumn(
+#                 "Título",
+#                 width="large",
+#                 help="Título do artigo"
+#             ),
+#             "pdf_url": st.column_config.LinkColumn(
+#                 "PDF",
+#                 width="medium",
+#                 validate="url",
+#                 help="Link para download do PDF"
+#             ),
+#             "summary": st.column_config.TextColumn(
+#                 "Resumo",
+#                 width="large",
+#                 help="Resumo do artigo"
+#             )
+#         }
+
+#         # Reordenação das colunas
+#         desired_columns = ["selected", "pdf_url", "title", "summary"]
+#         other_columns = [col for col in df.columns if col not in desired_columns]
+#         df = df[desired_columns + other_columns]
+
+#         # Editor de dados com estilo moderno
+#         edited_df = st.data_editor(
+#             df,
+#             column_config=column_config,
+#             hide_index=True,
+#             use_container_width=True,
+#             disabled=["title", "authors", "summary", "published", "pdf_url"],
+#             column_order=desired_columns + other_columns,
+#             key="results_editor"
+#         )
+
+#         # Atualização das seleções com feedback visual
+#         st.session_state.selected_rows = {
+#             i: bool(edited_df.loc[i, 'selected']) for i in edited_df.index
+#         }
+
+#         # Botão de geração de revisão com micro-interações
+#         selected_count = sum(st.session_state.selected_rows.values())
+#         if selected_count > 0:
+#             st.markdown(f"""
+#                 <div class="animate-fade-in" style="margin: 1rem 0;">
+#                     <p style="color: var(--text-primary);">
+#                         ✨ {selected_count} artigos selecionados para revisão
+#                     </p>
+#                 </div>
+#             """, unsafe_allow_html=True)
+            
+#             # Botão moderno para gerar revisão
+#             ModernUI.create_gradient_button(
+#                 "📝 Gerar Revisão",
+#                 lambda: self.execute_review() if not st.session_state.processing else None
+#             )
+
+#     def display_analysis_tab(self) -> None:
+#         """Exibe a aba de análises com visualizações interativas."""
+#         if st.session_state.loading:
+#             create_loading_skeleton("card", 2)
+#             return
+
+#         df = st.session_state.search_results
+
+#         if df is not None and not df.empty:
+#             # Estatísticas gerais em cards modernos
+#             stats = {
+#                 "Total de Artigos": len(df),
+#                 "Período": f"{df['published'].min()[:4]} - {df['published'].max()[:4]}",
+#                 "Artigos Selecionados": sum(st.session_state.selected_rows.values())
+#             }
+            
+#             # Criação de cards estatísticos animados
+#             cols = st.columns(len(stats))
+#             for i, (label, value) in enumerate(stats.items()):
+#                 with cols[i]:
+#                     ModernUI.create_floating_card(
+#                         label,
+#                         str(value)
+#                     )
+
+#             # Timeline interativa
+#             st.markdown("""
+#                 <div class="animate-fade-in">
+#                     <h3 style="color: var(--text-primary); margin: 2rem 0 1rem 0;">
+#                         📈 Linha do Tempo
+#                     </h3>
+#                 </div>
+#             """, unsafe_allow_html=True)
+#             self.display_timeline(df)
+
+#             # Word Cloud com animação
+#             if st.session_state.review_text:
+#                 st.markdown("""
+#                     <div class="animate-fade-in">
+#                         <h3 style="color: var(--text-primary); margin: 2rem 0 1rem 0;">
+#                             🔤 Nuvem de Palavras
+#                         </h3>
+#                     </div>
+#                 """, unsafe_allow_html=True)
+#                 st.pyplot(self.create_wordcloud(st.session_state.review_text))
+#             else:
+#                 ModernUI.create_floating_card(
+#                     "Nuvem de Palavras",
+#                     "A nuvem de palavras será gerada após a criação da revisão."
+#                 )
+
+#     def display_timeline(self, df: pd.DataFrame) -> None:
+#         """
+#         Cria um gráfico de linha do tempo interativo com estilo moderno.
+        
+#         Args:
+#             df (pd.DataFrame): DataFrame com os dados dos artigos
+#         """
+#         if "published" in df.columns:
+#             df = df.copy()
+#             df['published_date'] = pd.to_datetime(df['published'], errors='coerce')
+#             df_clean = df.dropna(subset=['published_date'])
+            
+#             if not df_clean.empty:
+#                 df_clean['year'] = df_clean['published_date'].dt.year
+#                 year_counts = df_clean['year'].value_counts().sort_index()
+                
+#                 fig = go.Figure()
+#                 fig.add_trace(go.Scatter(
+#                     x=year_counts.index,
+#                     y=year_counts.values,
+#                     mode='lines+markers',
+#                     name='Publicações',
+#                     line=dict(
+#                         color='var(--primary-500)',
+#                         width=3,
+#                         shape='spline'
+#                     ),
+#                     marker=dict(
+#                         size=8,
+#                         color='var(--primary-700)',
+#                         symbol='circle'
+#                     ),
+#                     hovertemplate='Ano: %{x}<br>Publicações: %{y}<extra></extra>'
+#                 ))
+                
+#                 fig.update_layout(
+#                     title={
+#                         'text': 'Distribuição de Publicações por Ano',
+#                         'y':0.95,
+#                         'x':0.5,
+#                         'xanchor': 'center',
+#                         'yanchor': 'top',
+#                         'font': dict(
+#                             color='var(--text-primary)'
+#                         )
+#                     },
+#                     xaxis_title='Ano de Publicação',
+#                     yaxis_title='Número de Artigos',
+#                     template='plotly_white',
+#                     hovermode='x unified',
+#                     showlegend=False,
+#                     paper_bgcolor='rgba(0,0,0,0)',
+#                     plot_bgcolor='rgba(0,0,0,0)',
+#                     xaxis=dict(
+#                         showgrid=True,
+#                         gridcolor='rgba(0,0,0,0.1)',
+#                         tickfont=dict(color='var(--text-secondary)')
+#                     ),
+#                     yaxis=dict(
+#                         showgrid=True,
+#                         gridcolor='rgba(0,0,0,0.1)',
+#                         tickfont=dict(color='var(--text-secondary)')
+#                     )
+#                 )
+                
+#                 st.plotly_chart(fig, use_container_width=True, config={'displayModeBar': False})
+#             else:
+#                 ModernUI.show_error_message(
+#                     "Não há dados suficientes para criar a linha do tempo."
+#                 )
+
+#     def create_wordcloud(self, text: str) -> plt.Figure:
+#         """
+#         Gera uma nuvem de palavras estilizada com cores modernas.
+        
+#         Args:
+#             text (str): Texto para gerar a nuvem de palavras
+            
+#         Returns:
+#             plt.Figure: Figura matplotlib com a nuvem de palavras
+#         """
+#         wordcloud = WordCloud(
+#             width=1200,
+#             height=600,
+#             background_color='var(--bg-primary)',
+#             colormap='viridis',
+#             max_words=200,
+#             contour_width=3,
+#             contour_color='var(--primary-500)',
+#             font_path='sans-serif' if st.session_state.theme == 'light' else 'monospace'
+#         ).generate(text)
+        
+#         fig, ax = plt.subplots(figsize=(15, 7))
+#         ax.imshow(wordcloud, interpolation='bilinear')
+#         ax.axis('off')
+#         plt.tight_layout(pad=0)
+        
+#         # Ajusta cores baseado no tema
+#         if st.session_state.theme == 'dark':
+#             fig.patch.set_facecolor('var(--bg-primary)')
+#             ax.set_facecolor('var(--bg-primary)')
+        
+#         return fig
+
+#     def display_review_tab(self) -> None:
+#         """Exibe a aba de revisão com o texto gerado e opções de download."""
+#         if st.session_state.loading:
+#             create_loading_skeleton("text", 5)
+#             return
+
+#         if st.session_state.review_text:
+#             st.markdown("""
+#                 <div class="animate-fade-in">
+#                     <h3 style="color: var(--text-primary); margin-bottom: 1rem;">
+#                         📝 Revisão Gerada
+#                     </h3>
+#                 </div>
+#             """, unsafe_allow_html=True)
+            
+#             # Conteúdo da revisão em card moderno
+#             ModernUI.create_floating_card(
+#                 "Resultado da Revisão",
+#                 st.session_state.review_text
+#             )
+            
+#             # Botões de download com micro-interações
+#             col1, col2 = st.columns(2)
+#             with col1:
+#                 ModernUI.create_gradient_button(
+#                     "📥 Baixar em TXT",
+#                     lambda: self.download_review("txt")
+#                 )
+#             with col2:
+#                 ModernUI.create_gradient_button(
+#                     "📥 Baixar em PDF",
+#                     lambda: self.download_review("pdf")
+#                 )
+#         else:
+#             ModernUI.create_floating_card(
+#                 "Aguardando Revisão",
+#                 "Selecione artigos e clique em 'Gerar Revisão' para começar."
+#             )
+
+#     def download_review(self, format: str) -> None:
+#         """
+#         Realiza o download da revisão no formato especificado.
+        
+#         Args:
+#             format (str): Formato do arquivo (txt ou pdf)
+#         """
+#         try:
+#             filename = f"revisao_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+            
+#             if format == "txt":
+#                 st.download_button(
+#                     "📥 Baixar em TXT",
+#                     st.session_state.review_text,
+#                     file_name=f"{filename}.txt",
+#                     mime="text/plain",
+#                     key="download_txt_button"
+#                 )
+#             elif format == "pdf":
+#                 # Implementação do download em PDF
+#                 pass
+                
+#             ModernUI.show_success_message(f"✨ Download em {format.upper()} realizado com sucesso!")
+            
+#         except Exception as e:
+#             ModernUI.show_error_message(f"❌ Erro ao baixar arquivo: {str(e)}")
+
+#     def clear_results(self) -> None:
+#         """Limpa todos os resultados e reinicia o estado da sessão."""
+#         st.session_state.search_results = None
+#         st.session_state.review_text = None
+#         st.session_state.selected_rows = {}
+#         st.session_state.saved_files = []
+#         st.session_state.error_message = None
+#         st.session_state.processing = False
+#         st.session_state.show_success_animation = False
+#         st.session_state.loading = False
+        
+#         ModernUI.show_success_message("🧹 Resultados limpos com sucesso!")
+
+# def main():
+#     """Função principal que inicializa e executa a interface do usuário."""
+#     try:
+#         # Inicialização da UI
+#         ui = ReviewerUI()
+#         ui.create_header()
+        
+#         # Configuração via sidebar
+#         ui.create_sidebar_config()
+        
+#         # Tutorial para novos usuários
+#         if st.session_state.show_tutorial:
+#             create_tutorial_step(
+#                 1,
+#                 "Bem-vindo! 👋",
+#                 "Vamos te ajudar a começar. Primeiro, configure o tema da sua pesquisa.",
+#                 "#theme-input"
+#             )
+        
+#         # Área principal de resultados
+#         if st.session_state.search_results is not None:
+#             ui.display_results()
+            
+#         # Tratamento de erros globais
+#         if st.session_state.error_message:
+#             ModernUI.show_error_message(st.session_state.error_message)
+#             st.session_state.error_message = None
+            
+#     except Exception as e:
+#         ModernUI.show_error_message(f"❌ Erro inesperado: {str(e)}")
+#         st.error("Ocorreu um erro inesperado. Por favor, tente novamente ou contate o suporte.")
+
+# if __name__ == "__main__":
+#     main()

@@ -124,16 +124,43 @@ A simplified diagram of the workflow:
 1.  **Clone the Repository**
 
     ```bash
-    git clone https://github.com/evandeilton/findpaper.git
-    cd findpaper
+    git clone https://github.com/evandeilton/arxivsearcher.git
+    cd arxivsearcher
     ```
 
 2.  **Create a Virtual Environment (Optional but Recommended)**
 
     ```bash
-    python3 -m venv venv
+    python -m venv venv
     source venv/bin/activate  # On Windows: venv\Scripts\activate
     ```
+
+    Vou te ajudar a configurar a API do OpenRouter como variável de ambiente no Windows.
+
+Para definir uma variável de ambiente no Windows via terminal, você tem duas opções principais:
+
+Permanente (usando o comando `setx`):
+
+```batch
+setx OPENROUTER_API_KEY "sua_chave_api_aqui" /M
+```
+
+> O parâmetro `/M` indica que a variável será criada como uma variável do sistema (para todos os usuários). Se quiser criar apenas para seu usuário, remova o `/M`.
+
+Para verificar se a variável foi configurada corretamente:
+```batch
+echo %OPENROUTER_API_KEY%
+```
+
+Observações importantes:
+- Após definir a variável, você precisará fechar e reabrir o terminal para que as mudanças tenham efeito
+- Certifique-se de executar o terminal como administrador para usar o comando `setx` com a flag `/M`
+- Mantenha sua chave API segura e nunca a compartilhe em repositórios públicos
+
+Para remover a variável de ambiente, se necessário:
+```batch
+reg delete "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v OPENROUTER_API_KEY /f
+```
 
 3.  **Install Dependencies**
 
@@ -181,17 +208,17 @@ Example usage in a Jupyter Notebook:
 
 ```python
 from arxivsearcher import run_arxiv_search
-results_df = run_arxiv_search(query="quantum computing", max_results=5)
+results_df = run_arxiv_search(query="Covid-19", max_results=10)
 print(results_df)
 
 from integrated_reviewer import IntegratedReviewSystem
 system = IntegratedReviewSystem()
 results_df, review_text, saved_files = system.search_and_review(
-    query="large language models",
-    theme="ethical implications",
+    query="Covid-19",
+    theme="Sequelas da Covid-19",
     max_results=10,
     provider="openrouter",
-    output_lang="en-US"
+    output_lang="pt-BR"
 )
 print(review_text)
 ```
@@ -220,10 +247,6 @@ Contributions are welcome! Please follow standard GitHub workflows to submit iss
 
 This project is licensed under the [MIT License](LICENSE).
 
-## `styles.py`
-
-The `styles.py` file contains functions and custom CSS to enhance the appearance and behavior of the Streamlit user interface.
-
-## `reviews` Directory
+## `reviews` Directory (You can change the name. eg. `review_covid`)
 
 The `reviews` directory stores the output of the literature review process. It contains R Markdown files (`review_*.Rmd`) with the generated literature reviews and BibTeX files (`references_*.bib`) with the corresponding bibliographic data. Each file includes a timestamp to indicate when it was generated.

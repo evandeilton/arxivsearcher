@@ -5,7 +5,7 @@ with open("requirements.txt") as f:
 
 setup(
     name="findpaper",
-    version="1.0.0",
+    version="1.0.1",
     packages=find_packages(),
     install_requires=requirements,
     python_requires=">=3.8",
@@ -19,7 +19,7 @@ setup(
     description="A Python package for searching and downloading arXiv papers",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
-    url="https://github.com/evandeilton/findpaper",
+    url="https://github.com/evandeilton/arxivsearcher",
     classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: Science/Research",

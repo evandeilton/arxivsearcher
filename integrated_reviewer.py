@@ -1,19 +1,20 @@
 # integrated_reviewer.py
 #!/usr/bin/env python3
-import anthropic
-from openai import OpenAI
-import logging
-import os
-import requests
-from dataclasses import dataclass
-from pathlib import Path
-from typing import List, Optional, Tuple, Dict, Any, Callable
-from abc import ABC, abstractmethod
-from datetime import datetime
-import json
-from functools import wraps
-from tenacity import retry, stop_after_attempt, wait_exponential
 import pandas as pd
+import anthropic
+import requests
+import logging
+import json
+import os
+
+from typing import List, Optional, Tuple, Dict, Any, Callable
+from tenacity import retry, stop_after_attempt, wait_exponential
+from abc import ABC, abstractmethod
+from dataclasses import dataclass
+from datetime import datetime
+from functools import wraps
+from openai import OpenAI
+from pathlib import Path
 from google import genai
 
 # Import do módulo arxivsearcher
@@ -91,20 +92,26 @@ class OpenRouterProvider(APIProvider):
         "google/gemini-2.0-flash-001",
         "google/gemini-2.0-flash-thinking-exp:free",
         "google/gemini-2.0-flash-lite-preview-02-05:free",
-        "google/gemini-2.0-pro-exp-02-05:free",
+        # "google/gemini-2.0-pro-exp-02-05:free",
         "deepseek/deepseek-r1-distill-llama-70b:free",
         "deepseek/deepseek-r1-distill-qwen-32b",
         "deepseek/deepseek-r1:free",
         "qwen/qwen-plus",
         "qwen/qwen-max",
         "qwen/qwen-turbo",
+        "qwen/qwen2.5-vl-72b-instruct:free",        
         "mistralai/codestral-2501",
+        "mistralai/mistral-7b-instruct:free",        
         "mistralai/mistral-small-24b-instruct-2501:free",
         "anthropic/claude-3.5-haiku-20241022:beta",
         "anthropic/claude-3.5-sonnet",
         "perplexity/sonar-reasoning",
         "perplexity/sonar",
-        "perplexity/llama-3.1-sonar-large-128k-online"
+        "perplexity/llama-3.1-sonar-large-128k-online",
+        "perplexity/llama-3.1-sonar-small-128k-chat",
+        "nvidia/llama-3.1-nemotron-70b-instruct:free",
+        "microsoft/phi-3-medium-128k-instruct:free",
+        "meta-llama/llama-3.3-70b-instruct:free"        
     ]
 
     def __init__(
